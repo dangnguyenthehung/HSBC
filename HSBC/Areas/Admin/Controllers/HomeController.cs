@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace HSBC.Areas.Admin.Controllers
+namespace HSCB.Areas.Admin.Controllers
 {
     public class HomeController : Controller
     {

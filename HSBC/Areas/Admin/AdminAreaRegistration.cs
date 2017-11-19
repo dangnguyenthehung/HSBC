@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace HSBC.Areas.Admin
+namespace HSCB.Areas.Admin
 {
     public class AdminAreaRegistration : AreaRegistration 
     {
