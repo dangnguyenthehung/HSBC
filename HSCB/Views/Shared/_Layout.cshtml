@@ -1,0 +1,65 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSCB</title>
+    <meta name="description" content="" />
+
+    <!-- css -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/fancybox/jquery.fancybox.css" rel="stylesheet">
+    <link href="~/Content/css/jcarousel.css" rel="stylesheet" />
+    <link href="~/Content/css/flexslider.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+
+    <!-- Theme skin -->
+    <link href="~/Content/css/skins/default.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- start header -->
+        <header>
+            @Html.Partial("_LayoutHeader")
+        </header>
+        <!-- end header -->
+
+        <!-- start body -->
+        <section id="body-content">
+            @RenderBody()    
+        </section>
+        <!-- end body -->
+        
+        <!-- start footer -->
+        <footer>
+            @Html.Partial("_LayoutFooter")
+        </footer>
+        <!-- end footer -->
+    </div>
+    <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+    <!-- javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="~/Scripts/jquery.easing.1.3.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.fancybox.pack.js"></script>
+    <script src="~/Scripts/jquery.fancybox-media.js"></script>
+    <script src="~/Scripts/google-code-prettify/prettify.js"></script>
+    <script src="~/Scripts/portfolio/jquery.quicksand.js"></script>
+    <script src="~/Scripts/portfolio/setting.js"></script>
+    <script src="~/Scripts/jquery.flexslider.js"></script>
+    <script src="~/Scripts/animate.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+
+</body>
+
+</html>
