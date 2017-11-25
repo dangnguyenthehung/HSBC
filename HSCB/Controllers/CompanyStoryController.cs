@@ -6,20 +6,20 @@ using System.Web.Mvc;
 
 namespace HSCB.Controllers
 {
-    public class ActitityFieldController : Controller
+    public class CompanyStoryController : Controller
     {
-        // GET: ActitityField
+        // GET: CompanyStory
         public ActionResult Index()
         {
-            return View();
+            return View("AboutUs");
         }
 
-        public ActionResult FarmSystem()
+        public ActionResult AboutUs()
         {
             return View();
         }
 
-        public ActionResult ImportExport()
+        public ActionResult DevelopmentPlan()
         {
             return View();
         }
