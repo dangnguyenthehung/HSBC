@@ -13,5 +13,20 @@ namespace HSCB.Controllers
         {
             return View();
         }
+
+        public ActionResult Activity()
+        {
+            return View();
+        }
+
+        public ActionResult ProductNews()
+        {
+            return View();
+        }
+
+        public ActionResult PressRelease()
+        {
+            return View();
+        }
     }
 }
