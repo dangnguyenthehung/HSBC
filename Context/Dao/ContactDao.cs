@@ -11,23 +11,27 @@ namespace Context.Dao
     public class ContactDao
     {
         hscbEntities db = null;
+
         public ContactDao()
         {
             db = new hscbEntities();
         }
+
         public IEnumerable<Contact> ListAllPaging(string searchString, int page, int pageSize)
         {
             IQueryable<Contact> model = db.Contacts;
             if (!string.IsNullOrEmpty(searchString))
             {
-                model = model.Where(x => x.Name.Contains(searchString) || x.Name.Contains(searchString));
+                model = model.Where(x => x.Name.Contains(searchString) || x.Email.Contains(searchString));
             }
             return model.OrderByDescending(x => x.ID).ToPagedList(page, pageSize);
         }
+
         public Contact ViewDetail(int id)
         {
             return db.Contacts.Find(id);
         }
+
         public bool Delete(int id)
         {
             try
