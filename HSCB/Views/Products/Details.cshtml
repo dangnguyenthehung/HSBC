@@ -4,5 +4,43 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Chi tiết sản phẩm @ViewBag.id</h2>
+<div class="col-xs-12 col-md-10 col-md-offset-1">
+    <div class="text-content">
+        <h2 class="text-center">Chi tiết sản phẩm @ViewBag.id</h2>
+        <p>
+            Nghiên cứu và ứng dụng thành công mô hình chăn nuôi bò truyền thống kết hợp với kỹ thuật hiện đại và quy trình chăn nuôi khép kín đã tạo ra được sản phẩm thịt bò sạch vô cùng chất lượng. Hiện bò của hệ thống các trang trại chúng tôi đã được rất nhiều đối tác tin cậy tiêu thụ với số lượng lớn và đang xuất khẩu ra một số thị trường châu Á.
+        </p>
+       
+        <br/>
+        <div class="col-xs-12 col-md-10 col-md-offset-1">
+            <div class="owl-carousel owl-theme">
+                <div> <img src="~/Content/images/hscb/du-an-bo/image007.jpg"/> </div>
+                <div> <img src="~/Content/images/hscb/du-an-bo/image009.jpg"/> </div>
+                <div> <img src="~/Content/images/hscb/du-an-bo/image013.jpg"/> </div>
+                <div> <img src="~/Content/images/hscb/du-an-bo/image017.jpg"/> </div>
+                <div> <img src="~/Content/images/hscb/du-an-bo/image022.jpg"/> </div>
+                <div> <img src="~/Content/images/hscb/du-an-bo/image040.jpg"/> </div>
+            </div>    
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        var owl = $('.owl-carousel');
+
+        owl.owlCarousel({
+            items:1,
+            loop: true,
+            dots: true,
+            margin: 0,
+            autoplay:true,
+            autoplayTimeout: 2000,
+            autoplayHoverPause:false
+        });
+
+        owl.trigger('play.owl.autoplay', [2000]);
+    });
+</script>
+
 
