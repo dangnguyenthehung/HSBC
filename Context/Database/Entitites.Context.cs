@@ -29,5 +29,7 @@ namespace Context.Database
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Content> Contents { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
+        public virtual DbSet<Image> Images { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }
