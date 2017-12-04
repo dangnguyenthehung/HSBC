@@ -10,6 +10,9 @@
         <EntityTypeShape EntityType="hscbModel.Content" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="hscbModel.FK_Content_Category" ManuallyRouted="false" />
         <EntityTypeShape EntityType="hscbModel.Contact" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="hscbModel.Image" Width="1.5" PointX="5.625" PointY="6.5" />
+        <EntityTypeShape EntityType="hscbModel.sysdiagram" Width="1.5" PointX="0.75" PointY="6.75" />
+        <AssociationConnector Association="hscbModel.FK_Content_Images" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

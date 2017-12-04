@@ -14,6 +14,12 @@ namespace Context.Database
     
     public partial class Content
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Content()
+        {
+            this.Images = new HashSet<Image>();
+        }
+    
         public int Id { get; set; }
         public string Title { get; set; }
         public string MetaTitle { get; set; }
@@ -34,5 +40,7 @@ namespace Context.Database
         public string Tags { get; set; }
     
         public virtual Category Category { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Image> Images { get; set; }
     }
 }

@@ -55,7 +55,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\CategoryDao.cs" />
     <Compile Include="Dao\ContactDao.cs" />
+    <Compile Include="Dao\ContentDao.cs" />
+    <Compile Include="Dao\ImagesDao.cs" />
     <Compile Include="Database\Category.cs">
       <DependentUpon>Entitites.tt</DependentUpon>
     </Compile>
@@ -79,6 +82,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Entitites.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Image.cs">
+      <DependentUpon>Entitites.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\sysdiagram.cs">
+      <DependentUpon>Entitites.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\User.cs">
       <DependentUpon>Entitites.tt</DependentUpon>

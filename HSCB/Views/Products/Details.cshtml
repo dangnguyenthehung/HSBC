@@ -1,27 +1,41 @@
-﻿
+﻿@model HSCB.Models.ProductViewModel
 @{
     ViewBag.Title = "Chi tiết sản phẩm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="col-xs-12 col-md-10 col-md-offset-1">
     <div class="text-content">
-        <h2 class="text-center">Chi tiết sản phẩm @ViewBag.id</h2>
-        <p>
-            Nghiên cứu và ứng dụng thành công mô hình chăn nuôi bò truyền thống kết hợp với kỹ thuật hiện đại và quy trình chăn nuôi khép kín đã tạo ra được sản phẩm thịt bò sạch vô cùng chất lượng. Hiện bò của hệ thống các trang trại chúng tôi đã được rất nhiều đối tác tin cậy tiêu thụ với số lượng lớn và đang xuất khẩu ra một số thị trường châu Á.
-        </p>
+        <h2 class="text-center">@Model.Content.Title</h2>
+        <div>
+            @Html.Raw(Model.Content.Detail)
+            
+        </div>
        
         <br/>
-        <div class="col-xs-12 col-md-10 col-md-offset-1">
-            <div class="owl-carousel owl-theme">
-                <div> <img src="~/Content/images/hscb/du-an-bo/image007.jpg"/> </div>
-                <div> <img src="~/Content/images/hscb/du-an-bo/image009.jpg"/> </div>
-                <div> <img src="~/Content/images/hscb/du-an-bo/image013.jpg"/> </div>
-                <div> <img src="~/Content/images/hscb/du-an-bo/image017.jpg"/> </div>
-                <div> <img src="~/Content/images/hscb/du-an-bo/image022.jpg"/> </div>
-                <div> <img src="~/Content/images/hscb/du-an-bo/image040.jpg"/> </div>
-            </div>    
-        </div>
+        @if (Model.ImagesList.Any())
+        {
+            <div class="col-xs-12 col-md-10 col-md-offset-1">
+                <div class="owl-carousel owl-theme">
+                    @foreach (var item in Model.ImagesList)
+                    {
+                        <div>
+                            <img src="~/Content/images/hscb/@item.Url"/>
+                        </div>    
+                    }
+                
+                    @*<div> <img src="~/Content/images/hscb/du-an-bo/image009.jpg"/>
+                </div>
+                <div> <img src="~/Content/images/hscb/du-an-bo/image013.jpg"/>
+                </div>
+                <div> <img src="~/Content/images/hscb/du-an-bo/image017.jpg"/>
+                </div>
+                <div> <img src="~/Content/images/hscb/du-an-bo/image022.jpg"/>
+                </div>
+                <div> <img src="~/Content/images/hscb/du-an-bo/image040.jpg"/>
+                </div>*@
+                </div>    
+            </div>
+        }
     </div>
 </div>
 

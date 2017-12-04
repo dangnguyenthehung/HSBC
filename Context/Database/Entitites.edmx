@@ -33,8 +33,6 @@
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="Status" Type="nvarchar" MaxLength="500" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'hscb.dbo.Content' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Content">
           <Key>
             <PropertyRef Name="Id" />
@@ -57,6 +55,24 @@ warning 6002: The table/view 'hscb.dbo.Content' does not have a primary key defi
           <Property Name="TopHot" Type="datetime" />
           <Property Name="ViewCount" Type="nchar" MaxLength="10" />
           <Property Name="Tags" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="IdImage" />
+          </Key>
+          <Property Name="IdImage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Url" Type="varchar" MaxLength="250" />
+          <Property Name="IdContent" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -81,35 +97,32 @@ warning 6002: The table/view 'hscb.dbo.Content' does not have a primary key defi
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Content_Images">
+          <End Role="Content" Type="Self.Content" Multiplicity="1" />
+          <End Role="Images" Type="Self.Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Content">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="IdContent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="hscbModelStoreContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Content" EntityType="Self.Content" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Content" EntityType="Self.Content" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Content].[Id] AS [Id], 
-    [Content].[Title] AS [Title], 
-    [Content].[MetaTitle] AS [MetaTitle], 
-    [Content].[Description] AS [Description], 
-    [Content].[Image] AS [Image], 
-    [Content].[CategoryID] AS [CategoryID], 
-    [Content].[Detail] AS [Detail], 
-    [Content].[Warranty] AS [Warranty], 
-    [Content].[CreatedDate] AS [CreatedDate], 
-    [Content].[CreatedBy] AS [CreatedBy], 
-    [Content].[ModifiedDate] AS [ModifiedDate], 
-    [Content].[ModifiedBy] AS [ModifiedBy], 
-    [Content].[MetaKeywords] AS [MetaKeywords], 
-    [Content].[MetaDescriptions] AS [MetaDescriptions], 
-    [Content].[Status] AS [Status], 
-    [Content].[TopHot] AS [TopHot], 
-    [Content].[ViewCount] AS [ViewCount], 
-    [Content].[Tags] AS [Tags]
-    FROM [dbo].[Content] AS [Content]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Content_Category" Association="Self.FK_Content_Category">
             <End Role="Category" EntitySet="Category" />
             <End Role="Content" EntitySet="Content" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Content_Images" Association="Self.FK_Content_Images">
+            <End Role="Content" EntitySet="Content" />
+            <End Role="Images" EntitySet="Images" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -169,6 +182,7 @@ warning 6002: The table/view 'hscb.dbo.Content' does not have a primary key defi
           <Property Name="ViewCount" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Tags" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Content_Category" FromRole="Content" ToRole="Category" />
+          <NavigationProperty Name="Images" Relationship="hscbModel.FK_Content_Images" FromRole="Content" ToRole="Image" />
         </EntityType>
         <Association Name="FK_Content_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
@@ -191,6 +205,12 @@ warning 6002: The table/view 'hscb.dbo.Content' does not have a primary key defi
             <End Role="Content" EntitySet="Contents" />
           </AssociationSet>
           <EntitySet Name="Contacts" EntityType="hscbModel.Contact" />
+          <EntitySet Name="Images" EntityType="hscbModel.Image" />
+          <EntitySet Name="sysdiagrams" EntityType="hscbModel.sysdiagram" />
+          <AssociationSet Name="FK_Content_Images" Association="hscbModel.FK_Content_Images">
+            <End Role="Content" EntitySet="Contents" />
+            <End Role="Image" EntitySet="Images" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Contact">
           <Key>
@@ -202,6 +222,37 @@ warning 6002: The table/view 'hscb.dbo.Content' does not have a primary key defi
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="IdImage" />
+          </Key>
+          <Property Name="IdImage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Url" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IdContent" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Content" Relationship="hscbModel.FK_Content_Images" FromRole="Image" ToRole="Content" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Content_Images">
+          <End Type="hscbModel.Content" Role="Content" Multiplicity="1" />
+          <End Type="hscbModel.Image" Role="Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Content">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="IdContent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -271,6 +322,26 @@ warning 6002: The table/view 'hscb.dbo.Content' does not have a primary key defi
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="hscbModel.Image">
+              <MappingFragment StoreEntitySet="Images">
+                <ScalarProperty Name="IdContent" ColumnName="IdContent" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="IdImage" ColumnName="IdImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="hscbModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
