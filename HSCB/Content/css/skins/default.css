@@ -113,7 +113,11 @@ ul.clients li:hover {
 .box-bottom {
 	background:#68A4C4;
 }
-
+.box-bottom h4 {
+    color: #f5f5f5;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
 /* buttons */
 .btn-dark:hover,.btn-dark:focus,.btn-dark:active  {
   background: #68A4C4;
