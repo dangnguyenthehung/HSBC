@@ -1294,6 +1294,7 @@
     <Content Include="Content\images\hscb\bap-u-chua\image058.jpg" />
     <Content Include="Content\images\hscb\bap-u-chua\image060.jpg" />
     <Content Include="Content\images\hscb\bap-u-chua\image061.jpg" />
+    <Content Include="Content\images\hscb\chanh-day\img0-resize.jpg" />
     <Content Include="Content\images\hscb\chanh-day\img0.jpg" />
     <Content Include="Content\images\hscb\chanh-day\img1.png" />
     <Content Include="Content\images\hscb\chanh-day\img10.JPG" />
@@ -1326,6 +1327,7 @@
     <Content Include="Content\images\hscb\san-pham-nha-dam\IMG-0016.JPG" />
     <Content Include="Content\images\hscb\san-pham-nha-dam\IMG-0015.JPG" />
     <Content Include="Content\images\hscb\san-pham-nha-dam\IMG-0017.JPG" />
+    <Content Include="Content\images\hscb\san-pham-nha-dam\nhadam-resize.jpg" />
     <Content Include="Content\images\hscb\san-pham-nha-dam\nhadam.jpg" />
     <Content Include="Content\images\hscb\san-pham-nha-dam\unnamed.jpg" />
     <Content Include="Content\images\hscb\thanh-long\thanhlong.jpg" />

@@ -55,8 +55,31 @@ p, span, li {
     width: auto;
     margin: 0px auto;
 }
-
-
+.slides li {
+    overflow: hidden;
+    height: 390px;
+}
+.btn {
+    border-radius: 4px;
+}
+.text-link {
+    font-size: 16px;
+    padding: 10px;
+    transition: all 0.3s;
+}
+.text-link-min {
+    font-size: 14px;
+    padding: 5px 7px;
+    transition: all 0.3s;
+}
+.text-link:hover,
+.text-link-min:hover {
+    text-decoration: none;
+    border-radius: 5px;
+    border: solid 2px;
+    color: #f5f5f5;
+    background-color: #68A4C4;
+}
 @media screen and (min-width: 992px) {
     .sub-text-content {
         padding-left: 35px;
