@@ -26,5 +26,41 @@ namespace Context.Dao
                 return null;
             }
         }
+
+        public Content GetNewContent(int idCategory)
+        {
+            try
+            {
+                using (var context = new hscbEntities())
+                {
+                    var response = context.Contents.LastOrDefault(c => c.CategoryID == idCategory);
+
+                    return response;
+                }
+            }
+            catch (Exception ex)
+            {
+                //
+                return null;
+            }
+        }
+
+        public List<Content> GetOldContents(int idCategory)
+        {
+            try
+            {
+                using (var context = new hscbEntities())
+                {
+                    var response = context.Contents.Where(c => c.CategoryID == idCategory).OrderByDescending(o => o.CreatedDate).Take(2).ToList();
+
+                    return response;
+                }
+            }
+            catch (Exception ex)
+            {
+                //
+                return null;
+            }
+        }
     }
 }
