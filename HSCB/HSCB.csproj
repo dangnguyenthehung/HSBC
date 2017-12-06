@@ -1463,6 +1463,9 @@
     <Content Include="Content\css\admin\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="Content\css\admin\vendor\font-awesome\scss\_variables.scss" />
     <Content Include="Content\owlcarousel\README.md" />
+    <Content Include="Areas\Admin\Views\Content\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\Edit.cshtml" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
@@ -1486,6 +1489,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContentController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Constants\MessageConstants.cs" />
     <Compile Include="Controllers\ActitityFieldController.cs" />

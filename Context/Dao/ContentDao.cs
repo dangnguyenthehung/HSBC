@@ -15,7 +15,42 @@ namespace Context.Dao
             {
                 using (var context = new hscbEntities())
                 {
-                    var response = context.Contents.SingleOrDefault(c => c.CategoryID == id);
+                    var response = context.Contents.FirstOrDefault(c => c.CategoryID == id);
+
+                    return response;
+                }
+            }
+            catch (Exception ex)
+            {
+                //
+                return null;
+            }
+        }
+        public bool Insert(Content content)
+        {
+            using (var context = new hscbEntities())
+            {
+                try
+                {
+                    var data = content;
+                    context.Contents.Add(data);
+                    context.SaveChanges();
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+        public List<Content> GetAll()
+        {
+            try
+            {
+                using (var context = new hscbEntities())
+                {
+                    var response = context.Contents.ToList();
 
                     return response;
                 }
