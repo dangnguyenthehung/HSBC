@@ -1,4 +1,6 @@
-﻿
+﻿@using HSCB.Models
+@using HSCB.Utilities
+
 @{
     ViewBag.Title = "Trang chủ";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -42,7 +44,137 @@
             </div>
         </div>
     </div>
+</section>
+<section id="news">
+    <div class="col-xs-12" style="background-color: #fff;">
+        <div class="row">
+            <div class="col-xs-12">
+                @if (ViewBag.companyActivity != null)
+                {
+                    var data = (HomePageNewsDTO) ViewBag.companyActivity;
+                    var mainTitle = data.NewContent.Title;
+                    var mainImg = data.NewContent.Image;
+                    var newLink = Url.Action("Activity", "News", new { data.NewContent.Id });
+                    
+                    var mainContent = data.NewContent.Detail.Truncate(200) + $"<a href='{newLink}'> Xem thêm </a></p>";
 
+                    var subNews = data.OldContents;
+
+
+                    <div class="col-lg-6">
+                        <div class="box-thin">
+                            <div class="box box-shadow">
+                                <div class="main-news">
+                                    <div class="box-bottom box-bottom-min">
+                                        <h4>Hoạt động HSCB</h4>
+                                    </div>
+                                
+                                    <div class="box-gray aligncenter padding-bottom-10">
+                                        <div class="icon imageContainer imageContainer-large">
+                                            <a href="@newLink">
+                                                <div class="img" style="background-image: url('/Content/images/hscb/@mainImg');"></div>
+                                            </a>
+                                        </div>
+                                        <a href="@newLink">
+                                            <p>@mainTitle</p>
+                                        </a>
+                                        <div>
+                                            @Html.Raw(mainContent)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sub-news">
+                                    <div class="box-gray padding-bottom-10">
+                                        <div class="row">
+                                            @foreach (var item in subNews)
+                                            {
+                                                var subTitle = item.Title.Truncate(75);
+                                                var subImg = item.Image;
+                                                var subLink = Url.Action("Activity", "News", new { item.Id });
+                    
+                                                <div class="col-xs-6">
+                                                    <div class="icon imageContainer">
+                                                        <a href="@subLink" class="sub-new-title">
+                                                            <div class="img" style="background-image: url('/Content/images/hscb/@subImg');"></div>
+                                                        </a>
+                                                    </div>
+                                                    <a href="@subLink" class="sub-new-title">
+                                                        @subTitle
+                                                    </a>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                
+                @if (ViewBag.productNews != null)
+                {
+                    var data = (HomePageNewsDTO)ViewBag.companyActivity;
+                    var mainTitle = data.NewContent.Title;
+                    var mainImg = data.NewContent.Image;
+                    var newLink = Url.Action("ProductNews", "News", new { data.NewContent.Id });
+
+                    var mainContent = data.NewContent.Detail.Truncate(200) + $"<a href='{newLink}'> Xem thêm </a></p>";
+
+                    var subNews = data.OldContents;
+
+
+                    <div class="col-lg-6">
+                        <div class="box-thin">
+                            <div class="box box-shadow">
+                                <div class="main-news">
+                                    <div class="box-bottom box-bottom-min">
+                                        <h4>Tin tức sản phẩm HSBC</h4>
+                                    </div>
+
+                                    <div class="box-gray aligncenter padding-bottom-10">
+                                        <div class="icon imageContainer imageContainer-large">
+                                            <a href="@newLink">
+                                                <div class="img" style="background-image: url('/Content/images/hscb/@mainImg');"></div>
+                                            </a>
+                                        </div>
+                                        <a href="@newLink">
+                                            <p>@mainTitle</p>
+                                        </a>
+                                        <div>
+                                            @Html.Raw(mainContent)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sub-news">
+                                    <div class="box-gray padding-bottom-10">
+                                        <div class="row">
+                                            @foreach (var item in subNews)
+                                            {
+                                                var subTitle = item.Title.Truncate(75);
+                                                var subImg = item.Image;
+                                                var subLink = Url.Action("ProductNews", "News", new { item.Id });
+
+                                                <div class="col-xs-6">
+                                                    <div class="icon imageContainer">
+                                                        <a href="@subLink" class="sub-new-title">
+                                                            <div class="img" style="background-image: url('/Content/images/hscb/@subImg');"></div>
+                                                        </a>
+                                                    </div>
+                                                    <a href="@subLink" class="sub-new-title">
+                                                        @subTitle
+                                                    </a>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
 </section>
 <section class="callaction">
     <div class="">

@@ -18,14 +18,14 @@ namespace HSCB.Controllers
             var helper = new ContentDao();
             
 
-            var companyActivity = new HomePageNewsDTO()
+            ViewBag.companyActivity = new HomePageNewsDTO()
             {
                 NewContent = helper.GetNewContent((int)Enums.Category.HoatDongHSCB),
                 OldContents = helper.GetOldContents((int)Enums.Category.HoatDongHSCB)
 
             };
 
-            var productNews = new HomePageNewsDTO()
+            ViewBag.productNews = new HomePageNewsDTO()
             {
                 NewContent = helper.GetNewContent((int)Enums.Category.TinTucSanPham),
                 OldContents = helper.GetOldContents((int)Enums.Category.TinTucSanPham)
