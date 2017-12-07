@@ -14,12 +14,12 @@ namespace HSCB.Controllers
             return View();
         }
 
-        public ActionResult Activity()
+        public ActionResult Activity(int id)
         {
             return View();
         }
 
-        public ActionResult ProductNews()
+        public ActionResult ProductNews(int id)
         {
             return View();
         }
