@@ -1,0 +1,22 @@
+﻿@model List<Context.Database.Content>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Title</td>
+        <td></td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Title</td>
+            <td>@Html.ActionLink("Edit","Edit","Content", new { id = item.CategoryID}, null)</td>
+        </tr>
+    }
+    
+</table>
