@@ -1,4 +1,4 @@
-<%@ Control Language="C#" EnableViewState="false" AutoEventWireup="false" Inherits="CKFinder.Settings.ConfigFile" %>
+﻿<%@ Control Language="C#" EnableViewState="false" AutoEventWireup="false" Inherits="CKFinder.Settings.ConfigFile" %>
 <%@ Import Namespace="CKFinder.Settings" %>
 <script runat="server">
 
@@ -17,7 +17,7 @@
         // ... where Session[ "IsAuthorized" ] is set to "true" as soon as the
         // user logs on your system.
 
-        return Session["USER_SESSION"] != null;
+        return true; //đây là giá trị
     }
 
     /**
