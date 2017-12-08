@@ -44,6 +44,7 @@ namespace Context.Dao
                 }
             }
         }
+
         public List<Content> GetAll()
         {
             try
@@ -62,6 +63,24 @@ namespace Context.Dao
             }
         }
 
+        public List<Content> GetByCategory(int idCategory)
+        {
+            try
+            {
+                using (var context = new hscbEntities())
+                {
+                    var response = context.Contents
+                        .OrderByDescending(c => c.CreatedDate).Where(c => c.CategoryID == idCategory).ToList();
+
+                    return response;
+                }
+            }
+            catch (Exception ex)
+            {
+                //
+                return null;
+            }
+        }
         public Content GetNewContent(int idCategory)
         {
             try
@@ -86,7 +105,7 @@ namespace Context.Dao
             {
                 using (var context = new hscbEntities())
                 {
-                    var response = context.Contents.Where(c => c.CategoryID == idCategory).OrderByDescending(o => o.CreatedDate).Take(2).ToList<Content>();
+                    var response = context.Contents.Where(c => c.CategoryID == idCategory).OrderByDescending(o => o.CreatedDate).Skip(1).Take(2).ToList<Content>();
 
                     return response;
                 }
