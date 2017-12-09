@@ -26,6 +26,25 @@ namespace Context.Dao
                 return null;
             }
         }
+
+        public Content GetContentByIdContent(int id)
+        {
+            try
+            {
+                using (var context = new hscbEntities())
+                {
+                    var response = context.Contents.FirstOrDefault(c => c.Id == id);
+
+                    return response;
+                }
+            }
+            catch (Exception ex)
+            {
+                //
+                return null;
+            }
+        }
+
         public bool Insert(Content content)
         {
             using (var context = new hscbEntities())
