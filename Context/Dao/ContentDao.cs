@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,13 +10,13 @@ namespace Context.Dao
 {
     public class ContentDao
     {
-        public Content GetContent(int id)
+        public Content GetMainContentOfCategory(int idCategory)
         {
             try
             {
                 using (var context = new hscbEntities())
                 {
-                    var response = context.Contents.FirstOrDefault(c => c.CategoryID == id);
+                    var response = context.Contents.FirstOrDefault(c => c.CategoryID == idCategory);
 
                     return response;
                 }
@@ -26,6 +27,25 @@ namespace Context.Dao
                 return null;
             }
         }
+
+        public Content GetContentByIdContent(int id)
+        {
+            try
+            {
+                using (var context = new hscbEntities())
+                {
+                    var response = context.Contents.FirstOrDefault(c => c.Id == id);
+
+                    return response;
+                }
+            }
+            catch (Exception ex)
+            {
+                //
+                return null;
+            }
+        }
+
         public bool Insert(Content content)
         {
             using (var context = new hscbEntities())
@@ -44,6 +64,31 @@ namespace Context.Dao
                 }
             }
         }
+
+        public bool Update(Content content)
+        {
+            using (var context = new hscbEntities())
+            {
+                try
+                {
+                    var data = context.Contents.Find(content.Id);
+
+                    if (data != null)
+                    {
+                        context.Entry(data).CurrentValues.SetValues(content);
+                        context.SaveChanges();
+                    }
+
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+
 
         public List<Content> GetAll()
         {

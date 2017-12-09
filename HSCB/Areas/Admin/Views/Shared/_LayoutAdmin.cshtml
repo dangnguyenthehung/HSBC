@@ -10,24 +10,29 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
-    <link href="~/Content/css/admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
-    <link href="~/Content/css/admin/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="~/assets/admin/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="~/Content/css/admin/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="~/assets/admin/dist/css/sb-admin-2.css" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href="~/Content/css/admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div>
-    <h2>Admin Page</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                @RenderBody()            
+            </div>
+        </div>
+    </div>
     
-    @RenderBody()
 </div>
     <!-- jQuery -->
     <script src="~/assets/admin/vendor/jquery/jquery.min.js"></script>
 
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script><!--add vào khi sử dụng ajax delete-->
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="~/assets/admin/vendor/bootstrap/js/bootstrap.min.js"></script>
     <!-- Metis Menu Plugin JavaScript -->

@@ -17,7 +17,7 @@ namespace HSCB.Areas.Admin.Controllers
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new
                 {
                     controller = "Login",
-                    action = "Login"
+                    action = "Index"
                 }));
             }
             base.OnActionExecuted(filterContext);

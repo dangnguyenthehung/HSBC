@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" EnableViewState="false" AutoEventWireup="false" Inherits="CKFinder.Settings.ConfigFile" %>
+<%@ Import Namespace="System.IO" %>
 <%@ Import Namespace="CKFinder.Settings" %>
 <script runat="server">
 
@@ -27,19 +28,19 @@
     {
         // Paste your license name and key here. If left blank, CKFinder will
         // be fully functional, in Demo Mode.
-        LicenseName = "";
-        LicenseKey = "";
+        LicenseName = "hscb";
+        LicenseKey = "AX9KQBSLD2G8CNXADD9AET6NDGXVPX42";
 
         // The base URL used to reach files in CKFinder through the browser.
-        BaseUrl = "/Data/";
+        BaseUrl = "/Content/images/hscb/";
 
         // The phisical directory in the server where the file will end up. If
         // blank, CKFinder attempts to resolve BaseUrl.
-        BaseDir = "";
+        BaseDir = Server.MapPath("/Content/images/hscb/");
 
         // Optional: enable extra plugins (remember to copy .dll files first).
         Plugins = new string[] {
-			// "CKFinder.Plugins.FileEditor, CKFinder_FileEditor",
+			 //"CKFinder.Plugins.FileEditor, CKFinder_FileEditor",
 			// "CKFinder.Plugins.ImageResize, CKFinder_ImageResize",
 			// "CKFinder.Plugins.Watermark, CKFinder_Watermark"
 		};
