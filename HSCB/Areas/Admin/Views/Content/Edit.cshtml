@@ -4,7 +4,24 @@
     ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
+@section jsFooter{
+    <script type="text/javascript" src="~/assets/admin/js/plugins/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="~/assets/admin/js/plugins/ckfinder/ckfinder.js"></script>
+    <script>
+        $('#btnSelectImage').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function(url) {
+                $('#txtImage').val(url);
+            };
+            finder.popup();
+        })
 
+        var editor = CKEDITOR.replace('txtContent', {
+            customConfig: '/assets/admin/js/plugins/ckeditor/config.js',
+        });
+    </script>
+}
 
 @using (Html.BeginForm())
 {
@@ -40,10 +57,12 @@
             </div>
         </div>
 
+        <!--load ảnh lên-->
         <div class="form-group">
             @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.Image, new { htmlAttributes = new { @class = "form-control", @id = "txtImage" }, id = "txtImage" })
+                <a id="btnSelectImage" href="#">Chọn Ảnh</a>
                 @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -55,11 +74,11 @@
                 @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <!--CKEditor-->
         <div class="form-group">
             @Html.LabelFor(model => model.Detail, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Detail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Detail, new { htmlAttributes = new { @class = "form-control" }, id = "txtContent" })
                 @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
             </div>
         </div>

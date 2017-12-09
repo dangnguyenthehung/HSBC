@@ -9,7 +9,7 @@ using HSCB.Utilities;
 
 namespace HSCB.Areas.Admin.Controllers
 {
-    public class ContentController : Controller
+    public class ContentController : AdminBaseController
     {
 
         // GET: Admin/Content

@@ -10,7 +10,7 @@ using Context.Dao;
 
 namespace HSCB.Areas.Admin.Controllers
 {
-    public class ContactController : Controller
+    public class ContactController : AdminBaseController
     {
         public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
