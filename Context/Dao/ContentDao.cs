@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,6 +64,31 @@ namespace Context.Dao
                 }
             }
         }
+
+        public bool Update(Content content)
+        {
+            using (var context = new hscbEntities())
+            {
+                try
+                {
+                    var data = context.Contents.Find(content.Id);
+
+                    if (data != null)
+                    {
+                        context.Entry(data).CurrentValues.SetValues(content);
+                        context.SaveChanges();
+                    }
+
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+
 
         public List<Content> GetAll()
         {

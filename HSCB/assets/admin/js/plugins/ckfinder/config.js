@@ -13,5 +13,11 @@ CKFinder.customConfig = function( config )
 	// config.uiColor = '#BDE31E';
 	// config.language = 'fr';
 	// config.removePlugins = 'basket';
+    //config.filebrowserBrowseUrl = "~/Content/images/hscb/";
+    //config.filebrowserImageBrowseUrl = BaseUrl;
+    //config.filebrowserFlashBrowseUrl = BaseUrl;
+    //config.filebrowserUploadUrl = BaseUrl;
+    //config.filebrowserImageUploadUrl = BaseUrl;
+    //config.filebrowserFlashUploadUrl = BaseUrl;
 
 };
