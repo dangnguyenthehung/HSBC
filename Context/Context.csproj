@@ -59,6 +59,7 @@
     <Compile Include="Dao\ContactDao.cs" />
     <Compile Include="Dao\ContentDao.cs" />
     <Compile Include="Dao\ImagesDao.cs" />
+    <Compile Include="Dao\UserDao.cs" />
     <Compile Include="Database\Category.cs">
       <DependentUpon>Entitites.tt</DependentUpon>
     </Compile>
