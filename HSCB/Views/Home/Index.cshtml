@@ -54,7 +54,7 @@
                     var data = (HomePageNewsDTO) ViewBag.companyActivity;
                     var mainTitle = data.NewContent.Title;
                     var mainImg = data.NewContent.Image;
-                    var newLink = Url.Action("Activity", "News", new { data.NewContent.Id });
+                    var newLink = Url.Action("ActivityDetails", "News", new { data.NewContent.Id });
                     
                     var mainContent = data.NewContent.Detail.Truncate(200) + $"<a href='{newLink}'> Xem thêm </a></p>";
 
@@ -90,7 +90,7 @@
                                             {
                                                 var subTitle = item.Title.Truncate(75);
                                                 var subImg = item.Image;
-                                                var subLink = Url.Action("Activity", "News", new { item.Id });
+                                                var subLink = Url.Action("ActivityDetails", "News", new { item.Id });
                     
                                                 <div class="col-xs-6">
                                                     <div class="icon imageContainer">
