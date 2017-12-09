@@ -9,11 +9,13 @@ namespace Context.Dao
 {
     public class UserDao
     {
-        hscbEntities db = null;
+        private hscbEntities db = null;
+
         public UserDao()
         {
             db = new hscbEntities();
         }
+
         public User GetById(string userName)
         {
             return db.Users.SingleOrDefault(x => x.UserName == userName);
@@ -23,7 +25,8 @@ namespace Context.Dao
         {
             return db.Users.Find(id);
         }
-        public int login(string userName, string passWord)
+
+        public int Login(string userName, string passWord)
         {
             var result = db.Users.SingleOrDefault(x => x.UserName == userName);
             if (result == null)

@@ -15,12 +15,15 @@ namespace HSCB.Areas.Admin.Controllers
         {
             return View();
         }
-        public ActionResult Login(Models.LoginModel model)
+        
+        [HttpPost]
+        public ActionResult Index(Models.LoginModel model)
         {
             if (ModelState.IsValid)
             {
                 var dao = new UserDao();
-                var result = dao.login(model.UserName, model.PassWord);
+
+                var result = dao.Login(model.UserName, model.PassWord);
                 if (result == 1)
                 {
                     var user = dao.GetById(model.UserName);
@@ -47,7 +50,7 @@ namespace HSCB.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Username hoặc Password không đúng!");
                 }
             }
-            return View("Index");
+            return View(model);
             
         }
     }

@@ -35,15 +35,16 @@ namespace HSCB.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var model = new ContentDao().GetContent(id);
+            var model = new ContentDao().GetContentByIdContent(id);
             return View(model);
         }
+
         [ValidateInput(false)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Content content)
         {
-            new ContentDao().Insert(content);
+            new ContentDao().Update(content);
             return RedirectToAction("Index");
         }
     }
