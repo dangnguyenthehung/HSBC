@@ -35,7 +35,7 @@ namespace HSCB.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var model = new ContentDao().GetContent(id);
+            var model = new ContentDao().GetContentByIdContent(id);
             return View(model);
         }
         [ValidateInput(false)]

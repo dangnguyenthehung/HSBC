@@ -9,13 +9,13 @@ namespace Context.Dao
 {
     public class ContentDao
     {
-        public Content GetContent(int id)
+        public Content GetMainContentOfCategory(int idCategory)
         {
             try
             {
                 using (var context = new hscbEntities())
                 {
-                    var response = context.Contents.FirstOrDefault(c => c.CategoryID == id);
+                    var response = context.Contents.FirstOrDefault(c => c.CategoryID == idCategory);
 
                     return response;
                 }

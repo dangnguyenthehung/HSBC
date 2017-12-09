@@ -26,7 +26,7 @@ namespace HSCB.Controllers
                 
                 var model = new ProductViewModel();
                     
-                model.Content = helper.GetContent(id);
+                model.Content = helper.GetMainContentOfCategory(id);
 
                 var imageHelper = new ImagesDao();
                 model.ImagesList = imageHelper.GetImages(model.Content.Id); 
