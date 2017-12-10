@@ -11,7 +11,7 @@ namespace HSCB.Controllers
         // GET: ActitityField
         public ActionResult Index()
         {
-            return View();
+            return View("FarmSystem");
         }
 
         public ActionResult FarmSystem()
