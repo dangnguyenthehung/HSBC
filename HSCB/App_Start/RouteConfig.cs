@@ -71,7 +71,7 @@ namespace HSCB
 
             routes.MapRoute(
                 name: "news",
-                url: "tin-tuc-su-kien/hoat-dong",
+                url: "tin-tuc-su-kien/",
                 defaults: new { controller = "News", action = "Index" },
                 namespaces: new[] { "HSCB.Controllers" }
             );

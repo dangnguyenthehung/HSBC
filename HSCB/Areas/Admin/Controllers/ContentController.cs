@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Context.Database;
 using Context.Dao;
+using HSCB.SingleTon;
 using HSCB.Utilities;
 
 namespace HSCB.Areas.Admin.Controllers
@@ -28,14 +29,26 @@ namespace HSCB.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Content content)
         {
-            new ContentDao().Insert(content);
+            if (ModelState.IsValid)
+            {
+                content.Status = true;
+                content.CreatedDate = DateTime.Now;
+
+                new ContentDao().Insert(content);
+            }
+
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var model = new ContentDao().GetContentByIdContent(id);
+            var model = new ContentDao().GetContentByIdContentAll(id);
+
+            var listCate = CategorySingleTon.GetAllCategories();
+            
+            ViewBag.Category = new SelectList(listCate,"Id","Name", model.CategoryID);
+
             return View(model);
         }
 
@@ -44,7 +57,13 @@ namespace HSCB.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Content content)
         {
-            new ContentDao().Update(content);
+            if (ModelState.IsValid)
+            {
+                content.ModifiedDate = DateTime.Now;
+
+                new ContentDao().Update(content);
+            }
+
             return RedirectToAction("Index");
         }
     }

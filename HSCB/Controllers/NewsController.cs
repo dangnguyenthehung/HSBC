@@ -14,7 +14,7 @@ namespace HSCB.Controllers
         // GET: News
         public ActionResult Index()
         {
-            return View("Activity");
+            return RedirectToAction("Activity");
         }
 
         //get all
@@ -41,7 +41,7 @@ namespace HSCB.Controllers
             }
 
             var message = MessageConstants.NotFound;
-            return RedirectToAction("Index", "Message", new RouteValueDictionary(message));
+            return RedirectToAction("Index", "Message", new {message});
 
         }
 

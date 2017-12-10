@@ -35,7 +35,7 @@ namespace HSCB.Controllers
             }
 
             var message = MessageConstants.NotFound;
-            return RedirectToAction("Index", "Message", new RouteValueDictionary(message));
+            return RedirectToAction("Index", "Message", new {message});
         }
     }
 }

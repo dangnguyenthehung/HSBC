@@ -93,6 +93,7 @@
     <Compile Include="Database\User.cs">
       <DependentUpon>Entitites.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\ContentMetadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
