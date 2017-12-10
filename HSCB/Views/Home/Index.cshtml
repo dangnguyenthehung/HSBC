@@ -54,7 +54,7 @@
                     var data = (HomePageNewsDTO) ViewBag.companyActivity;
                     var mainTitle = data.NewContent.Title;
                     var mainImg = data.NewContent.Image;
-                    var newLink = Url.Action("ActivityDetails", "News", new { data.NewContent.Id });
+                    var newLink = Url.Action("NewsDetails", "News", new { data.NewContent.Id });
                     
                     var mainContent = data.NewContent.Detail.Truncate(200) + $"<a href='{newLink}'> Xem thêm </a></p>";
 
@@ -90,7 +90,7 @@
                                             {
                                                 var subTitle = item.Title.Truncate(75);
                                                 var subImg = item.Image;
-                                                var subLink = Url.Action("ActivityDetails", "News", new { item.Id });
+                                                var subLink = Url.Action("NewsDetails", "News", new { item.Id });
                     
                                                 <div class="col-xs-6">
                                                     <div class="icon imageContainer">
@@ -207,7 +207,7 @@
                                     HSCB tạo dựng thương hiệu của mình trong lĩnh vực nông nghiệp với hệ thống chuồng trại chăn nuôi và trồng trọt theo mô hình hoàn toàn sạch và khép kín.
                                     Hiện Công ty đã có hệ thống trang trại, đối tác rộng khắp cả nước...
                                 </p>
-                                <a href="@Url.Action("FarmSystem","ActitityField")" class="text-link">- Tìm hiểu thêm -</a>
+                                <a href="@Url.Action("FarmSystem","ActivityField")" class="text-link">- Tìm hiểu thêm -</a>
                             </div>
 
                         </div>
@@ -224,7 +224,7 @@
                                 <p>
                                     Không dừng lại ở việc tiêu thụ sản phẩm trong nước, HSCB còn mong muốn mở rộng thị trường xuất khẩu để mang đến cho người tiêu dùng các nước bạn những sản phẩm chất lượng của doanh nghiệp mình...
                                 </p>
-                                <a href="@Url.Action("ImportExport","ActitityField")" class="text-link">- Tìm hiểu thêm -</a>
+                                <a href="@Url.Action("ImportExport","ActivityField")" class="text-link">- Tìm hiểu thêm -</a>
                             </div>
                         </div>
                     </div>

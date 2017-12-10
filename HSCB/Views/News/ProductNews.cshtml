@@ -2,7 +2,7 @@
 @model List<Context.Database.Content>
 
 @{
-    ViewBag.Title = "ProductNews";
+    ViewBag.Title = "Tin tức sản phẩm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -49,7 +49,7 @@
                     {
                         var mainTitle = item.Title;
                         var mainImg = item.Image;
-                        var newLink = Url.Action("ActivityDetails", "News", new { item.Id });
+                        var newLink = Url.Action("NewsDetails", "News", new { item.Id });
 
                         var mainContent = item.Detail.Truncate(200) + $"<a href='{newLink}'> Xem thêm </a></p>";
 

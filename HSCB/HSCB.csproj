@@ -1631,19 +1631,18 @@
     <Content Include="Views\Shared\_LayoutFooter.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
-    <Content Include="Views\ActitityField\Index.cshtml" />
+    <Content Include="Views\ActivityField\Index.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\CompanyStory\AboutUs.cshtml" />
     <Content Include="Views\CompanyStory\DevelopmentPlan.cshtml" />
-    <Content Include="Views\ActitityField\FarmSystem.cshtml" />
-    <Content Include="Views\ActitityField\ImportExport.cshtml" />
+    <Content Include="Views\ActivityField\FarmSystem.cshtml" />
+    <Content Include="Views\ActivityField\ImportExport.cshtml" />
     <Content Include="Views\News\Activity.cshtml" />
     <Content Include="Views\News\ProductNews.cshtml" />
     <Content Include="Views\News\PressRelease.cshtml" />
     <Content Include="Views\Message\Index.cshtml" />
-    <Content Include="Views\News\ActivityDetails.cshtml" />
-    <Content Include="Views\News\ProductNewsDetails.cshtml" />
+    <Content Include="Views\News\NewsDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
