@@ -53,5 +53,11 @@ namespace HSCB.Areas.Admin.Controllers
             return View(model);
             
         }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Index", "Login");
+        }
     }
 }
