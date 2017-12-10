@@ -1327,6 +1327,7 @@
     <Content Include="Content\images\hscb\anh-ve-cong-ty\image001.jpg" />
     <Content Include="Content\images\hscb\anh-ve-cong-ty\image003.jpg" />
     <Content Include="Content\images\hscb\anh-ve-cong-ty\image005.jpg" />
+    <Content Include="Content\images\hscb\anh-ve-cong-ty\mohinh.png" />
     <Content Include="Content\images\hscb\bap-u-chua\image056.jpg" />
     <Content Include="Content\images\hscb\bap-u-chua\image058.jpg" />
     <Content Include="Content\images\hscb\bap-u-chua\image060.jpg" />
@@ -1369,6 +1370,8 @@
     <Content Include="Content\images\hscb\san-pham-nha-dam\nhadam.jpg" />
     <Content Include="Content\images\hscb\san-pham-nha-dam\unnamed.jpg" />
     <Content Include="Content\images\hscb\thanh-long\thanhlong.jpg" />
+    <Content Include="Content\images\hscb\thanh-long\thanhlong1.jpg" />
+    <Content Include="Content\images\hscb\thanh-long\thanhlong2.jpg" />
     <Content Include="Content\images\hscb\trun-que\image089.jpg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\nivo-bullets.png" />
@@ -1628,19 +1631,18 @@
     <Content Include="Views\Shared\_LayoutFooter.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
-    <Content Include="Views\ActitityField\Index.cshtml" />
+    <Content Include="Views\ActivityField\Index.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\CompanyStory\AboutUs.cshtml" />
     <Content Include="Views\CompanyStory\DevelopmentPlan.cshtml" />
-    <Content Include="Views\ActitityField\FarmSystem.cshtml" />
-    <Content Include="Views\ActitityField\ImportExport.cshtml" />
+    <Content Include="Views\ActivityField\FarmSystem.cshtml" />
+    <Content Include="Views\ActivityField\ImportExport.cshtml" />
     <Content Include="Views\News\Activity.cshtml" />
     <Content Include="Views\News\ProductNews.cshtml" />
     <Content Include="Views\News\PressRelease.cshtml" />
     <Content Include="Views\Message\Index.cshtml" />
-    <Content Include="Views\News\ActivityDetails.cshtml" />
-    <Content Include="Views\News\ProductNewsDetails.cshtml" />
+    <Content Include="Views\News\NewsDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

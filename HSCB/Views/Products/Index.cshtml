@@ -4,5 +4,104 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Sản phẩm</h2>
+<section class="callaction" style="padding-top: 0 !important">
+    <div class="">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="big-cta">
+                    <div class="cta-text">
+                        <h2 class="text-center">Sản phẩm</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="col-xs-12">
+    <ul class="product-list">
+        <li class="product-item col-xs-12 col-md-4">
+            <div class="img-container">
+                <a href="@Url.Action("Details", "Products", new {id = 10})">
+                    <div class="img" style="background-image: url(../Content/images/hscb/du-an-bo/image009.jpg)"></div>
+                </a>
+            </div>
+            <p class="text-center">
+                Bò lai sind, bò Vàng
+            </p>
+        </li>
+        <li class="product-item col-xs-12 col-md-4">
+            <div class="img-container">
+                <a href="@Url.Action("Details", "Products", new {id = 13})">
+                    <div class="img" style="background-image: url(../Content/images/hscb/bap-u-chua/image058.jpg)"></div>
+                </a>
+            </div>
+            <p class="text-center">
+                Bắp ủ chua
+            </p>
+        </li>
+        <li class="product-item col-xs-12 col-md-4">
+            <div class="img-container">
+                <a href="@Url.Action("Details", "Products", new {id = 12})">
+                    <div class="img" style="background-image: url(../Content/images/hscb/san-pham-nha-dam/nhadam.jpg)"></div>
+                </a>
+            </div>
+            <p class="text-center">
+                Sản phẩm từ nha đam
+            </p>
+        </li>
+
+        <li class="product-item col-xs-12 col-md-4">
+            <div class="img-container">
+                <a href="@Url.Action("Details", "Products", new {id = 14})">
+                    <div class="img" style="background-image: url(../Content/images/hscb/gung/image074.jpg)"></div>
+                </a>
+            </div>
+            <p class="text-center">
+                Gừng tươi, gừng sấy khô
+            </p>
+        </li>
+        <li class="product-item col-xs-12 col-md-4">
+            <div class="img-container">
+
+                <a href="@Url.Action("Details", "Products", new {id = 16})">
+                    <div class="img" style="background-image: url(../Content/images/hscb/chanh-day/img0.jpg)"></div>
+                </a>
+            </div>
+            <p class="text-center">
+                Chanh dây tươi, dịch chanh dây
+            </p>
+        </li>
+        <li class="product-item col-xs-12 col-md-4">
+            <div class="img-container">
+                <a href="@Url.Action("Details", "Products", new {id = 20})">
+                    <div class="img" style="background-image: url(../Content/images/hscb/thanh-long/thanhlong.jpg)"></div>
+                </a>
+            </div>
+            <p class="text-center">
+                Thanh long trắng, thanh long đỏ
+            </p>
+        </li>
+        <li class="product-item col-xs-12 col-md-4">
+            <div class="img-container">
+                <a href="@Url.Action("Details", "Products", new {id = 11})">
+                    <div class="img" style="background-image: url(../Content/images/hscb/trun-que/image089.jpg)"></div>
+                </a>
+            </div>
+            <p class="text-center">
+                Trùn quế
+            </p>
+        </li>
+        <li class="product-item col-xs-12 col-md-4">
+            <div class="img-container">
+                <a href="@Url.Action("Details", "Products", new {id = 15})">
+                    <div class="img" style="background-image: url(../Content/images/hscb/ga-dong-tao/image112.jpg)"></div>
+                </a>
+            </div>
+            <p class="text-center">
+                Gà Đông tảo
+            </p>
+        </li>
+    </ul>
+</div>
 

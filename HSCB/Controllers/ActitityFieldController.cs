@@ -6,12 +6,12 @@ using System.Web.Mvc;
 
 namespace HSCB.Controllers
 {
-    public class ActitityFieldController : Controller
+    public class ActivityFieldController : Controller
     {
-        // GET: ActitityField
+        // GET: ActivityField
         public ActionResult Index()
         {
-            return View();
+            return View("FarmSystem");
         }
 
         public ActionResult FarmSystem()

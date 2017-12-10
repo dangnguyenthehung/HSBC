@@ -18,7 +18,7 @@
                     <i class="icon-envelope-alt"></i> email@domainname.com
                 </p>
                 <div class="">
-                    <div class="bottom-logo"><img src="~/Content/images/logo.png" height="60" /></div>  
+                    <div class="bottom-logo"><img src="~/Content/images/logo.png" height="60" /></div>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
                 <ul class="link-list">
                     @foreach (var item in listProduct)
                     {
-                        <li><a href="@Url.Action("Details", "Products", new {id = item.ID})">Sản phẩm từ @item.Name</a></li>    
+                        <li><a href="@Url.Action("Details", "Products", new {id = item.ID})">Sản phẩm từ @item.Name</a></li>
                     }
                 </ul>
             </div>
@@ -42,20 +42,30 @@
                     <li><a href="@Url.Action("PressRelease","News")">Thông cáo báo chí</a></li>
                 </ul>
             </div>
+            
+            <br/>
+            <div id="google_translate_element"></div>
+            <script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({ pageLanguage: 'vi', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+                }
+            </script>
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
         </div>
     </div>
 </div>
-<div id="sub-footer">
+@*<div id="sub-footer">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                @*<div class="copyright">
-                    <p>&copy; Moderna Theme. All right reserved.</p>
-                    <div class="credits">
-                        
-                        <a href="https://bootstrapmade.com/">Free Bootstrap Themes</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                <div class="copyright">
+                        <p>&copy; Moderna Theme. All right reserved.</p>
+                        <div class="credits">
+
+                            <a href="https://bootstrapmade.com/">Free Bootstrap Themes</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                        </div>
                     </div>
-                </div>*@
             </div>
             <div class="col-lg-6">
                 <ul class="social-network">
@@ -68,4 +78,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@

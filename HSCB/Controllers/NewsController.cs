@@ -14,7 +14,7 @@ namespace HSCB.Controllers
         // GET: News
         public ActionResult Index()
         {
-            return View();
+            return View("Activity");
         }
 
         //get all
@@ -28,7 +28,7 @@ namespace HSCB.Controllers
         }
 
         //get details
-        public ActionResult ActivityDetails(int id)
+        public ActionResult NewsDetails(int id)
         {
 
             var helper = new ContentDao();
@@ -53,22 +53,7 @@ namespace HSCB.Controllers
 
             return View(model);
         }
-
-        public ActionResult ProductNewsDetails(int id)
-        {
-            var helper = new ContentDao();
-
-            var model = helper.GetContentByIdContent(id);
-
-            if (model != null)
-            {
-                return View(model);
-            }
-
-            var message = MessageConstants.NotFound;
-            return RedirectToAction("Index", "Message", new RouteValueDictionary(message));
-        }
-
+        
         public ActionResult PressRelease()
         {
             return View();

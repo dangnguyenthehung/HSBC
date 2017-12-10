@@ -1,10 +1,8 @@
 ﻿@model Context.Database.Content
 @{
-    ViewBag.Title = "ProductNewsDetails";
+    ViewBag.Title = "Tin tức chi tiết";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
 @if (Model != null)
 {
     <div class="col-xs-12 col-md-10 col-md-offset-1">
@@ -13,19 +11,20 @@
             <div class="row">
                 <div class="col-xs-6 col-md-3 col-md-offset-9 text-right">
                     <i>@Model.CreatedDate</i>
-                </div>
+                </div>    
             </div>
             <div class="row">
                 <div class="col-xs-12 text-center">
-                    <img src="@Model.Image" height="250" />
+                    <img src="@Model.Image" height="250"/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    @Html.Raw(Model.Detail)
+                    @Html.Raw(Model.Detail)    
                 </div>
             </div>
         </div>
-    </div>
+    </div>   
 }
+
 
