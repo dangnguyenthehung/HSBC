@@ -9,6 +9,24 @@ namespace Context.Dao
 {
     public class CategoryDao
     {
+        public Category GetById(int id)
+        {
+            try
+            {
+                using (var context = new hscbEntities())
+                {
+                    var response = context.Categories.SingleOrDefault(c => c.ID == id);
+
+                    return response;
+                }
+            }
+            catch (Exception ex)
+            {
+                //
+                return null;
+            }
+        }
+
         public List<Category> GetAll()
         {
             try
@@ -24,6 +42,49 @@ namespace Context.Dao
             {
                 //
                 return null;
+            }
+        }
+
+        public bool Insert(Category category)
+        {
+            using (var context = new hscbEntities())
+            {
+                try
+                {
+                    var data = category;
+                    context.Categories.Add(data);
+                    context.SaveChanges();
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool Update(Category category)
+        {
+            using (var context = new hscbEntities())
+            {
+                try
+                {
+                    var data = context.Categories.Find(category.ID);
+
+                    if (data != null)
+                    {
+                        context.Entry(data).CurrentValues.SetValues(category);
+                        context.SaveChanges();
+                    }
+
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
             }
         }
     }

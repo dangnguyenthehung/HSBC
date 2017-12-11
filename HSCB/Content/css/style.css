@@ -405,8 +405,8 @@ section.callaction {
     padding: 10px 0;
 }
 .box-thin {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 .padding-bottom-10 {
     padding-bottom: 10px !important;
@@ -1931,7 +1931,7 @@ article img.pull-right, article .align-right{
 	
 	.box {
 		border-bottom:1px solid #e9e9e9;
-		padding-bottom:20px;
+		padding-bottom: 0px;
 	}
 
 	#featured .flexslider .slide-caption {
@@ -2021,9 +2021,5 @@ article img.pull-right, article .align-right{
 		font-size:14px;
 	}
 
-
-}
-
-@media (max-width: 360px) {
 
 }

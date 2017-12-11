@@ -33,7 +33,7 @@ namespace HSCB.Controllers
                 }
 
                 var message = MessageConstants.ContactSubmitFail;
-                return RedirectToAction("Index", "Message", new RouteValueDictionary(message));
+                return RedirectToAction("Index", "Message", new {message});
             }
 
 

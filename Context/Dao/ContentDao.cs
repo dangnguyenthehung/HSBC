@@ -34,6 +34,24 @@ namespace Context.Dao
             {
                 using (var context = new hscbEntities())
                 {
+                    var response = context.Contents.FirstOrDefault(c => c.Id == id && c.Status == true);
+
+                    return response;
+                }
+            }
+            catch (Exception ex)
+            {
+                //
+                return null;
+            }
+        }
+
+        public Content GetContentByIdContentAll(int id)
+        {
+            try
+            {
+                using (var context = new hscbEntities())
+                {
                     var response = context.Contents.FirstOrDefault(c => c.Id == id);
 
                     return response;
@@ -132,7 +150,7 @@ namespace Context.Dao
             {
                 using (var context = new hscbEntities())
                 {
-                    var response = context.Contents.Where(c => c.CategoryID == idCategory).OrderByDescending(c => c.CreatedDate).FirstOrDefault();
+                    var response = context.Contents.Where(c => c.CategoryID == idCategory).OrderByDescending(c => c.ModifiedDate).FirstOrDefault();
 
                     return response;
                 }

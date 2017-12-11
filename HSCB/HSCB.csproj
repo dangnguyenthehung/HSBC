@@ -1298,6 +1298,7 @@
     <Content Include="assets\Login\vendor\jquery-easing\jquery.easing.min.js" />
     <Content Include="assets\Login\vendor\jquery\jquery.js" />
     <Content Include="assets\Login\vendor\jquery\jquery.min.js" />
+    <Content Include="Content\css\admin.css" />
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\css\bootstrap-theme.css" />
     <Content Include="Content\css\bootstrap-theme.min.css" />
@@ -1312,6 +1313,7 @@
     <Content Include="Content\css\fancybox\jquery.fancybox.css" />
     <Content Include="Content\css\flexslider.css" />
     <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\icons\icon.png" />
     <Content Include="Content\images\avatar.png" />
     <Content Include="Content\images\bg_direction_nav.png" />
     <Content Include="Content\images\dummies\blog\65x65\thumb1.jpg" />
@@ -1362,6 +1364,13 @@
     <Content Include="Content\images\hscb\gung\image074.jpg" />
     <Content Include="Content\images\hscb\gung\image076.jpg" />
     <Content Include="Content\images\hscb\gung\image077.jpg" />
+    <Content Include="Content\images\hscb\images\111217.jpeg" />
+    <Content Include="Content\images\hscb\images\111217_1.jpg" />
+    <Content Include="Content\images\hscb\images\111217_2.jpg" />
+    <Content Include="Content\images\hscb\images\111217_3.jpg" />
+    <Content Include="Content\images\hscb\images\111217_4.jpg" />
+    <Content Include="Content\images\hscb\images\29apec%281%29.jpg" />
+    <Content Include="Content\images\hscb\images\29apec.jpg" />
     <Content Include="Content\images\hscb\news\image003.jpg" />
     <Content Include="Content\images\hscb\san-pham-nha-dam\IMG-0016.JPG" />
     <Content Include="Content\images\hscb\san-pham-nha-dam\IMG-0015.JPG" />
@@ -1373,6 +1382,14 @@
     <Content Include="Content\images\hscb\thanh-long\thanhlong1.jpg" />
     <Content Include="Content\images\hscb\thanh-long\thanhlong2.jpg" />
     <Content Include="Content\images\hscb\trun-que\image089.jpg" />
+    <Content Include="Content\images\hscb\_thumbs\Images\111217.jpeg" />
+    <Content Include="Content\images\hscb\_thumbs\Images\111217_1.jpg" />
+    <Content Include="Content\images\hscb\_thumbs\Images\111217_2.jpg" />
+    <Content Include="Content\images\hscb\_thumbs\Images\111217_3.jpg" />
+    <Content Include="Content\images\hscb\_thumbs\Images\111217_4.jpg" />
+    <Content Include="Content\images\hscb\_thumbs\Images\29apec%281%29.jpg" />
+    <Content Include="Content\images\hscb\_thumbs\Images\29apec.jpg" />
+    <Content Include="Content\images\hscb\_thumbs\Images\Sketch.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\nivo-bullets.png" />
     <Content Include="Content\images\slides\1.jpg" />
@@ -1596,13 +1613,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminBaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContentController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
-    <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Constants\Enums.cs" />
     <Compile Include="Constants\MessageConstants.cs" />
     <Compile Include="Controllers\ActitityFieldController.cs" />
@@ -1625,6 +1642,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.12.4.min.map" />
     <Content Include="Views\Shared\_LayoutHeader.cshtml" />
@@ -1653,8 +1673,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\AdminBase\" />
-    <Folder Include="Content\icons\" />
-    <Folder Include="Content\images\hscb\images\" />
     <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>

@@ -22,41 +22,37 @@ namespace HSCB.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dao = new UserDao();
+                model.PassWord = Utilities.Utilities.EncryptMd5(model.PassWord);
 
                 var result = dao.Login(model.UserName, model.PassWord);
-                if (result == 1)
+
+                if (result != null)
                 {
                     var user = dao.GetById(model.UserName);
+
                     var userSession = new UserLogin();
                     userSession.UserName = user.UserName;
                     userSession.UserID = user.ID;
+
                     Session.Add(Common.CommonConstants.USER_SESSION, userSession);
-                    return RedirectToAction("Index", "Home");
+
+                    return RedirectToAction("Index", "Contact");
                 }
-                else if (result == 0)
-                {
-                    ModelState.AddModelError("", "Tài Khoản Không tồn tại!");
-                }
-                else if (result == -1)
-                {
-                    ModelState.AddModelError("", "Tài Khoản đang bị khóa!");
-                }
-                else if (result == -2)
-                {
-                    ModelState.AddModelError("", "Mật khẩu không đúng!");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Username hoặc Password không đúng!");
-                }
+                
+                ModelState.AddModelError("", "Đăng nhập thất bại");
             }
+
             return View(model);
             
         }
 
         public ActionResult Logout()
         {
-            Session.Clear();
+            if (Session[CommonConstants.USER_SESSION] != null)
+            {
+                Session.Remove(CommonConstants.USER_SESSION);
+            }
+
             return RedirectToAction("Index", "Login");
         }
     }

@@ -51,11 +51,7 @@ p, span, li {
     text-align: center;
     background: transparent;
 }
-.owl-carousel .owl-item img {
-    height: 350px !important;
-    width: auto;
-    margin: 0px auto;
-}
+
 .slides li {
     overflow: hidden;
     height: 390px;
@@ -143,6 +139,17 @@ p, span, li {
     width: 100%;
     height: auto;
 }
+.text-border {
+    border: solid 2px #68A4C4;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+}
+
+@media screen and (max-width: 992px) {
+    .slides li {
+        height: 250px;       
+    }
+}
 @media screen and (min-width: 992px) {
     .sub-text-content {
         padding-top: 20px;
@@ -153,5 +160,21 @@ p, span, li {
     .text-custom {
         padding-top: 35px;
     }
-    
+    .box-thin {
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+    .box-thin-min {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .padding-side-40 {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .owl-carousel .owl-item img {
+        height: 350px !important;
+        width: auto;
+        margin: 0px auto;
+    }
 }

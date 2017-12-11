@@ -70,7 +70,9 @@
                                             <div>
                                                 @Html.Raw(mainContent)
                                             </div>
-                                            <div class="col-xs-12 col-md-3 col-md-offset-9 datetime">@String.Format("{0:dd/MM/yyyy}", item.CreatedDate)</div>
+                                            <div class="col-xs-12 text-right">
+                                                <i>@String.Format("{0:dd/MM/yyyy}", item.CreatedDate)</i>
+                                            </div>
                                         </div>
                                         <div style="clear: both"></div>
                                     </div>

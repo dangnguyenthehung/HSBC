@@ -28,14 +28,17 @@ namespace HSCB.Controllers
                     
                 model.Content = helper.GetMainContentOfCategory(id);
 
-                var imageHelper = new ImagesDao();
-                model.ImagesList = imageHelper.GetImages(model.Content.Id); 
+                if (model.Content != null)
+                {
+                    var imageHelper = new ImagesDao();
+                    model.ImagesList = imageHelper.GetImages(model.Content.Id);
 
-                return View(model);
+                    return View(model);
+                }
             }
 
             var message = MessageConstants.NotFound;
-            return RedirectToAction("Index", "Message", new RouteValueDictionary(message));
+            return RedirectToAction("Index", "Message", new {message});
         }
     }
 }
