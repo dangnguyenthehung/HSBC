@@ -41,7 +41,7 @@ namespace HSCB.SingleTon
                 GetData();
             }
 
-            return _listCategory?.Find(c => c.ID == id).Name ?? "Không xác định";
+            return _listCategory?.Find(c => c.ID == id)?.Name ?? "Không có";
         }
     }
 }

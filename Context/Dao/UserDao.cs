@@ -26,27 +26,20 @@ namespace Context.Dao
             return db.Users.Find(id);
         }
 
-        public int Login(string userName, string passWord)
+        public UserLogin Login(string userName, string passWord)
         {
-            var result = db.Users.SingleOrDefault(x => x.UserName == userName);
+            var result = db.Users.SingleOrDefault(x => x.UserName == userName && x.PassWord == passWord);
+
             if (result == null)
             {
-                return 0;
+                return null;
             }
-            else
+            
+            return new UserLogin()
             {
-                if (result.Status == false)
-                {
-                    return -1;
-                }
-                else
-                {
-                    if (result.PassWord == passWord)
-                        return 1;
-                    else
-                        return -2;
-                }
-            }
+                UserID = result.ID,
+                UserName = result.UserName
+            };
         }
     }
 }

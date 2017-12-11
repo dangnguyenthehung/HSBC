@@ -18,6 +18,7 @@ namespace Context.Database
         public int Id;
 
         [Display(Name = "Tiêu đề")]
+        [Required]
         public string Title;
 
         public string MetaTitle;
@@ -29,9 +30,11 @@ namespace Context.Database
         public string Image;
 
         [Display(Name = "Danh mục")]
+        [Required]
         public Nullable<int> CategoryID;
 
         [Display(Name = "Nội dung")]
+        [Required]
         public string Detail;
 
         public Nullable<int> Warranty;
@@ -43,7 +46,9 @@ namespace Context.Database
         public string MetaDescriptions;
 
         [Display(Name = "Trạng thái")]
+        [Required]
         public Nullable<bool> Status;
+
         public Nullable<System.DateTime> TopHot;
         public string ViewCount;
         public string Tags;

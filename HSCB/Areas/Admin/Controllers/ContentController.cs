@@ -22,8 +22,13 @@ namespace HSCB.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            var listCategory = CategorySingleTon.GetAllCategories();
+
+            ViewBag.Category = new SelectList(listCategory, "Id", "Name");
+
             return View();
         }
+
         [ValidateInput(false)]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -33,7 +38,8 @@ namespace HSCB.Areas.Admin.Controllers
             {
                 content.Status = true;
                 content.CreatedDate = DateTime.Now;
-
+                content.ModifiedDate = DateTime.Now;
+                
                 new ContentDao().Insert(content);
             }
 
@@ -45,9 +51,14 @@ namespace HSCB.Areas.Admin.Controllers
         {
             var model = new ContentDao().GetContentByIdContentAll(id);
 
-            var listCate = CategorySingleTon.GetAllCategories();
+            if (model == null)
+            {
+                return RedirectToAction("Index", "Category");
+            }
+
+            var listCategory = CategorySingleTon.GetAllCategories();
             
-            ViewBag.Category = new SelectList(listCate,"Id","Name", model.CategoryID);
+            ViewBag.Category = new SelectList(listCategory, "Id","Name", model.CategoryID);
 
             return View(model);
         }

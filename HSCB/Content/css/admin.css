@@ -1,0 +1,15 @@
+﻿#page-wrapper {
+    padding-top: 15px;
+    padding-bottom: 50px;
+}
+.sidebar ul li {
+    padding: 15px 5px;
+}
+
+.sidebar ul li a.active {
+    background-color: #2980b9;
+    color: white;
+}
+.title {
+    color: #27ae60;
+}

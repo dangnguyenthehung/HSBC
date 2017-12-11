@@ -1,7 +1,16 @@
-﻿@using HSCB.SingleTon
+﻿@using System.Web.Configuration
+@using HSCB.SingleTon
 @{
     var listCategory = CategorySingleTon.GetAllCategories();
     var listProduct = listCategory.Where(c => c.ParentID == 3).ToList();
+
+    var address = WebConfigurationManager.AppSettings["address"];
+    var phone = WebConfigurationManager.AppSettings["phone"];
+    var email = WebConfigurationManager.AppSettings["email"];
+    var facebook = WebConfigurationManager.AppSettings["facebook"];
+    var twitter = WebConfigurationManager.AppSettings["twitter"];
+    var linkedin = WebConfigurationManager.AppSettings["linkedin"];
+    var google = WebConfigurationManager.AppSettings["google"];
 }
 <div class="container">
     <div class="row">
@@ -10,16 +19,19 @@
                 <h4 class="widgetheading">Công ty Cổ phần đầu tư nuôi trồng HSCB</h4>
                 <br />
                 <address>
-                    123 Điện Biên Phủ, Phường 6, Quận 3,<br>
-                    Tp Hồ Chí Minh
+                    @address
                 </address>
                 <p>
-                    <i class="icon-phone"></i> (123) 456-7890 - (123) 9876543 <br>
-                    <i class="icon-envelope-alt"></i> email@domainname.com
+                    <i class="fa fa-phone"></i> <a style="color: white !important" href="tel:@phone">@phone</a> <br>
+                    <i class="fa fa-envelope"></i> <a style="color: white !important" href="mailto:@email">@email</a>
                 </p>
-                <div class="">
-                    <div class="bottom-logo"><img src="~/Content/images/logo.png" height="60" /></div>
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="bottom-logo"><img src="~/Content/images/logo.png" height="60"/>
+                        </div>
+                    </div>
                 </div>
+                <div style="clear: both;"></div>
             </div>
         </div>
         <div class="col-lg-4">
@@ -51,7 +63,16 @@
                 }
             </script>
             <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+            
+            <div class="col-xs-12">
+                <br/>
+                <ul class="social-network">
+                    <li><a href="@facebook" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="@twitter" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="@linkedin" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="@google" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

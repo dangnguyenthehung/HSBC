@@ -60,6 +60,7 @@
     <Compile Include="Dao\ContentDao.cs" />
     <Compile Include="Dao\ImagesDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
+    <Compile Include="Dao\UserLogin.cs" />
     <Compile Include="Database\Category.cs">
       <DependentUpon>Entitites.tt</DependentUpon>
     </Compile>
@@ -69,6 +70,7 @@
     <Compile Include="Database\Content.cs">
       <DependentUpon>Entitites.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\CategoryMetadata.cs" />
     <Compile Include="Database\Entitites.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

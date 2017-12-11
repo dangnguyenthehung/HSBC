@@ -150,7 +150,7 @@ namespace Context.Dao
             {
                 using (var context = new hscbEntities())
                 {
-                    var response = context.Contents.Where(c => c.CategoryID == idCategory).OrderByDescending(c => c.CreatedDate).FirstOrDefault();
+                    var response = context.Contents.Where(c => c.CategoryID == idCategory).OrderByDescending(c => c.ModifiedDate).FirstOrDefault();
 
                     return response;
                 }
