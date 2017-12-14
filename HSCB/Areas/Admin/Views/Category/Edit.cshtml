@@ -10,6 +10,13 @@
 @using (Html.BeginForm("Edit", "Category", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.ID)
+    @Html.HiddenFor(m => m.DisplayOrder)
+    @Html.HiddenFor(m => m.CreatedDate)
+    @Html.HiddenFor(m => m.CreatedBy)
+    @Html.HiddenFor(m => m.MetaKeywords)
+    @Html.HiddenFor(m => m.Status)
+    @Html.HiddenFor(m => m.ShowOnHome)
 
     <div class="form-horizontal">
         <div class="title"><h1>Chỉnh sửa Danh mục</h1></div>

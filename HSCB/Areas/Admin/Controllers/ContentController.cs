@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Context.Database;
 using Context.Dao;
+using HSCB.Common;
 using HSCB.SingleTon;
 using HSCB.Utilities;
 
@@ -22,7 +23,8 @@ namespace HSCB.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            var listCategory = CategorySingleTon.GetAllCategories();
+            var categoryDao = new CategoryDao();
+            var listCategory = categoryDao.GetAll();
 
             ViewBag.Category = new SelectList(listCategory, "Id", "Name");
 
@@ -35,12 +37,16 @@ namespace HSCB.Areas.Admin.Controllers
         public ActionResult Create(Content content)
         {
             if (ModelState.IsValid)
-            {
-                content.Status = true;
-                content.CreatedDate = DateTime.Now;
-                content.ModifiedDate = DateTime.Now;
-                
-                new ContentDao().Insert(content);
+            { var loginAcc = (UserLogin)Session[CommonConstants.USER_SESSION];
+                if (loginAcc != null)
+                {
+                    content.Status = true;
+                    content.CreatedBy = loginAcc.UserName;
+                    content.CreatedDate = DateTime.Now;
+                    content.ModifiedDate = DateTime.Now;
+
+                    new ContentDao().Insert(content);
+                }
             }
 
             return RedirectToAction("Index");
@@ -56,8 +62,9 @@ namespace HSCB.Areas.Admin.Controllers
                 return RedirectToAction("Index", "Category");
             }
 
-            var listCategory = CategorySingleTon.GetAllCategories();
-            
+            var categoryDao = new CategoryDao();
+            var listCategory = categoryDao.GetAll();
+
             ViewBag.Category = new SelectList(listCategory, "Id","Name", model.CategoryID);
 
             return View(model);
@@ -70,9 +77,15 @@ namespace HSCB.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                content.ModifiedDate = DateTime.Now;
+                var loginAcc = (UserLogin)Session[CommonConstants.USER_SESSION];
+                if (loginAcc != null)
+                {
 
-                new ContentDao().Update(content);
+                    content.ModifiedDate = DateTime.Now;
+                    content.ModifiedBy = loginAcc.UserName;
+
+                    new ContentDao().Update(content);
+                }
             }
 
             return RedirectToAction("Index");
