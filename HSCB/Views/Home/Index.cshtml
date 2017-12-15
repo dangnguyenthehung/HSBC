@@ -11,36 +11,39 @@
     <div class="">
         <div class="row">
             <div class="col-lg-12">
-                <!-- Slider -->
-                <div id="main-slider" class="flexslider box-shadow">
-                    <ul class="slides">
-                        <li>
-                            <img src="~/Content/images/hscb/anh-ve-cong-ty/hscb.jpg" alt="" />
-                            <div class="flex-caption">
-                                <h3>Luôn đi đầu</h3>
-                                <p>trong việc phát triển các hệ thống trang trại truyền thống theo hướng hữu cơ, với mô hình sản xuất hoàn toàn khép kín...</p>
-                                <a href="@Url.Action("AboutUs","CompanyStory")" class="btn btn-theme">Tìm hiểu thêm</a>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="~/Content/images/hscb/anh-ve-cong-ty/image003.jpg" alt="" />
-                            <div class="flex-caption">
-                                <h3>Không ngừng lớn mạnh</h3>
-                                <p>và liên tục phát triển không chỉ về quy mô sản xuất, mà cả về kĩ thuật chăn nuôi, trồng trọt....</p>
-                                <a href="@Url.Action("AboutUs","CompanyStory")" class="btn btn-theme">Tìm hiểu thêm</a>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="~/Content/images/hscb/anh-ve-cong-ty/image005.jpg" alt="" />
-                            <div class="flex-caption">
-                                <h3>Tầm nhìn</h3>
-                                <p>Trở thành thương hiệu hàng đầu về thực phẩm sạch tự nhiên, nâng cao chất lượng cuộc sống...</p>
-                                <a href="@Url.Action("AboutUs","CompanyStory")" class="btn btn-theme">Tìm hiểu thêm</a>
-                            </div>
-                        </li>
-                    </ul>
+                <div class="row">
+                    <!-- Slider -->
+                    <div id="main-slider" class="flexslider box-shadow">
+                        <ul class="slides">
+                            <li>
+                                <img src="~/Content/images/hscb/anh-ve-cong-ty/hscb.jpg" alt="" />
+                                <div class="flex-caption">
+                                    <h3>Luôn đi đầu</h3>
+                                    <p>trong việc phát triển các hệ thống trang trại truyền thống theo hướng hữu cơ, với mô hình sản xuất hoàn toàn khép kín...</p>
+                                    <a href="@Url.Action("AboutUs", "CompanyStory")" class="btn btn-theme">Tìm hiểu thêm</a>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="~/Content/images/hscb/anh-ve-cong-ty/image003.jpg" alt="" />
+                                <div class="flex-caption">
+                                    <h3>Không ngừng lớn mạnh</h3>
+                                    <p>và liên tục phát triển không chỉ về quy mô sản xuất, mà cả về kĩ thuật chăn nuôi, trồng trọt....</p>
+                                    <a href="@Url.Action("AboutUs", "CompanyStory")" class="btn btn-theme">Tìm hiểu thêm</a>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="~/Content/images/hscb/anh-ve-cong-ty/image005.jpg" alt="" />
+                                <div class="flex-caption">
+                                    <h3>Tầm nhìn</h3>
+                                    <p>Trở thành thương hiệu hàng đầu về thực phẩm sạch tự nhiên, nâng cao chất lượng cuộc sống...</p>
+                                    <a href="@Url.Action("AboutUs", "CompanyStory")" class="btn btn-theme">Tìm hiểu thêm</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- end slider -->
                 </div>
-                <!-- end slider -->
+
             </div>
         </div>
     </div>
@@ -54,11 +57,11 @@
                     @if (ViewBag.companyActivity != null)
                     {
                         var data = (HomePageNewsDTO)ViewBag.companyActivity;
-                        var mainTitle = data.NewContent.Title;
+                        var mainTitle = data.NewContent.Title.Truncate(175);
                         var mainImg = data.NewContent.Image;
                         var newLink = Url.Action("NewsDetails", "News", new { data.NewContent.Id });
 
-                        var mainContent = data.NewContent.Detail.Truncate(175) + $"<a href='{newLink}'> Xem thêm </a></p>";
+                        var mainContent = data.NewContent.Detail.Truncate(200) + $"<a href='{newLink}'> Xem thêm </a></p>";
 
                         var subNews = data.OldContents;
 
@@ -78,7 +81,7 @@
                                                     </a>
                                                 </div>
                                                 <a href="@newLink">
-                                                    <p>@mainTitle</p>
+                                                    <p class="main-title">@mainTitle</p>
                                                 </a>
                                                 <div>
                                                     @Html.Raw(mainContent)
@@ -92,7 +95,7 @@
                                                     {
                                                         var subTitle = item.Title.Truncate(75);
                                                         var subImg = item.Image;
-                                                        var subLink = Url.Action("NewsDetails", "News", new {item.Id});
+                                                        var subLink = Url.Action("NewsDetails", "News", new { item.Id });
 
                                                         <div class="col-xs-6">
                                                             <div class="icon imageContainer">
@@ -109,7 +112,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>    
+                                </div>
                             </div>
                         </div>
                     }
@@ -117,11 +120,11 @@
                     @if (ViewBag.productNews != null)
                     {
                         var data = (HomePageNewsDTO)ViewBag.productNews;
-                        var mainTitle = data.NewContent.Title;
+                        var mainTitle = data.NewContent.Title.Truncate(175);
                         var mainImg = data.NewContent.Image;
                         var newLink = Url.Action("NewsDetails", "News", new { data.NewContent.Id });
 
-                        var mainContent = data.NewContent.Detail.Truncate(175) + $"<a href='{newLink}'> Xem thêm </a></p>";
+                        var mainContent = data.NewContent.Detail.Truncate(200) + $"<a href='{newLink}'> Xem thêm </a></p>";
 
                         var subNews = data.OldContents;
                         <div class="col-xs-12 col-lg-6">
@@ -140,7 +143,7 @@
                                                     </a>
                                                 </div>
                                                 <a href="@newLink">
-                                                    <p>@mainTitle</p>
+                                                    <p class="main-title">@mainTitle</p>
                                                 </a>
                                                 <div>
                                                     @Html.Raw(mainContent)
@@ -154,7 +157,7 @@
                                                     {
                                                         var subTitle = item.Title.Truncate(75);
                                                         var subImg = item.Image;
-                                                        var subLink = Url.Action("ProductNews", "News", new {item.Id});
+                                                        var subLink = Url.Action("ProductNews", "News", new { item.Id });
 
                                                         <div class="col-xs-6">
                                                             <div class="icon imageContainer">
@@ -171,7 +174,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>    
+                                </div>
                             </div>
                         </div>
                     }
@@ -181,100 +184,99 @@
     </div>
     <div style="clear: both"></div>
 </section>
+<div class="row blue-background">
+    <section class="callaction">
+        <div class="">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="big-cta">
+                        <div class="cta-text">
+                            <h2>Lĩnh vực hoạt động HSCB</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-xs-12 col-lg-6">
+                                    <div class="row">
+                                        <div class="box-thin-min">
+                                            <div class="box box-shadow">
+                                                <div class="box-bottom box-bottom-revert">
+                                                    <h4>Sản xuất chăn nuôi và trồng trọt</h4>
+                                                </div>
+                                                <div class="box-gray aligncenter">
+                                                    @*<div class="icon">
+                                            <img src="~/Content/images/hscb/du-an-bo/image009.jpg"/>
+                                        </div>*@
+                                                    <p style="margin-bottom: 25px;">
+                                                        HSCB tạo dựng thương hiệu của mình trong lĩnh vực nông nghiệp với hệ thống chuồng trại chăn nuôi và trồng trọt theo mô hình hoàn toàn sạch và khép kín.
+                                                        Hiện Công ty đã có hệ thống trang trại, đối tác rộng khắp cả nước...
+                                                    </p>
+                                                    <a href="@Url.Action("FarmSystem", "ActivityField")" class="text-link">- Tìm hiểu thêm -</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-lg-6">
+                                    <div class="row">
+                                        <div class="box-thin-min">
+                                            <div class="box box-shadow">
+                                                <div class="box-bottom box-bottom-revert">
+                                                    <h4>Xuất nhập khẩu nông sản</h4>
+                                                </div>
+                                                <div class="box-gray aligncenter">
+                                                    @*<div class="icon">
+                                            <img src="~/Content/images/hscb/chanh-day/img1.png"/>
+                                        </div>*@
+                                                    <p style="margin-bottom: 25px;">
+                                                        Không dừng lại ở việc tiêu thụ sản phẩm trong nước, HSCB còn mong muốn mở rộng thị trường xuất khẩu để mang đến cho người tiêu dùng các nước bạn những sản phẩm chất lượng của doanh nghiệp mình...
+                                                    </p>
+                                                    <a href="@Url.Action("ImportExport", "ActivityField")" class="text-link">- Tìm hiểu thêm -</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="clear: both"></div>
+    </section>
+</div>
+
+
 <section class="callaction">
     <div class="">
         <div class="row">
             <div class="col-lg-12">
                 <div class="big-cta">
                     <div class="cta-text">
-                        <h2>Lĩnh vực hoạt động HSCB</h2>
+                        <h2>Sản phẩm tiêu biểu</h2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<section id="content">
+<section id="main-product">
     <div class="col-xs-12">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="row">
-                    <div class="col-xs-12 col-lg-6">
-                        <div class="row">
-                            <div class="box-thin-min">
-                              
-                                <div class="box box-shadow">
-                                    <div class="box-bottom">
-                                        <h4>Sản xuất chăn nuôi và trồng trọt</h4>
-                                    </div>
-                                    <div class="box-gray aligncenter">
-                                        @*<div class="icon">
-                                    <img src="~/Content/images/hscb/du-an-bo/image009.jpg"/>
-                                </div>*@
-                                        <p>
-                                            HSCB tạo dựng thương hiệu của mình trong lĩnh vực nông nghiệp với hệ thống chuồng trại chăn nuôi và trồng trọt theo mô hình hoàn toàn sạch và khép kín.
-                                            Hiện Công ty đã có hệ thống trang trại, đối tác rộng khắp cả nước...
-                                        </p>
-                                        <a href="@Url.Action("FarmSystem", "ActivityField")" class="text-link">- Tìm hiểu thêm -</a>
-                                    </div>
-
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-lg-6">
-                        <div class="row">
-                            <div class="box-thin-min">
-                                <div class="box box-shadow">
-                                    <div class="box-bottom">
-                                        <h4>Xuất nhập khẩu nông sản</h4>
-                                    </div>
-                                    <div class="box-gray aligncenter">
-                                        @*<div class="icon">
-                                    <img src="~/Content/images/hscb/chanh-day/img1.png"/>
-                                </div>*@
-                                        <p>
-                                            Không dừng lại ở việc tiêu thụ sản phẩm trong nước, HSCB còn mong muốn mở rộng thị trường xuất khẩu để mang đến cho người tiêu dùng các nước bạn những sản phẩm chất lượng của doanh nghiệp mình...
-                                        </p>
-                                        <a href="@Url.Action("ImportExport", "ActivityField")" class="text-link">- Tìm hiểu thêm -</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    @*<div class="col-lg-3">
-                        <div class="box">
-                            <div class="box-gray aligncenter">
-                                <h4>Valid HTML5</h4>
-                                <div class="icon">
-                                    <i class="fa fa-code fa-3x"></i>
-                                </div>
-                                <p>
-                                    Voluptatem accusantium doloremque laudantium sprea totam rem aperiam.
-                                </p>
-
-                            </div>
-                            <div class="box-bottom">
-                                <a href="#">Learn more</a>
-                            </div>
-                        </div>
-                    </div>*@
-                </div>
-            </div>
-        </div>
-        <!-- divider -->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="solidline">
-                </div>
-            </div>
-        </div>
-        <!-- end divider -->
         <!-- Portfolio Projects -->
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="heading">Sản phẩm tiêu biểu</h3>
                 <div class="row">
                     <section id="projects">
                         <ul id="thumbs" class="portfolio">
@@ -292,7 +294,7 @@
                                     <img src="~/Content/images/hscb/du-an-bo/image017.jpg" alt="Bò lai sind, bò Vàng Việt Nam được nuôi với quy trình sạch nên tỉ lệ mỡ rất thấp, bò khỏe, khả năng chóng chịu bệnh tốt">
                                 </div>
                                 <div class="text-center" style="padding-bottom: 10px;">
-                                    <p class="text-center"><b>Dự án bò</b></p>    
+                                    <p class="text-center"><b>Dự án bò</b></p>
                                     <a href="@Url.Action("Details","Products", new {id = 10})" class="text-link-min">Tìm hiểu thêm</a>
                                 </div>
                             </li>
@@ -357,14 +359,13 @@
                             <li style="clear: both"></li>
                         </ul>
                         <div class="text-center">
-                            <br/>
+                            <br />
                             <a href="@Url.Action("Index", "Products")" class="text-link text-border" style="font-size: 18px">- Xem thêm sản phẩm -</a>
                         </div>
                     </section>
                 </div>
             </div>
         </div>
-
     </div>
     <div style="clear: both"></div>
 </section>

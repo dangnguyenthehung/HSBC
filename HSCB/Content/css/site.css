@@ -54,7 +54,7 @@ p, span, li {
 
 .slides li {
     overflow: hidden;
-    height: 390px;
+    height: 460px;
 }
 .btn {
     border-radius: 4px;
@@ -75,20 +75,37 @@ p, span, li {
     border-radius: 5px;
     border: solid 2px;
     color: #f5f5f5;
-    background-color: #68A4C4;
+    background-color: #4a70ba;
 }
 .dropdown-menu {
     top: 75px !important;
     border: solid 1px #eee;
-    color: #68A4C4;
+    color: #4a70ba;
     padding: 5px;
 }
-    .dropdown-menu li:hover {
-        background-color: transparent !important;
+.dropdown-menu li {
+    padding: 5px 15px;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+    .dropdown-menu li:last-child {
+        
+    } 
+    
+    .dropdown-menu li a {
+        color: #ffffff !important;
+    }
+
+.dropdown-menu li:hover {
+        background-color: #ffffff !important;
     }
 
         .dropdown-menu li:hover a {
             color: #096EB0 !important;
+            
         }
 .box-shadow {
     box-shadow: 2px 2px 2px #ddd;
@@ -140,10 +157,33 @@ p, span, li {
     height: auto;
 }
 .text-border {
-    border: solid 2px #68A4C4;
+    border: solid 2px #4a70ba;
     -ms-border-radius: 4px;
     border-radius: 4px;
 }
+.main-title {
+    font-weight: bold;
+    font-size: 18px;
+    color: #2E57A7 !important;
+}
+.sub-new-title {
+    font-size: 14px !important;
+    margin-bottom: 0 !important;
+    text-align: left !important;
+    font-weight: bold;
+    color: #2E57A7 !important;
+}
+.blue-background {
+    padding-top: 25px;
+    background-color: #4a70ba;
+}
+.blue-background section.callaction {
+    color: #ffffff !important;
+    background-color: transparent !important;
+}
+    .blue-background section.callaction h2 {
+        color: #f3f3f3 !important;
+    }
 
 @media screen and (max-width: 992px) {
     .slides li {
