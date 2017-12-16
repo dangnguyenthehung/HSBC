@@ -1,5 +1,5 @@
 ﻿@using HSCB.Models
-@using HSCB.Utilities
+@using Context.Utilities
 
 @{
     ViewBag.Title = "Trang chủ";
@@ -16,7 +16,8 @@
                     <div id="main-slider" class="flexslider box-shadow">
                         <ul class="slides">
                             <li>
-                                <img src="~/Content/images/hscb/anh-ve-cong-ty/hscb.jpg" alt="" />
+                                <img src="~/Content/images/hscb/anh-ve-cong-ty/hscb.jpg" alt="" class="hidden-sm hidden-xs" />
+                                <img src="~/Content/images/hscb/anh-ve-cong-ty/mobile_3x2_1.jpg" alt="" class="visible-sm visible-xs" />
                                 <div class="flex-caption">
                                     <h3>Luôn đi đầu</h3>
                                     <p>trong việc phát triển các hệ thống trang trại truyền thống theo hướng hữu cơ, với mô hình sản xuất hoàn toàn khép kín...</p>
@@ -24,7 +25,8 @@
                                 </div>
                             </li>
                             <li>
-                                <img src="~/Content/images/hscb/anh-ve-cong-ty/image003.jpg" alt="" />
+                                <img src="~/Content/images/hscb/anh-ve-cong-ty/hscb3.jpg" alt="" class="hidden-sm hidden-xs" />
+                                <img src="~/Content/images/hscb/anh-ve-cong-ty/image003.jpg" alt="" class="visible-sm visible-xs" />
                                 <div class="flex-caption">
                                     <h3>Không ngừng lớn mạnh</h3>
                                     <p>và liên tục phát triển không chỉ về quy mô sản xuất, mà cả về kĩ thuật chăn nuôi, trồng trọt....</p>
@@ -32,7 +34,8 @@
                                 </div>
                             </li>
                             <li>
-                                <img src="~/Content/images/hscb/anh-ve-cong-ty/image005.jpg" alt="" />
+                                <img src="~/Content/images/hscb/anh-ve-cong-ty/hscb2.jpg" alt=""  class="hidden-sm hidden-xs" />
+                                <img src="~/Content/images/hscb/anh-ve-cong-ty/mobile_3x2_2.jpg" alt="" class="visible-sm visible-xs" />
                                 <div class="flex-caption">
                                     <h3>Tầm nhìn</h3>
                                     <p>Trở thành thương hiệu hàng đầu về thực phẩm sạch tự nhiên, nâng cao chất lượng cuộc sống...</p>
@@ -184,6 +187,7 @@
     </div>
     <div style="clear: both"></div>
 </section>
+
 <div class="row blue-background">
     <section class="callaction">
         <div class="">
@@ -214,8 +218,8 @@
                                                 </div>
                                                 <div class="box-gray aligncenter">
                                                     @*<div class="icon">
-                                            <img src="~/Content/images/hscb/du-an-bo/image009.jpg"/>
-                                        </div>*@
+                                                            <img src="~/Content/images/hscb/du-an-bo/image009.jpg"/>
+                                                        </div>*@
                                                     <p style="margin-bottom: 25px;">
                                                         HSCB tạo dựng thương hiệu của mình trong lĩnh vực nông nghiệp với hệ thống chuồng trại chăn nuôi và trồng trọt theo mô hình hoàn toàn sạch và khép kín.
                                                         Hiện Công ty đã có hệ thống trang trại, đối tác rộng khắp cả nước...
@@ -236,8 +240,8 @@
                                                 </div>
                                                 <div class="box-gray aligncenter">
                                                     @*<div class="icon">
-                                            <img src="~/Content/images/hscb/chanh-day/img1.png"/>
-                                        </div>*@
+                                                            <img src="~/Content/images/hscb/chanh-day/img1.png"/>
+                                                        </div>*@
                                                     <p style="margin-bottom: 25px;">
                                                         Không dừng lại ở việc tiêu thụ sản phẩm trong nước, HSCB còn mong muốn mở rộng thị trường xuất khẩu để mang đến cho người tiêu dùng các nước bạn những sản phẩm chất lượng của doanh nghiệp mình...
                                                     </p>
@@ -253,7 +257,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div style="clear: both"></div>
     </section>
 </div>
@@ -447,5 +451,47 @@
         <div style="clear: both"></div>
     </section>
 </div>
+
+<section class="callaction">
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="big-cta">
+                    <div class="cta-text">
+                        <br/>
+                        <h2>Đăng ký nhận bản tin</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="reveive-news">
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="col-xs-12" id="frmReceiveNews">
+                @using (Html.BeginForm("ReceiveNews", "Contact", FormMethod.Post))
+                {
+                    <div class="row">
+                        <div class="col-xs-12 col-md-8 col-md-offset-2">
+                            <div class="row">
+                                <p class="text-danger" id="emailError"></p>
+                                <div class="form-group">
+                                    <div class="col-xs-12 col-md-9" style="margin-bottom: 10px">
+                                        @Html.TextBox("email", null, new {@class = "form-control"})
+                                    </div>
+                                    <div class="col-xs-12 col-md-3">
+                                        <button type="button" class="btn btn-success" id="btnReceiveNews">Đăng ký</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/Scripts/validate.js"></script>
 
 

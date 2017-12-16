@@ -39,5 +39,34 @@ namespace HSCB.Controllers
 
             return View(contact);
         }
+
+        [HttpPost]
+        public ActionResult ReceiveNews(string email)
+        {
+            if (!string.IsNullOrEmpty(email))
+            {
+                var contact = new Contact()
+                {
+                    Email = email,
+                    Name = email,
+                    Phone = "",
+                    Status = "Nhận thông báo"
+                };
+
+                var helper = new ContactHelper();
+                var result = helper.Insert(contact);
+
+                if (result)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                var message = MessageConstants.ContactSubmitFail;
+                return RedirectToAction("Index", "Message", new { message });
+            }
+
+            return RedirectToAction("Index", "Home");
+
+        }
     }
 }

@@ -7,8 +7,12 @@ namespace HSCB.Constants
 {
     public struct MessageConstants
     {
-        public static string ContactSubmitFail = "Submit Fail, please try again!";
+        public static string ContactSubmitFail = "Gửi thông tin liên hệ thất bại, vui lòng thử lại sau!";
 
-        public static string NotFound = "Not Found!";
+        public static string NotFound = "Rất tiếc! Chúng tôi không tìm thấy trang bạn yêu cầu!";
+
+        public static string RegisterSuccess = "Đăng kí thành công!";
+
+        public static string InsertSuccess = "Thêm mới thành công!";
     }
 }

@@ -109,6 +109,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="Get_Product_Images_All" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCategory" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="hscbModelStoreContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
@@ -211,6 +214,9 @@
             <End Role="Content" EntitySet="Contents" />
             <End Role="Image" EntitySet="Images" />
           </AssociationSet>
+          <FunctionImport Name="Get_Product_Images_All" ReturnType="Collection(hscbModel.Get_Product_Images_All_Result)">
+            <Parameter Name="IdCategory" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Contact">
           <Key>
@@ -253,6 +259,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="Get_Product_Images_All_Result">
+          <Property Type="Int32" Name="IdImage" Nullable="false" />
+          <Property Type="String" Name="Url" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="IdContent" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -345,6 +356,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Get_Product_Images_All" FunctionName="hscbModel.Store.Get_Product_Images_All">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="hscbModel.Get_Product_Images_All_Result">
+                <ScalarProperty Name="IdImage" ColumnName="IdImage" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="IdContent" ColumnName="IdContent" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

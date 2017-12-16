@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Context.Database;
+using Context.Utilities;
 
 namespace Context.Dao
 {
@@ -40,6 +41,27 @@ namespace Context.Dao
                 UserID = result.ID,
                 UserName = result.UserName
             };
+        }
+
+        public bool ChangePassword(long userId, string passWord, string newPassword)
+        {
+            var data = db.Users.Find(userId);
+            
+            if (data != null && data.PassWord == passWord)
+            {
+                var user = data.Cast<User>();
+
+                user.PassWord = newPassword;
+
+                data.PassWord = newPassword;
+                db.Entry(data).CurrentValues.SetValues(user);
+                db.SaveChanges();
+
+
+                return true;
+            }
+
+            return false;
         }
     }
 }

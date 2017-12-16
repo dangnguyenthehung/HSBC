@@ -7,7 +7,7 @@ using Context.Database;
 using Context.Dao;
 using HSCB.Common;
 using HSCB.SingleTon;
-using HSCB.Utilities;
+using Context.Utilities;
 
 namespace HSCB.Areas.Admin.Controllers
 {

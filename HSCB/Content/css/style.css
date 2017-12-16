@@ -662,10 +662,6 @@ form#commentform textarea {
 	display: block;	
 }
 
-.work-nav #filters li a:hover {
-
-}
-
 .work-nav #filters li a.selected {
 	color: #DE5E60;
 }
@@ -769,7 +765,7 @@ ul.portfolio-categ li{
 
 ul.portfolio-categ li a{
 	display:block;
-	padding:35x 0 35x 0;
+	padding: 35px 0 35px 0;
 	color:#353535;
 }
 

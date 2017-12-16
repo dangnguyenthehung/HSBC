@@ -1326,9 +1326,14 @@
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Content\images\hscb\anh-ve-cong-ty\hscb.jpg" />
+    <Content Include="Content\images\hscb\anh-ve-cong-ty\hscb2.jpg" />
+    <Content Include="Content\images\hscb\anh-ve-cong-ty\hscb3.jpg" />
     <Content Include="Content\images\hscb\anh-ve-cong-ty\image001.jpg" />
     <Content Include="Content\images\hscb\anh-ve-cong-ty\image003.jpg" />
     <Content Include="Content\images\hscb\anh-ve-cong-ty\image005.jpg" />
+    <Content Include="Content\images\hscb\anh-ve-cong-ty\mobile_3x2_1.jpg" />
+    <Content Include="Content\images\hscb\anh-ve-cong-ty\mobile_3x2_2.jpg" />
+    <Content Include="Content\images\hscb\anh-ve-cong-ty\mobile_3x2_3.jpg" />
     <Content Include="Content\images\hscb\anh-ve-cong-ty\mohinh.png" />
     <Content Include="Content\images\hscb\bap-u-chua\image056.jpg" />
     <Content Include="Content\images\hscb\bap-u-chua\image058.jpg" />
@@ -1625,6 +1630,7 @@
     <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContentController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductImagesController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
@@ -1646,13 +1652,15 @@
     <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleTon\CategorySingleTon.cs" />
-    <Compile Include="Utilities\Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductImages\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductImages\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\ChangePassword.cshtml" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.12.4.min.map" />
     <Content Include="Views\Shared\_LayoutHeader.cshtml" />
@@ -1681,6 +1689,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\AdminBase\" />
+    <Folder Include="Areas\Admin\Views\Images\" />
+    <Folder Include="Content\images\hscb\uploads\" />
     <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
