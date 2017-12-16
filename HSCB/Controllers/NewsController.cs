@@ -56,7 +56,11 @@ namespace HSCB.Controllers
         
         public ActionResult PressRelease()
         {
-            return View();
+            var helper = new ContentDao();
+
+            var model = helper.GetByCategory((int)Enums.Category.ThongCaoBaoChi);
+
+            return View(model);
         }
     }
 }

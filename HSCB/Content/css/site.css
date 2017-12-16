@@ -1,6 +1,6 @@
 ﻿#body-content {
     min-height: 800px;
-    padding-bottom: 50px;
+    padding-bottom: 60px;
 }
 
 p, span, li {
@@ -54,7 +54,7 @@ p, span, li {
 
 .slides li {
     overflow: hidden;
-    height: 390px;
+    height: 450px;
 }
 .btn {
     border-radius: 4px;
@@ -62,37 +62,73 @@ p, span, li {
 .text-link {
     font-size: 16px;
     padding: 10px;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
     transition: all 0.3s;
+    -ms-border-radius: 2px;
+    border-radius: 2px;
 }
+
 .text-link-min {
     font-size: 14px;
-    padding: 5px 7px;
+    padding: 5px 10px;
     transition: all 0.3s;
+    background: #27ae60;
+    color: white;
+    float: left;
+    -ms-border-radius: 2px;
+    border-radius: 2px;
 }
-.text-link:hover,
+
 .text-link-min:hover {
+        text-decoration: none;
+        color: #f5f5f5;
+        background-color: #027936;
+    }
+    
+.text-link:hover {
     text-decoration: none;
-    border-radius: 5px;
-    border: solid 2px;
     color: #f5f5f5;
-    background-color: #68A4C4;
+    background-color: #4a70ba;
 }
 .dropdown-menu {
     top: 75px !important;
     border: solid 1px #eee;
-    color: #68A4C4;
+    color: #4a70ba;
     padding: 5px;
 }
-    .dropdown-menu li:hover {
-        background-color: transparent !important;
+.dropdown-menu li {
+    padding: 5px 15px;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+    .dropdown-menu li a {
+        color: #ffffff !important;
+        transition: none !important;
+    }
+
+.dropdown-menu li:hover {
+        background-color: #ffffff !important;
     }
 
         .dropdown-menu li:hover a {
             color: #096EB0 !important;
+            
         }
 .box-shadow {
     box-shadow: 2px 2px 2px #ddd;
 }
+.box-shadow-border {
+    border: solid 1px #eee;
+    padding: 5px;
+    background-color: #ffffff;
+}
+
+
 .btn-send {
     background-color: #2980b9;
     float: right;
@@ -140,14 +176,75 @@ p, span, li {
     height: auto;
 }
 .text-border {
-    border: solid 2px #68A4C4;
+    border: solid 2px #4a70ba;
     -ms-border-radius: 4px;
     border-radius: 4px;
 }
+.main-title {
+    font-weight: bold;
+    font-size: 18px;
+    color: #2E57A7 !important;
+}
+.sub-new-title {
+    font-size: 14px !important;
+    margin-bottom: 0 !important;
+    text-align: left !important;
+    font-weight: bold;
+    color: #2E57A7 !important;
+}
+.blue-background {
+    padding-top: 25px;
+    background-color: #4a70ba;
+    margin-bottom: 0px !important;
+}
+.blue-background section.callaction {
+    color: #ffffff !important;
+    background-color: transparent !important;
+}
+    .blue-background section.callaction h2 {
+        color: #f3f3f3 !important;
+    }
+.text-content p img {
+    text-align: center;
+}
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    /*background: #869791;*/
+    background: #4a70ba;
+}
+.no-decoration {
+    text-decoration: none;
+}
 
-@media screen and (max-width: 992px) {
+.no-decoration:hover {
+    text-decoration: none;
+}
+.product-intro {
+    font-size: 12px;
+    color: #333;
+    text-align: justify;
+}
+#btnReceiveNews {
+    width: 100%;
+    height: 40px;
+    background-color: #e74c3c;
+    border: none;
+}
+#emailError {
+    padding: 0px 15px;
+}
+@media screen and (max-width: 767px) {
     .slides li {
-        height: 250px;       
+        height: 250px;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .slides li {
+        height: 350px;
+    }
+}
+@media screen and (max-width: 992px) {
+    section.callaction h2 {
+        font-size: 22px;
     }
 }
 @media screen and (min-width: 992px) {
@@ -176,5 +273,15 @@ p, span, li {
         height: 350px !important;
         width: auto;
         margin: 0px auto;
+    }
+    
+    #btnReceiveNews {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 1170px) {
+    .col-lg-20 {
+        width: 20% !important;
     }
 }

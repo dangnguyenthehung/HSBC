@@ -12,6 +12,8 @@ namespace Context.Database
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class hscbEntities : DbContext
     {
@@ -31,5 +33,14 @@ namespace Context.Database
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+    
+        public virtual ObjectResult<Get_Product_Images_All_Result> Get_Product_Images_All(Nullable<int> idCategory)
+        {
+            var idCategoryParameter = idCategory.HasValue ?
+                new ObjectParameter("IdCategory", idCategory) :
+                new ObjectParameter("IdCategory", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Get_Product_Images_All_Result>("Get_Product_Images_All", idCategoryParameter);
+        }
     }
 }

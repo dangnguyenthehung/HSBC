@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Context.Dao;
 using Context.Database;
+using HSCB.Common;
 using HSCB.SingleTon;
 
 namespace HSCB.Areas.Admin.Controllers
@@ -45,11 +46,19 @@ namespace HSCB.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                category.Status = true;
-                category.CreatedDate = DateTime.Now;
-                category.ModifiedDate = DateTime.Now;
+                var loginAcc = (UserLogin)Session[CommonConstants.USER_SESSION];
+                if (loginAcc != null)
+                {
+                    category.MetaTitle = category.Name;
+                    category.SeoTitle = category.Name;
+                    category.Status = true;
+                    category.ShowOnHome = true;
+                    category.CreatedDate = DateTime.Now;
+                    category.CreatedBy = loginAcc.UserName;
+                    category.ModifiedDate = DateTime.Now;
 
-                new CategoryDao().Insert(category);
+                    new CategoryDao().Insert(category);
+                }
             }
 
             return RedirectToAction("Index");
@@ -64,7 +73,7 @@ namespace HSCB.Areas.Admin.Controllers
 
             if (model == null)
             {
-                return RedirectToAction("Index","Category");
+                return RedirectToAction("Index", "Category");
             }
 
             var tempList = helper.GetAll();
@@ -89,9 +98,17 @@ namespace HSCB.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                category.ModifiedDate = DateTime.Now;
+                var loginAcc = (UserLogin)Session[CommonConstants.USER_SESSION];
+                if (loginAcc != null)
+                {
+                    
+                    category.SeoTitle = category.Name;
+                    category.ModifiedBy = loginAcc.UserName;
+                    category.ModifiedDate = DateTime.Now;
 
-                new CategoryDao().Update(category);
+                    new CategoryDao().Update(category);
+                }
+
             }
 
             return RedirectToAction("Index");

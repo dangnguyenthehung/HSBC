@@ -86,6 +86,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Entitites.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Database\Get_Product_Images_All_Result.cs">
+      <DependentUpon>Entitites.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\Image.cs">
       <DependentUpon>Entitites.tt</DependentUpon>
     </Compile>
@@ -97,6 +100,7 @@
     </Compile>
     <Compile Include="Database\ContentMetadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Utilities.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

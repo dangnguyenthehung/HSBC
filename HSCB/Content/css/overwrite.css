@@ -455,7 +455,7 @@ dd {
 
 
 .btn {
-  font-size: 12px;
+  font-size: 14px;
   text-transform:uppercase;
   text-shadow: none;
   background-image:none;
@@ -746,11 +746,12 @@ font-size: 10px;
   color:#fff;
 }
 
-.btn-theme:hover,.btn-theme:focus,.btn-theme:active{
-  background: #18191a;
-   color:#fff;
-  border:1px solid #18191a;
-}
+    .btn-theme:hover, .btn-theme:focus, .btn-theme:active {
+        /*background: #18191a;*/
+        background: #183186;
+        color: #fff;
+        border: 1px solid #18191a;
+    }
 
 
 
@@ -897,7 +898,7 @@ font-size: 10px;
 
 .navbar .nav > li > a {
   float: none;
-  font-size:13px;
+  font-size:14px;
   padding: 10px 0 10px;
   margin-left:20px;
   margin-right:0;

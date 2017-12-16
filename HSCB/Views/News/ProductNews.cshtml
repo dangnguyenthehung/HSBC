@@ -1,4 +1,4 @@
-﻿@using HSCB.Utilities
+﻿@using Context.Utilities
 @model List<Context.Database.Content>
 
 @{
@@ -51,7 +51,7 @@
                         var mainImg = item.Image;
                         var newLink = Url.Action("NewsDetails", "News", new { item.Id });
 
-                        var mainContent = item.Detail.Truncate(200) + $"<a href='{newLink}'> Xem thêm </a></p>";
+                        var mainContent = item.Detail.Truncate(225) + $"<a href='{newLink}'> Xem thêm </a></p>";
 
                         <div class="news-container">
                             <div class="row">
