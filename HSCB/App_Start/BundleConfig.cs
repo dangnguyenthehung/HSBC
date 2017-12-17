@@ -22,12 +22,37 @@ namespace HSCB
                 "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                "~/Scripts/bootstrap.js",
-                "~/Scripts/respond.js"));
+                "~/Scripts/jquery-1.12.4.min.js",
+                "~/Scripts/bootstrap.min.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/Content/bootstrap.css",
-                "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/bundles/plugins").Include(
+                "~/Scripts/jquery.easing.1.3.js",
+                "~/Scripts/jquery.fancybox.pack.js",
+                "~/Scripts/jquery.fancybox-media.js",
+                "~/Scripts/google-code-prettify/prettify.js",
+                "~/Scripts/portfolio/jquery.quicksand.js",
+                "~/Scripts/portfolio/setting.js",
+                "~/Scripts/jquery.flexslider.js",
+                "~/Content/owlcarousel/owl.carousel.min.js",
+                "~/Scripts/custom.js"));
+
+
+            bundles.Add(new StyleBundle("~/Styles/css").Include(
+                "~/Content/css/bootstrap.min.css",
+                "~/Content/css/flexslider.css",
+                "~/Content/css/style.css",
+                "~/Content/css/site.css"));
+
+            bundles.Add(new StyleBundle("~/Styles/css/fancybox").Include(
+                "~/Content/css/fancybox/jquery.fancybox.css"));
+
+            bundles.Add(new StyleBundle("~/Styles/owlcarousel/assets").Include(
+                "~/Content/owlcarousel/assets/owl.carousel.min.css",
+                "~/Content/owlcarousel/assets/owl.theme.default.min.css"));
+
+            bundles.Add(new StyleBundle("~/Styles/css/skins").Include(
+                "~/Content/css/skins/default.css"));
+
         }
     }
 }

@@ -45,14 +45,6 @@
 @Html.Partial("_PartialProductContactInfo")
 
 <script>
-    //$(window).load(function() {
-    //    $('.flexslider').flexslider({
-    //        animation: "slide",
-    //        animationLoop: true,
-    //        smoothHeight: false,
-    //        itemMargin: 5
-    //    });
-    //});
     $(document).ready(function () {
         var owl = $('.owl-carousel');
 
@@ -60,22 +52,13 @@
             margin: 10,
             loop: true,
             dots: false,
-            autoWidth: true,
+            autoWidth: false,
             autoplay: true,
             autoplayTimeout: 2000,
             autoplayHoverPause: false,
             nav: false,
-            responsive: {
-                0:{
-                    items:1
-                },
-                992:{
-                    items:2
-                },
-                1170:{
-                    items:3
-                }
-            }
+            items: 3
+            
         });
 
         owl.trigger('play.owl.autoplay', [2000]);

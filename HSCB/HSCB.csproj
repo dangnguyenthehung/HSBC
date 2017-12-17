@@ -1356,6 +1356,7 @@
     <Content Include="Content\images\hscb\chanh-day\img7.JPG" />
     <Content Include="Content\images\hscb\chanh-day\img8.JPG" />
     <Content Include="Content\images\hscb\chanh-day\img9.JPG" />
+    <Content Include="Content\images\hscb\chomchom\chomchom2.jpg" />
     <Content Include="Content\images\hscb\du-an-bo\image007.jpg" />
     <Content Include="Content\images\hscb\du-an-bo\image009.jpg" />
     <Content Include="Content\images\hscb\du-an-bo\image013.jpg" />
@@ -1376,6 +1377,14 @@
     <Content Include="Content\images\hscb\images\111217_4.jpg" />
     <Content Include="Content\images\hscb\images\29apec%281%29.jpg" />
     <Content Include="Content\images\hscb\images\29apec.jpg" />
+    <Content Include="Content\images\hscb\images\chomchom.jpg" />
+    <Content Include="Content\images\hscb\images\gung1.jpg" />
+    <Content Include="Content\images\hscb\images\image013.jpg" />
+    <Content Include="Content\images\hscb\images\image022.jpg" />
+    <Content Include="Content\images\hscb\images\image056.jpg" />
+    <Content Include="Content\images\hscb\images\img0.jpg" />
+    <Content Include="Content\images\hscb\images\thanhlong.jpg" />
+    <Content Include="Content\images\hscb\images\unnamed.jpg" />
     <Content Include="Content\images\hscb\news\image003.jpg" />
     <Content Include="Content\images\hscb\san-pham-nha-dam\IMG-0016.JPG" />
     <Content Include="Content\images\hscb\san-pham-nha-dam\IMG-0015.JPG" />
@@ -1396,6 +1405,10 @@
     <Content Include="Content\images\hscb\trun-que\img7.jpg" />
     <Content Include="Content\images\hscb\trun-que\img8.jpg" />
     <Content Include="Content\images\hscb\uploads\60.jpg" />
+    <Content Include="Content\images\hscb\uploads\chomchom.jpg" />
+    <Content Include="Content\images\hscb\uploads\chomchom2.jpg" />
+    <Content Include="Content\images\hscb\uploads\chomchom3.jpg" />
+    <Content Include="Content\images\hscb\uploads\chomchom4.jpg" />
     <Content Include="Content\images\hscb\uploads\img10.jpg" />
     <Content Include="Content\images\hscb\_thumbs\Images\111217.jpeg" />
     <Content Include="Content\images\hscb\_thumbs\Images\111217_1.jpg" />
