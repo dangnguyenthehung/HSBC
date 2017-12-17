@@ -24,6 +24,11 @@ namespace HSCB.SingleTon
             _listCategory = helper.GetAll();
         }
 
+        public static void UpdateData()
+        {
+            GetData();
+        }
+
         public static List<Category> GetAllCategories()
         {
             if (_listCategory == null)

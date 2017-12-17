@@ -58,6 +58,8 @@ namespace HSCB.Areas.Admin.Controllers
                     category.ModifiedDate = DateTime.Now;
 
                     new CategoryDao().Insert(category);
+
+                    CategorySingleTon.UpdateData();
                 }
             }
 
@@ -107,6 +109,8 @@ namespace HSCB.Areas.Admin.Controllers
                     category.ModifiedDate = DateTime.Now;
 
                     new CategoryDao().Update(category);
+
+                    CategorySingleTon.UpdateData();
                 }
 
             }
