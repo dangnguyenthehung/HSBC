@@ -1395,6 +1395,8 @@
     <Content Include="Content\images\hscb\trun-que\img4.jpg" />
     <Content Include="Content\images\hscb\trun-que\img7.jpg" />
     <Content Include="Content\images\hscb\trun-que\img8.jpg" />
+    <Content Include="Content\images\hscb\uploads\60.jpg" />
+    <Content Include="Content\images\hscb\uploads\img10.jpg" />
     <Content Include="Content\images\hscb\_thumbs\Images\111217.jpeg" />
     <Content Include="Content\images\hscb\_thumbs\Images\111217_1.jpg" />
     <Content Include="Content\images\hscb\_thumbs\Images\111217_2.jpg" />
@@ -1679,6 +1681,7 @@
     <Content Include="Views\News\PressRelease.cshtml" />
     <Content Include="Views\Message\Index.cshtml" />
     <Content Include="Views\News\NewsDetails.cshtml" />
+    <Content Include="Views\Products\_PartialProductContactInfo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1690,7 +1693,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\AdminBase\" />
     <Folder Include="Areas\Admin\Views\Images\" />
-    <Folder Include="Content\images\hscb\uploads\" />
     <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>

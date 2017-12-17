@@ -1,6 +1,7 @@
-﻿@using HSCB.SingleTon
+﻿@using Context.Dao
+@using HSCB.SingleTon
 @{
-    var listCategory = CategorySingleTon.GetAllCategories();
+    var listCategory = new CategoryDao().GetAll();
     var listProduct = listCategory.Where(c => c.ParentID == 3).ToList();
 }
 
