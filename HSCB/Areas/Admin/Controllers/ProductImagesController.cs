@@ -13,6 +13,7 @@ namespace HSCB.Areas.Admin.Controllers
 {
     public class ProductImagesController : AdminBaseController
     {
+        /*
         // GET: Admin/Images
         public ActionResult Index(int page = 1, int pageSize = 15)
         {
@@ -66,5 +67,6 @@ namespace HSCB.Areas.Admin.Controllers
 
             ViewBag.Category = new SelectList(listCategory, "Id", "Name");
         }
+        */
     }
 }
