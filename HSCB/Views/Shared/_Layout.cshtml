@@ -16,6 +16,7 @@
     <link rel="icon" href="/Content/icons/icon.png" type="image/x-icon">
 
     @Styles.Render("~/Styles/css")
+    @Styles.Render("~/Styles/fontawesome")
     @Styles.Render("~/Styles/css/fancybox")
     @Styles.Render("~/Styles/owlcarousel/assets")
     @Styles.Render("~/Styles/css/skins")
@@ -35,6 +36,13 @@
         <!-- end header -->
         <!-- start body -->
         <section id="body-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        @Html.MvcSiteMap().SiteMapPath()
+                    </div>
+                </div>
+            </div>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-xs-12">

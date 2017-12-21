@@ -5,19 +5,25 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using HSCB.Common;
 using HSCB.Constants;
 using HSCB.Models;
+using MvcSiteMapProvider;
+using MvcSiteMapProvider.Web.Mvc.Filters;
 
 namespace HSCB.Controllers
 {
     public class ProductsController : Controller
     {
         // GET: Products
+        [MvcSiteMapNode(Title = "Sản phẩm", ParentKey = SiteMapKeyConstants.RootNode, Key = SiteMapKeyConstants.Product.BaseNode)]
         public ActionResult Index()
         {
             return View();
         }
 
+        [MvcSiteMapNode(Title = "Chi tiết", ParentKey = SiteMapKeyConstants.Product.BaseNode, Key = SiteMapKeyConstants.Product.Details, PreservedRouteParameters = "id")]
+        [SiteMapTitle(ViewDataConstants.SiteMapTitle, Target = AttributeTarget.CurrentNode)]
         public ActionResult Details(int id)
         {
             if (id > 0)
@@ -32,6 +38,8 @@ namespace HSCB.Controllers
                 {
                     var imageHelper = new ImagesDao();
                     model.ImagesList = imageHelper.GetImages(model.Content.Id);
+
+                    ViewData[ViewDataConstants.SiteMapTitle] = model.Content.Title;
 
                     return View(model);
                 }
