@@ -1325,6 +1325,8 @@
     <Content Include="Content\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Content\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\images\hscb\anh-ve-cong-ty\field-1.jpg" />
+    <Content Include="Content\images\hscb\anh-ve-cong-ty\field.jpg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Content\font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="Content\icons\icon.png" />
@@ -1752,7 +1754,7 @@
     <Content Include="Views\News\PressRelease.cshtml" />
     <Content Include="Views\Message\Index.cshtml" />
     <Content Include="Views\News\NewsDetails.cshtml" />
-    <Content Include="Views\Products\_PartialProductContactInfo.cshtml" />
+    <Content Include="Views\Shared\_PartialProductContactInfo.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModelList.cshtml" />

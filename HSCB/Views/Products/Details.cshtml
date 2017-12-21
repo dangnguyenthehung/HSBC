@@ -34,16 +34,25 @@
         </section>
     </div>*@    
 }
-
-<div class="col-xs-12 col-md-10 col-md-offset-1">
-    <div class="text-content">
-        <div id="product-content">
-            @Html.Raw(Model.Content.Detail)
+<div class="row">
+    <div class="col-xs-12">
+        <div class="col-xs-12 col-md-10 col-md-offset-1">
+            <div class="text-content">
+                <div id="product-content">
+                    @Html.Raw(Model.Content.Detail)
+                </div>
+            </div>
         </div>
+
+        <div class="col-xs-12 col-md-10 col-md-offset-1">
+            <div class="row">
+                @Html.Partial("_PartialProductContactInfo")        
+            </div>
+        </div>
+
     </div>
 </div>
 
-@Html.Partial("_PartialProductContactInfo")
 
 @*<script>
     $(document).ready(function () {
