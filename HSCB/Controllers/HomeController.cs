@@ -6,14 +6,17 @@ using System.Web.Mvc;
 using Context;
 using Context.Dao;
 using Context.Database;
+using HSCB.Common;
 using HSCB.Constants;
 using HSCB.Models;
+using MvcSiteMapProvider;
 
 namespace HSCB.Controllers
 {
     public class HomeController : Controller
     {
         // GET: Home
+        [MvcSiteMapNode(Title = "Trang chủ", Key = SiteMapKeyConstants.RootNode)]
         public ActionResult Index()
         {
             var helper = new ContentDao();

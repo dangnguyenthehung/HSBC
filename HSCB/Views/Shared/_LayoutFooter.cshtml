@@ -19,15 +19,16 @@
                 <h4 class="widgetheading">Công ty Cổ phần đầu tư nuôi trồng HSCB</h4>
                 <br />
                 <address>
-                    @address
+                    <i class="fa fa-map-marker"></i>&nbsp; @address
                 </address>
                 <p>
-                    <i class="fa fa-phone"></i> <a style="color: white !important" href="tel:@phone">@phone</a> <br>
-                    <i class="fa fa-envelope"></i> <a style="color: white !important" href="mailto:@email">@email</a>
+                    <i class="fa fa-phone"></i><a style="color: white !important" href="tel:@phone">&nbsp;@phone</a> <br>
+                    <i class="fa fa-envelope"></i><a style="color: white !important" href="mailto:@email">&nbsp;@email</a>
                 </p>
                 <div class="col-xs-12">
                     <div class="row">
-                        <div class="bottom-logo"><img src="~/Content/images/logo.png" height="60"/>
+                        <div class="bottom-logo">
+                            <img src="~/Content/images/logo.png" height="60" />
                         </div>
                     </div>
                 </div>
@@ -54,8 +55,8 @@
                     <li><a href="@Url.Action("PressRelease","News")">Thông cáo báo chí</a></li>
                 </ul>
             </div>
-            
-            <br/>
+
+            <br />
             <div id="google_translate_element"></div>
             <script type="text/javascript">
                 function googleTranslateElementInit() {
@@ -63,40 +64,49 @@
                 }
             </script>
             <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-            
-            <div class="col-xs-12">
-                <br/>
-                <ul class="social-network">
-                    <li><a href="@facebook" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="@twitter" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="@linkedin" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="@google" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
-                </ul>
+            <div class="row">
+                <div class="col-xs-6">
+                    <br />
+                    <ul class="social-network">
+                        <li style="background-color:#03C;"><a href="@facebook" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i>&nbsp;facebook</a></li>
+
+                        <li style="background-color:#39F;"><a href="@twitter" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i>&nbsp;twitter</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-6">
+                    <br />
+                    <ul class="social-network">
+                        <li style="background-color:#06F;"><a href="@linkedin" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i>&nbsp;linkedin</a></li>
+
+                        <li style="background-color:#F00;"><a href="@google" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i>&nbsp;google+</a></li>
+                    </ul>
+                </div>
             </div>
+            
         </div>
     </div>
 </div>
 @*<div id="sub-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="copyright">
-                        <p>&copy; Moderna Theme. All right reserved.</p>
-                        <div class="credits">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="copyright">
+                            <p>&copy; Moderna Theme. All right reserved.</p>
+                            <div class="credits">
 
-                            <a href="https://bootstrapmade.com/">Free Bootstrap Themes</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                                <a href="https://bootstrapmade.com/">Free Bootstrap Themes</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                            </div>
                         </div>
-                    </div>
-            </div>
-            <div class="col-lg-6">
-                <ul class="social-network">
-                    <li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
-                    <li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
-                </ul>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="social-network">
+                        <li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-</div>*@
+    </div>*@

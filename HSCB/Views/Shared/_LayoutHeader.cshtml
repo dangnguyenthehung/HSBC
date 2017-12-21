@@ -19,10 +19,10 @@
         </div>
         <div class="navbar-collapse collapse ">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
+                <li class=""><a href="@Url.Action("Index","Home")"><i class="fa fa-home"></i>&nbsp; Trang chủ</a></li>
                 <li class="dropdown">
                     <a href="@Url.Action("Index","CompanyStory")" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
-                        Câu chuyện HSCB <span class="caret"></span>
+                        <i class="fa fa-history"></i>&nbsp; Câu chuyện HSCB <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="@Url.Action("AboutUs","CompanyStory")">Về chúng tôi</a></li>
@@ -31,7 +31,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="@Url.Action("Index","ActivityField")" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
-                        Lĩnh vực hoạt động<span class="caret"></span>
+                        <i class="fa fa-pie-chart"></i>&nbsp; Lĩnh vực hoạt động <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="@Url.Action("FarmSystem","ActivityField")">Sản xuất chăn nuôi và trồng trọt</a></li>
@@ -40,7 +40,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="@Url.Action("Index","Products")" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
-                        Sản phẩm <span class="caret"></span>
+                        <i class="fa fa-shopping-cart"></i>&nbsp; Sản phẩm <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         @foreach (var item in listProduct)
@@ -52,7 +52,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="@Url.Action("Index","News")" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
-                        Tin tức - Sự kiện <span class="caret"></span>
+                        <i class="fa fa-info-circle"></i>&nbsp; Tin tức - Sự kiện <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="@Url.Action("Activity","News")">Hoạt động HSCB</a></li>
@@ -60,7 +60,7 @@
                         <li><a href="@Url.Action("PressRelease","News")">Thông cáo báo chí về HSCB</a></li>
                     </ul>
                 </li>
-                <li><a href="@Url.Action("Index","Contact")">Liên hệ</a></li>
+                <li><a href="@Url.Action("Index","Contact")"><i class="fa fa-user"></i>&nbsp; Liên hệ</a></li>
             </ul>
         </div>
     </div>

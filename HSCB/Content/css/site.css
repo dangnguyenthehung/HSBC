@@ -2,7 +2,12 @@
     min-height: 800px;
     padding-bottom: 60px;
 }
-
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 2px solid #ddd !important;  
+}
 p, li {
     font-size: 16px;
     text-align: justify;

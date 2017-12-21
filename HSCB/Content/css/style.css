@@ -841,14 +841,13 @@ ul.general {
 ul.link-list{
 	margin:0;
 	padding:0;
-	list-style:none;
 }
 
-ul.link-list li{
-	margin:0;
-	padding:2px 0 2px 0;
-	list-style:none;
-}
+    ul.link-list li {
+        margin: 0 0 0 20px;
+        padding: 2px 0 2px 0;
+        /*list-style:circle;*/
+    }
 
 footer ul.link-list li a{
 	color:#fff;
@@ -909,14 +908,14 @@ footer .widget .social-network {
 /* --- Map --- */
 .map{
 	position:relative;
-	margin-top:-50px;
+	margin-top: 0px;
 	margin-bottom:40px;
 }
 
 /* google map */
 #google-map{
     position:relative;
-    height: 450px;
+    height: 550px;
 }
 
 /* --- our team --- */
@@ -1600,10 +1599,11 @@ ul.social-network {
 	margin:0;
 }
 
-ul.social-network li {
-	display:inline;
-	margin: 0 5px;
-}
+    ul.social-network li {
+        display: block;
+        margin: 5px;
+        padding: 5px 5px;
+    }
 
 #sub-footer{
 	text-shadow:none;

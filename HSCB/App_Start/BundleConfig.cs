@@ -52,6 +52,9 @@ namespace HSCB
 
             bundles.Add(new StyleBundle("~/Styles/css/skins").Include(
                 "~/Content/css/skins/default.css"));
+            
+            bundles.Add(new StyleBundle("~/Styles/fontawesome").Include(
+                "~/Content/font-awesome-4.7.0/css/font-awesome.min.css"));
 
         }
     }
