@@ -48,5 +48,25 @@ namespace HSCB.SingleTon
 
             return _listCategory?.Find(c => c.ID == id)?.Name ?? "Không có";
         }
+
+        public static List<Category> GetChildCategories(int id)
+        {
+            if (_listCategory == null)
+            {
+                GetData();
+            }
+
+            return _listCategory?.Where(c => c.ParentID == id).ToList();
+        }
+
+        public static Category GetById(int id)
+        {
+            if (_listCategory == null)
+            {
+                GetData();
+            }
+
+            return _listCategory?.SingleOrDefault(c => c.ID == id);
+        }
     }
 }

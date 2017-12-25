@@ -30,6 +30,7 @@ namespace HSCB.Constants
         {
             public const string BaseNode = "Product";
 
+            public const string Group = "ProductGroup";
             public const string Details = "ProductDetails";
         }
 

@@ -15,28 +15,24 @@ namespace HSCB.Areas.Admin.Controllers
         // GET: Admin/Category
         public ActionResult Index()
         {
-            var helper = new CategoryDao();
-            var model = helper.GetAll();
+            var model = CategorySingleTon.GetChildCategories(0);
             return View(model);
         }
 
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            var helper = new CategoryDao();
-            var tempList = helper.GetAll();
-
-            var listCategory = tempList.Where(p => p.ParentID == 0).ToList();
-
-            listCategory.Add(new Category()
+            if (id < 0)
             {
-                ID = 0,
-                Name = "Không có"
-            });
+                id = 0;
+            }
 
-            ViewBag.Category = new SelectList(listCategory, "Id", "Name", 0);
+            var model = new Category()
+            {
+                ParentID = id
+            };
 
-            return View();
+            return View(model);
         }
 
         [ValidateInput(false)]
@@ -63,9 +59,24 @@ namespace HSCB.Areas.Admin.Controllers
                 }
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Category", new {id = category.ParentID});
         }
 
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            if (id < 0)
+            {
+                RedirectToAction("Details", "Category", new {id = 0});
+            }
+
+            var model = CategorySingleTon.GetChildCategories(id);
+
+            ViewBag.currentId = id;
+            ViewBag.parentId = id == 0 ? 0 : CategorySingleTon.GetById(id).ParentID;
+
+            return View(model);
+        }
 
         [HttpGet]
         public ActionResult Edit(int id)
@@ -80,7 +91,7 @@ namespace HSCB.Areas.Admin.Controllers
 
             var tempList = helper.GetAll();
 
-            var listCategory = tempList.Where(p => p.ParentID == 0).ToList();
+            var listCategory = tempList.Where(p => p.ParentID == model.ParentID).ToList();
 
             listCategory.Add(new Category()
             {
@@ -100,6 +111,27 @@ namespace HSCB.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (category.ID == category.ParentID)
+                {
+                    ModelState.AddModelError("","Danh mục cha không hợp lệ");
+
+
+                    var helper = new CategoryDao();
+
+                    var tempList = helper.GetAll();
+
+                    var listCategory = tempList.Where(p => p.ParentID == category.ParentID).ToList();
+
+                    listCategory.Add(new Category()
+                    {
+                        ID = 0,
+                        Name = "Không có"
+                    });
+
+                    ViewBag.Category = new SelectList(listCategory, "Id", "Name", 0);
+                    return View(category);
+                }
+
                 var loginAcc = (UserLogin)Session[CommonConstants.USER_SESSION];
                 if (loginAcc != null)
                 {
@@ -115,7 +147,8 @@ namespace HSCB.Areas.Admin.Controllers
 
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Category", new { id = category.ParentID });
         }
+        
     }
 }
