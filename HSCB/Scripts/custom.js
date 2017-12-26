@@ -146,6 +146,10 @@ jQuery(document).ready(function ($) {
 
     $(".navbar-collapse .navbar-nav > li a").each(function () {
         var itemHref = $(this).attr("href");
+        if (pgurl === "/") {
+            pgurl = "/trang-chu";
+        };
+
         if (itemHref == pgurl || itemHref == '')
             //$(this).addClass("active");
             activeIndex = $(".navbar-collapse .navbar-nav > li").index($(this).parent());

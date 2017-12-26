@@ -1,8 +1,15 @@
-﻿@model HSCB.Models.Contact
+﻿@using System.Web.Configuration
+@model HSCB.Models.Contact
 
 @{
     ViewBag.Title = "Liên hệ";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var company = WebConfigurationManager.AppSettings["company"];
+    var farm = WebConfigurationManager.AppSettings["farm"];
+    var address = WebConfigurationManager.AppSettings["address"];
+    var phone = WebConfigurationManager.AppSettings["phone"];
+    var email = WebConfigurationManager.AppSettings["email"];
 }
 
 <div class="container">
@@ -12,52 +19,66 @@
                 <div id="google-map" data-latitude="10.8052767" data-longitude="106.751513"></div>
             </div>
         </div>
-        <div class="col-md-8 col-md-offset-2">
-            <h4 class="text-center">Có câu hỏi hoặc thắc mắc? <br/> <br/>Vui lòng để lại tin nhắn để chúng tôi có thể liên hệ với bạn sớm nhất có thể</h4>
-
-            <div id="sendmessage">Tin nhắn của bạn đã được gửi đi</div>
-            <div id="errormessage"></div>
-            @using (Html.BeginForm("Index", "Contact", FormMethod.Post))
-            {
-                <div class="form-group">
-                    <div class="row" style="margin-bottom: 10px">
-                        <div class="col-xs-12 col-md-4">
-                            @Html.TextBoxFor(model => model.Name, new {@class = "form-control", placeholder = "Họ tên"})
-                            @Html.ValidationMessageFor(model => model.Name, null, new {@class = "text-danger"})
-                        </div>
-                        <div class="col-xs-12 col-md-4">
-                            @Html.TextBoxFor(model => model.Email, new {@class = "form-control", placeholder = "Email"})
-                            @Html.ValidationMessageFor(model => model.Email, null, new {@class = "text-danger"})
-                        </div>
-                        <div class="col-xs-12 col-md-4">
-                            @Html.TextBoxFor(model => model.Phone, new {@class = "form-control", placeholder = "Số điện thoại"})
-                            @Html.ValidationMessageFor(model => model.Phone, null, new {@class = "text-danger"})
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <div class="row">
+                        <div class="col-xs-12 product-contact-wrapper">
+                            <h4 class="company-name"><i>@company</i></h4>
+                            <ul>
+                                <li><b>Email:</b> @email</li>
+                                <li><b>Sđt:</b> @phone</li>
+                                <li><b>Địa chỉ:</b> @address</li>
+                                <li><b>Trang trại:</b> @farm</li>
+                            </ul>
                         </div>
                     </div>
-                    @*<div class="validation"></div>*@
-                </div>
-                <div class="form-group">
-                    @Html.TextAreaFor(model => model.Status, new {@class = "form-control", @cols = 40, @rows = 10, placeholder = "Nội dung..."})
-                    @Html.ValidationMessageFor(model => model.Status, null, new {@class = "text-danger"})
-                    <div class="validation"></div>
                 </div>
 
-                <div class="text-center">
-                    <button type="submit" class="btn btn-send">Gửi tin nhắn</button>
-                </div>
-                @*<div class="form-group">
-                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", placeholder = "Số điện thoại" })
-                    @Html.ValidationMessageFor(model => model.Phone, null, new { @class = "text-danger" })
-                    <div class="validation"></div>
-                </div>
-                <div class="form-group">
-                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Email" })
-                    @Html.ValidationMessageFor(model => model.Email, null, new { @class = "text-danger" })
-                    <div class="validation"></div>
-                </div>*@
+                <div class="col-xs-12 col-md-6">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4 class="text-center">Có câu hỏi hoặc thắc mắc? <br /> <br />Vui lòng để lại tin nhắn để chúng tôi có thể liên hệ với bạn sớm nhất có thể</h4>
 
-            }
+                            <div id="sendmessage">Tin nhắn của bạn đã được gửi đi</div>
+                            <div id="errormessage"></div>
+                            @using (Html.BeginForm("Index", "Contact", FormMethod.Post))
+    {
+                        <div class="form-group">
+                            <div class="row" style="margin-bottom: 10px">
+                                <div class="col-xs-12 col-md-4">
+                                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Họ tên" })
+                                    @Html.ValidationMessageFor(model => model.Name, null, new { @class = "text-danger" })
+                                </div>
+                                <div class="col-xs-12 col-md-4">
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Email" })
+                                    @Html.ValidationMessageFor(model => model.Email, null, new { @class = "text-danger" })
+                                </div>
+                                <div class="col-xs-12 col-md-4">
+                                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", placeholder = "Số điện thoại" })
+                                    @Html.ValidationMessageFor(model => model.Phone, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            @*<div class="validation"></div>*@
+                        </div>
+                        <div class="form-group">
+                            @Html.TextAreaFor(model => model.Status, new { @class = "form-control", @cols = 40, @rows = 10, placeholder = "Nội dung..." })
+                            @Html.ValidationMessageFor(model => model.Status, null, new { @class = "text-danger" })
+                            <div class="validation"></div>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-send">Gửi tin nhắn</button>
+                        </div>
+
+}
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
         </div>
+
     </div>
 </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgaQSZqjfzMp6ON75vqzIgsnu364V-74o"></script>

@@ -8,6 +8,7 @@ using System.Web.Routing;
 using HSCB.Common;
 using HSCB.Constants;
 using HSCB.Models;
+using HSCB.SingleTon;
 using MvcSiteMapProvider;
 using MvcSiteMapProvider.Web.Mvc.Filters;
 
@@ -20,6 +21,21 @@ namespace HSCB.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        [MvcSiteMapNode(Title = "Chi tiết", ParentKey = SiteMapKeyConstants.Product.BaseNode, Key = SiteMapKeyConstants.Product.Group, PreservedRouteParameters = "id")]
+        [SiteMapTitle(ViewDataConstants.SiteMapTitle, Target = AttributeTarget.CurrentNode)]
+        public ActionResult Group(int id)
+        {
+            if (id > 0)
+            {
+                var list = CategorySingleTon.GetChildCategories(id);
+
+                return View(list);
+            }
+
+            var message = MessageConstants.NotFound;
+            return RedirectToAction("Index", "Message", new { message });
         }
 
         [MvcSiteMapNode(Title = "Chi tiết", ParentKey = SiteMapKeyConstants.Product.BaseNode, Key = SiteMapKeyConstants.Product.Details, PreservedRouteParameters = "id")]

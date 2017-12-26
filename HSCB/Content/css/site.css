@@ -9,7 +9,7 @@ hr {
     border-top: 2px solid #ddd !important;  
 }
 p, li {
-    font-size: 16px;
+    font-size: 14px;
     text-align: justify;
 }
 .text-content li {
@@ -59,7 +59,7 @@ p, li {
 
 #main-slider .slides li {
     overflow: hidden;
-    height: 450px;
+    height: 400px;
 }
 
 /*#product-slider .slides li {
@@ -106,12 +106,12 @@ p, li {
 .text-link:hover {
     text-decoration: none;
     color: #f5f5f5;
-    background-color: #4a70ba;
+    background-color: #2E57A7;
 }
 .dropdown-menu {
     top: 75px !important;
     border: solid 1px #eee;
-    color: #4a70ba;
+    color: #2E57A7;
     padding: 5px;
 }
 .dropdown-menu li {
@@ -192,26 +192,28 @@ p, li {
     height: auto;
 }
 .text-border {
-    border: solid 2px #4a70ba;
+    border: solid 2px #143F94;
     -ms-border-radius: 4px;
     border-radius: 4px;
 }
 .main-title {
     font-weight: bold;
     font-size: 18px;
-    color: #2E57A7 !important;
+    color: #143F94 !important;
 }
 .sub-new-title {
     font-size: 14px !important;
     margin-bottom: 0 !important;
     text-align: left !important;
     font-weight: bold;
-    color: #2E57A7 !important;
+    color: #143F94 !important;
 }
 .blue-background {
     padding-top: 25px;
-    background-color: #4a70ba !important;
+    background-color: #2E57A7 !important;
     margin-bottom: 0px !important;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .blue-background section.callaction {
     color: #ffffff !important;
@@ -225,7 +227,7 @@ p, li {
 }
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
     /*background: #869791;*/
-    background: #4a70ba;
+    background: #2E57A7;
 }
 .no-decoration {
     text-decoration: none;
@@ -270,10 +272,21 @@ p, li {
 #product-content {
     padding-top: 25px;
 }
+.navbar-collapse {
+    border-bottom: solid 2px #ddd;
+    margin-bottom: 10px;
+}
+.sub-text-content h3 {
+    color: #183186;
+}
 
 @media screen and (max-width: 767px) {
     .slides li {
         height: 250px;
+    }
+    .navbar-header {
+        border-bottom: solid 2px #ddd;
+        padding-bottom: 10px;
     }
 }
 @media screen and (min-width: 768px) and (max-width: 992px) {
@@ -292,6 +305,10 @@ p, li {
     #product-content span img {
         width: 100% !important;
         height: auto !important;
+    }
+    
+    .blue-background {
+        background-size: auto 100%;
     }
 }
 @media screen and (min-width: 992px) {

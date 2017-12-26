@@ -7,6 +7,27 @@
     var listCategory = (SelectList)ViewBag.Category;
 }
 
+@section jsFooter{
+    <script type="text/javascript" src="~/assets/admin/js/plugins/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="~/assets/admin/js/plugins/ckfinder/ckfinder.js"></script>
+    <script>
+        $('#btnSelectImage').on('click',
+            function(e) {
+                e.preventDefault();
+                var finder = new CKFinder();
+                finder.selectActionFunction = function(url) {
+                    $('#txtImage').val(url);
+                };
+                finder.popup();
+            });
+
+        //var editor = CKEDITOR.replace('txtContent', {
+        //    customConfig: '/assets/admin/js/plugins/ckeditor/config.js',
+        //    height: '400px'
+        //});
+    </script>
+}
+
 @using (Html.BeginForm("Edit", "Category", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
@@ -35,6 +56,15 @@
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.ParentID, listCategory, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ParentID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <!--load ảnh lên-->
+        <div class="form-group">
+            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Image, new { htmlAttributes = new { @class = "form-control", @id = "txtImage" }, id = "txtImage" })
+                <a id="btnSelectImage" href="#">Chọn Ảnh</a>
+                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
             </div>
         </div>
 

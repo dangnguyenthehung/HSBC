@@ -22,6 +22,7 @@
           <Property Name="MetaKeywords" Type="nchar" MaxLength="250" />
           <Property Name="Status" Type="bit" />
           <Property Name="ShowOnHome" Type="bit" />
+          <Property Name="Image" Type="varchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -150,6 +151,7 @@
           <Property Name="Status" Type="Boolean" />
           <Property Name="ShowOnHome" Type="Boolean" />
           <NavigationProperty Name="Contents" Relationship="Self.FK_Content_Category" FromRole="Category" ToRole="Content" />
+          <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -215,7 +217,7 @@
             <End Role="Image" EntitySet="Images" />
           </AssociationSet>
           <FunctionImport Name="Get_Product_Images_All" ReturnType="Collection(hscbModel.Get_Product_Images_All_Result)">
-            <Parameter Name="IdCategory" Mode="In" Type="Int32" />
+          <Parameter Name="IdCategory" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="Contact">
@@ -273,6 +275,7 @@
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="hscbModel.Category">
               <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />

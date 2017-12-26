@@ -7,10 +7,27 @@
     var listCategory = (SelectList)ViewBag.Category;
 }
 
+@section jsFooter{
+    <script type="text/javascript" src="~/assets/admin/js/plugins/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="~/assets/admin/js/plugins/ckfinder/ckfinder.js"></script>
+    <script>
+        $('#btnSelectImage').on('click',
+            function(e) {
+                e.preventDefault();
+                var finder = new CKFinder();
+                finder.selectActionFunction = function(url) {
+                    $('#txtImage').val(url);
+                };
+                finder.popup();
+            });
+    </script>
+}
 
 @using (Html.BeginForm("Create", "Category", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(m => m.ParentID)
 
     <div class="form-horizontal">
         <div class="title"><h1>Tạo Mới Danh mục</h1></div>
@@ -23,15 +40,24 @@
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div>
-        
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.ParentID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.ParentID, listCategory, new {  @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ParentID, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <!--load ảnh lên-->
         <div class="form-group">
-            @Html.LabelFor(model => model.ParentID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.ParentID, listCategory, new {  @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ParentID, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(model => model.Image, new { htmlAttributes = new { @class = "form-control", @id = "txtImage" }, id = "txtImage" })
+                <a id="btnSelectImage" href="#">Chọn Ảnh</a>
+                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-info" />

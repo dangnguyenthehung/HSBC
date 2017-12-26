@@ -1325,6 +1325,9 @@
     <Content Include="Content\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Content\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\images\hscb\anh-ve-cong-ty\field-1.jpg" />
+    <Content Include="Content\images\hscb\anh-ve-cong-ty\field.jpg" />
+    <Content Include="Content\images\hscb\default_category.png" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Content\font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="Content\icons\icon.png" />
@@ -1483,6 +1486,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Scripts\admin\category.js" />
     <Content Include="Scripts\animate.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1731,6 +1735,9 @@
     <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Views\Category\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\ListContent.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -1752,7 +1759,7 @@
     <Content Include="Views\News\PressRelease.cshtml" />
     <Content Include="Views\Message\Index.cshtml" />
     <Content Include="Views\News\NewsDetails.cshtml" />
-    <Content Include="Views\Products\_PartialProductContactInfo.cshtml" />
+    <Content Include="Views\Shared\_PartialProductContactInfo.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModelList.cshtml" />
@@ -1761,6 +1768,7 @@
     <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
+    <Content Include="Views\Products\Group.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

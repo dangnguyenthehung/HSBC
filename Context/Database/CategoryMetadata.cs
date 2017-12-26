@@ -24,6 +24,8 @@ namespace Context.Database
         [Display(Name = "Danh mục cha")]
         [Required]
         public string ParentID;
-        
+
+        [Display(Name = "Hình ảnh")]
+        public string Image { get; set; }
     }
 }
