@@ -1735,6 +1735,8 @@
     <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\font-awesome-4.7.0\fonts\FontAwesome.otf" />
     <Content Include="Areas\Admin\Views\Category\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\ListContent.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>

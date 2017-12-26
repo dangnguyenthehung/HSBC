@@ -17,18 +17,24 @@ namespace HSCB.Areas.Admin.Controllers
         // GET: Admin/Content
         public ActionResult Index()
         {
-            var model = new ContentDao().GetAll();
-            return View(model);
+           return RedirectToAction("Details", "Content", new { id = 0 });
         }
+
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            var categoryDao = new CategoryDao();
-            var listCategory = categoryDao.GetAll();
+            //var categoryDao = new CategoryDao();
 
-            ViewBag.Category = new SelectList(listCategory, "Id", "Name");
+            //var listCategory = categoryDao.GetAll();
 
-            return View();
+            //ViewBag.Category = new SelectList(listCategory, "Id", "Name");
+
+            var model = new Content()
+            {
+                CategoryID = id
+            };
+
+            return View(model);
         }
 
         [ValidateInput(false)]
@@ -59,7 +65,7 @@ namespace HSCB.Areas.Admin.Controllers
 
             if (model == null)
             {
-                return RedirectToAction("Index", "Category");
+                return RedirectToAction("Create", "Content");
             }
 
             var categoryDao = new CategoryDao();
@@ -89,6 +95,43 @@ namespace HSCB.Areas.Admin.Controllers
             }
 
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            if (id < 0)
+            {
+                RedirectToAction("Details", "Content", new { id = 0 });
+            }
+
+            var model = CategorySingleTon.GetChildCategories(id);
+
+            if (!model.Any())
+            {
+                return RedirectToAction("ListContent", "Content", new {id});
+            }
+
+            ViewBag.currentId = id;
+            ViewBag.parentId = id == 0 ? 0 : CategorySingleTon.GetById(id).ParentID;
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult ListContent(int id)
+        {
+            if (id < 0)
+            {
+                RedirectToAction("Details", "Content", new { id });
+            }
+
+            var model = new ContentDao().GetByCategory(id);
+
+            ViewBag.currentId = id;
+            ViewBag.parentId = id == 0 ? 0 : CategorySingleTon.GetById(id).ParentID;
+
+            return View(model);
         }
     }
 }

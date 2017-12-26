@@ -1,7 +1,7 @@
 ﻿@using HSCB.SingleTon
-@model List<Context.Database.Category>
+@model List<Context.Database.Content>
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "ListContent";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -21,11 +21,11 @@
                 <div class="row">
                     <div class="col-xs-12">
 
-                        <h3 class="text-center"><b>Danh sách danh mục con</b></h3>
+                        <h3 class="text-center"><b>Danh sách bài viết</b></h3>
 
-                        <a href="@Url.Action("Create", "Category", new {id = ViewBag.currentId })">
+                        <a href="@Url.Action("Create", "Content", new {id = ViewBag.currentId })">
                             <div class="form-group">
-                                <div class="btn btn-info">Thêm danh mục con</div>
+                                <div class="btn btn-info">Thêm bài viết</div>
                             </div>
                         </a>
 
@@ -35,49 +35,48 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Tên</th>
-                                        <th>Danh mục cha</th>
+                                        <th>Danh mục</th>
                                         <th>Tùy Chỉnh</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    @if (Model.Any())
+                                    @if (Model != null)
                                     {
                                         foreach (var item in Model)
                                         {
-                                            long parentId = 0;
-                                            if (item.ParentID != null)
+                                            long categoryId = 0;
+                                            if (item.CategoryID != null)
                                             {
-                                                parentId = item.ParentID.Value;
+                                                categoryId = item.CategoryID.Value;
                                             }
 
-                                            <tr id="row_@item.ID">
-                                                <td>@item.ID</td>
-                                                <td>@item.Name</td>
-                                                <td>@CategorySingleTon.GetName(Convert.ToInt32(parentId))</td>
+                                            <tr id="row_@item.Id">
+                                                <td>@item.Id</td>
+                                                <td>@item.Title</td>
+                                                <td>@CategorySingleTon.GetName(Convert.ToInt32(categoryId))</td>
 
                                                 <td>
-                                                    @Html.ActionLink("Sửa", "Edit", "Category", new { id = item.ID }, null) |
-                                                    @Html.ActionLink("Xem danh mục con", "Details", "Category", new { id = item.ID }, null) |
-                                                    @Html.ActionLink("Xóa", "Delete", "Category", new { id = item.ID }, new { onclick = "return confirm('Are you sure?');" })
+                                                    @Html.ActionLink("Sửa", "Edit", "Content", new { id = item.Id }, null)
+                                                    @*@Html.ActionLink("Xem bài viết", "Details", "Content", new { id = item.Id }, null)*@
 
                                                 </td>
                                             </tr>
                                         }
                                     }
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
 
-                @Html.ActionLink("Quay lại", "Details", "Category", new { id = ViewBag.parentId }, null)
+                @Html.ActionLink("Quay lại", "Details", "Content", new { id = ViewBag.parentId }, null)
                 <!-- /.table-responsive -->
             </div>
             <!-- /.panel-body -->
         </div>
     </div>
 </div>
-
 
 

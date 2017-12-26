@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 
-    var listCategory = (SelectList)ViewBag.Category;
+    //var listCategory = (SelectList)ViewBag.Category;
 
 }
 @section jsFooter{
@@ -31,7 +31,7 @@
 @using (Html.BeginForm("Create","Content", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-
+    @Html.HiddenFor(m => m.CategoryID)
     <div class="form-horizontal">
         <div class="title"><h1>Tạo Mới Tin Tức</h1></div>
         <hr />
@@ -62,13 +62,13 @@
             </div>
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.CategoryID, listCategory, new {  @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <!--tích hợp Ckeditor vào-->
         <div class="form-group">

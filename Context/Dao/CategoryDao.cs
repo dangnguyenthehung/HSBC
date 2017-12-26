@@ -87,5 +87,29 @@ namespace Context.Dao
                 }
             }
         }
+
+        public bool Delete(int id)
+        {
+            try
+            {
+                using (var context = new hscbEntities())
+                {
+                    var category = context.Categories.Find(id);
+                    if (category != null)
+                    {
+                        context.Categories.Remove(category);
+                        context.SaveChanges();
+                        return true;
+                    }
+
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
     }
 }

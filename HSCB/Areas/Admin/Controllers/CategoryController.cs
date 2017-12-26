@@ -149,6 +149,26 @@ namespace HSCB.Areas.Admin.Controllers
 
             return RedirectToAction("Details", "Category", new { id = category.ParentID });
         }
-        
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            if (id > 0)
+            {
+                var parentId = CategorySingleTon.GetById(id).ParentID;
+
+                var helper = new CategoryDao();
+                var result = helper.Delete(id);
+
+                CategorySingleTon.UpdateData();
+
+                if (result)
+                {
+                    return RedirectToAction("Details", "Category", new {id = parentId});
+                }
+
+            }
+            return RedirectToAction("Index", "Category");
+        }
     }
 }
