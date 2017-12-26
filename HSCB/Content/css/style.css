@@ -2027,3 +2027,8 @@ article img.pull-right, article .align-right{
 
 
 }
+
+.product-name {
+    font-size: 16px;
+    font-weight: bold;
+}
