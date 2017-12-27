@@ -4,41 +4,46 @@
     ViewBag.Title = "Group";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@if (Model.Any())
-{
-
-    <section class="callaction" style="padding-top: 0 !important">
-        <div class="">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="big-cta">
-                        <div class="cta-text">
-                            <h2 class="text-center">@CategorySingleTon.GetName(Convert.ToInt32(Model.First().ParentID))</h2>
+    <div class="container">
+        <div id="product-container" style="padding-bottom: 50px;">
+            <section class="callaction" style="padding-top: 0 !important">
+                <div class="">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="big-cta">
+                                <div class="cta-text">
+                                    <h2 class="text-center">@CategorySingleTon.GetName(Convert.ToInt32(Model.First().ParentID))</h2>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="col-xs-12">
-        <ul class="product-list">
-            @foreach (var item in Model)
-            {
-                <li class="product-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="box-shadow box-shadow-border">
-                        <div class="img-container">
-                            <a href="@Url.Action("Details", "Products", new {id = item.ID})">
-                                <div class="img" style="background-image: url(@item.Image)"></div>
-                            </a>
-                        </div>
-                        <p class="text-center" style="font-size: 16px;">
-                            <b>@item.Name</b>
-                        </p>
-                    </div>
-                </li>
-            }
+            </section>
             
-        </ul>
+            @if (Model.Any())
+            {
+            <div class="col-xs-12">
+                <ul class="product-list">
+                    @foreach (var item in Model)
+                    {
+                        <li class="product-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="box-shadow box-shadow-border">
+                                <div class="img-container">
+                                    <a href="@Url.Action("Details", "Products", new {id = item.ID})">
+                                        <div class="img" style="background-image: url(@item.Image)"></div>
+                                    </a>
+                                </div>
+                                <p class="text-center" style="font-size: 16px;">
+                                    <b>@item.Name</b>
+                                </p>
+                            </div>
+                        </li>
+                    }
+            
+                </ul>
+            </div>
+            } 
+            <div style="clear: both"></div>
+        </div>
     </div>
-}
+   

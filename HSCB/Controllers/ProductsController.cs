@@ -20,6 +20,8 @@ namespace HSCB.Controllers
         [MvcSiteMapNode(Title = "Sản phẩm", ParentKey = SiteMapKeyConstants.RootNode, Key = SiteMapKeyConstants.Product.BaseNode)]
         public ActionResult Index()
         {
+            ViewBag.listGroup = CategorySingleTon.GetChildCategories(((int) Enums.Category.SanPham));
+
             return View();
         }
 
