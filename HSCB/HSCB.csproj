@@ -1328,6 +1328,8 @@
     <Content Include="Content\images\hscb\anh-ve-cong-ty\field-1.jpg" />
     <Content Include="Content\images\hscb\anh-ve-cong-ty\field.jpg" />
     <Content Include="Content\images\hscb\default_category.png" />
+    <Content Include="Content\images\hscb\images\image089.jpg" />
+    <Content Include="Content\images\hscb\images\image112.jpg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Content\font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="Content\icons\icon.png" />

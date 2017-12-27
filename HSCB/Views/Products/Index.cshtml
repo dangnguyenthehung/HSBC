@@ -1,162 +1,53 @@
-﻿
+﻿@using Context.Database
+
 @{
     ViewBag.Title = "Sản phẩm";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var listGroup = (List<Category>)ViewBag.listGroup;
 }
 
-<section class="callaction" style="padding-top: 0 !important">
-    <div class="">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="big-cta">
-                    <div class="cta-text">
-                        <h2 class="text-center">Sản phẩm</h2>
+<div class="container">
+    <div id="product-container" style="padding-bottom: 50px;">
+
+        <section class="callaction" style="padding-top: 0 !important">
+            <div class="">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="big-cta">
+                            <div class="cta-text">
+                                <h2 class="text-center">Sản phẩm</h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </section>
+        <div class="row">
+            <div class="col-xs-12">
+                <ul class="product-list">
+                    @if (listGroup != null)
+                    {
+                        foreach (var group in listGroup)
+                        {
+                            <li class="product-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="box-shadow box-shadow-border">
+                                    <a href="@Url.Action("Group", "Products", new {id = @group.ID})">
+                                        <div class="img-container">
+                                            <div class="img" style="background-image: url(@group.Image)"></div>
+                                        </div>
+                                        <p class="text-center product-name">
+                                            @group.Name
+                                        </p>
+                                    </a>
+                                </div>
+
+                            </li>
+                        }
+                    }
+                </ul>
             </div>
         </div>
     </div>
-</section>
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            <ul class="product-list">
-                <li class="product-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="box-shadow box-shadow-border">
-                        <div class="img-container">
-                            <a href="@Url.Action("Group", "Products", new {id = 10})">
-                                <div class="img" style="background-image: url(/Content/images/hscb/du-an-bo/image007.jpg)"></div>
-                            </a>
-                        </div>
-                        <p class="text-center product-name">
-                            Bò sạch
-                        </p>
-                    </div>
-
-                </li>
-                <li class="product-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="box-shadow box-shadow-border">
-                        <div class="img-container">
-                            <a href="@Url.Action("Group", "Products", new {id = 11})">
-                                <div class="img" style="background-image: url(/Content/images/hscb/trun-que/image089.jpg)"></div>
-                            </a>
-                        </div>
-                        <p class="text-center product-name">
-                            Trùn quế
-                        </p>
-                    </div>
-
-                </li>
-                <li class="product-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="box-shadow box-shadow-border">
-                        <div class="img-container">
-                            <a href="@Url.Action("Group", "Products", new {id = 15})">
-                                <div class="img" style="background-image: url(/Content/images/hscb/ga-dong-tao/image112.jpg)"></div>
-                            </a>
-                        </div>
-                        <p class="text-center product-name">
-                            Gà Đông tảo
-                        </p>
-                    </div>
-
-                </li>
-                <li class="product-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="box-shadow box-shadow-border">
-                        <div class="img-container">
-                            <a href="@Url.Action("Group", "Products", new {id = 25})">
-                                <div class="img" style="background-image: url(/Content/images/hscb/chanh-day/img1.png)"></div>
-                            </a>
-                        </div>
-                        <p class="text-center product-name">
-                            Nông sản
-                        </p>
-                    </div>
-
-                </li>
-                @*
-                    <li class="product-item col-xs-12 col-md-4">
-                    <div class="box-shadow box-shadow-border">
-                        <div class="img-container">
-                            <a href="@Url.Action("Group", "Products", new {id = 13})">
-                                <div class="img" style="background-image: url(../Content/images/hscb/bap-u-chua/image058.jpg)"></div>
-                            </a>
-                        </div>
-                        <p class="text-center product-name">
-                            Bắp ủ chua
-                        </p>
-                    </div>
-
-                </li>
-                <li class="product-item col-xs-12 col-md-4">
-                    <div class="box-shadow box-shadow-border">
-                        <div class="img-container">
-                            <a href="@Url.Action("Details", "Products", new {id = 12})">
-                                <div class="img" style="background-image: url(../Content/images/hscb/san-pham-nha-dam/nhadam.jpg)"></div>
-                            </a>
-                        </div>
-                        <p class="text-center product-name">
-                            Sản phẩm từ nha đam
-                        </p>
-                    </div>
-
-                </li>
-
-                <li class="product-item col-xs-12 col-md-4">
-                    <div class="box-shadow box-shadow-border">
-                        <div class="img-container">
-                            <a href="@Url.Action("Details", "Products", new {id = 14})">
-                                <div class="img" style="background-image: url(../Content/images/hscb/gung/image074.jpg)"></div>
-                            </a>
-                        </div>
-                        <p class="text-center product-name">
-                            Gừng tươi, gừng sấy khô
-                        </p>
-                    </div>
-
-                </li>
-                    <li class="product-item col-xs-12 col-md-4">
-            <div class="box-shadow box-shadow-border">
-                <div class="img-container">
-
-                    <a href="@Url.Action("Details", "Products", new {id = 16})">
-                        <div class="img" style="background-image: url(../Content/images/hscb/chanh-day/img0.jpg)"></div>
-                    </a>
-                </div>
-                <p class="text-center product-name">
-                    Chanh dây tươi, dịch chanh dây
-                </p>
-            </div>
-
-        </li>
-        <li class="product-item col-xs-12 col-md-4">
-            <div class="box-shadow box-shadow-border">
-                <div class="img-container">
-                    <a href="@Url.Action("Details", "Products", new {id = 20})">
-                        <div class="img" style="background-image: url(../Content/images/hscb/thanh-long/thanhlong.jpg)"></div>
-                    </a>
-                </div>
-                <p class="text-center product-name">
-                    Thanh long trắng, thanh long đỏ
-                </p>
-            </div>
-
-        </li>
-        <li class="product-item col-xs-12 col-md-4">
-            <div class="box-shadow box-shadow-border">
-                <div class="img-container">
-                    <a href="@Url.Action("Details", "Products", new {id = 22})">
-                        <div class="img" style="background-image: url(../Content/images/hscb/chomchom/chomchom2.jpg)"></div>
-                    </a>
-                </div>
-                <p class="text-center product-name">
-                    Chôm Chôm
-                </p>
-            </div>
-
-        </li>*@
-            </ul>
-        </div>        
-    </div>    
 </div>
-
 

@@ -1,5 +1,5 @@
 ﻿#body-content {
-    min-height: 800px;
+    min-height: 600px;
     padding-bottom: 60px;
 }
 hr {
@@ -38,6 +38,22 @@ p, li {
     overflow: hidden;
     position: relative;
     background-color: #cccccc;
+}
+    .img-container > div,
+    .item-thumbs img {
+        -ms-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+.item-thumbs img {
+    width: 100%;
+}
+.img-container:hover > div,
+.item-thumbs:hover img {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
 .product-item .img {
     display: block;

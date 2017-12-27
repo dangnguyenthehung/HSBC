@@ -291,18 +291,14 @@
                                             <li class="item-thumbs col-md-3 col-lg-20" data-id="id-0" data-type="web">
                                                 <div class="box-shadow box-shadow-border">
                                                     <div class="item-thumbs">
-                                                        <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                                        <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Dự án bò" href="~/Content/images/hscb/du-an-bo/image009.jpg">
-                                                            <span class="overlay-img">
-                                                                Xem
-                                                            </span>
-                                                            <span class="overlay-img-thumb font-icon-plus"></span>
-                                                        </a>
                                                         <!-- Thumb Image and Description -->
-                                                        <img src="~/Content/images/hscb/du-an-bo/image017.jpg" alt="Bò lai sind, bò Vàng Việt Nam được nuôi với quy trình sạch nên tỉ lệ mỡ rất thấp, bò khỏe, khả năng chống chịu bệnh tốt">
+                                                        <a href="@Url.Action("Group","Products", new {id = 10})">
+                                                            <img src="~/Content/images/hscb/du-an-bo/image017.jpg" alt="Bò lai sind, bò Vàng Việt Nam được nuôi với quy trình sạch nên tỉ lệ mỡ rất thấp, bò khỏe, khả năng chống chịu bệnh tốt">    
+                                                        </a>
+                                                        
                                                     </div>
                                                     <div class="text-center" style="padding: 0px 5px 5px;">
-                                                        <a href="@Url.Action("Details", "Products", new {id = 10})" class="no-decoration">
+                                                        <a href="@Url.Action("Group", "Products", new {id = 10})" class="no-decoration">
                                                             <p class="text-center sub-new-title">
                                                                 <b>Dự án bò</b>
                                                             </p>
@@ -311,7 +307,7 @@
                                                             </p>
                                                         </a>
 
-                                                        <a href="@Url.Action("Details", "Products", new {id = 10})" class="text-link-min">Tìm hiểu thêm</a>
+                                                        <a href="@Url.Action("Group", "Products", new {id = 10})" class="text-link-min">Tìm hiểu thêm</a>
                                                         <div style="clear: both"></div>
                                                     </div>
                                                 </div>
@@ -322,18 +318,13 @@
                                             <li class="item-thumbs col-md-3 col-lg-20" data-id="id-2" data-type="illustrator">
                                                 <div class="box-shadow box-shadow-border">
                                                     <div class="item-thumbs">
-                                                        <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                                        <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Dự án trùn quế" href="~/Content/images/hscb/trun-que/img2.jpg">
-                                                            <span class="overlay-img">
-                                                                Xem
-                                                            </span>
-                                                            <span class="overlay-img-thumb font-icon-plus"></span>
-                                                        </a>
                                                         <!-- Thumb Image and Description -->
-                                                        <img src="~/Content/images/hscb/trun-que/image089.jpg" alt="Chúng tôi đưa vào hoạt động quy trình hiện đại theo mô hình nuôi Trùn bằng khay. Hiện phân Trùn, dịch Trùn cũng như Trùn thịt được tạo ra từ trang trại đã thu hút được một lượng khách hàng cũng như đối tác rất lớn">
+                                                        <a href="@Url.Action("Group","Products", new {id = 11})">
+                                                            <img src="~/Content/images/hscb/trun-que/image089.jpg" alt="Chúng tôi đưa vào hoạt động quy trình hiện đại theo mô hình nuôi Trùn bằng khay. Hiện phân Trùn, dịch Trùn cũng như Trùn thịt được tạo ra từ trang trại đã thu hút được một lượng khách hàng cũng như đối tác rất lớn">
+                                                        </a>
                                                     </div>
                                                     <div class="text-center" style="padding: 0px 5px 5px;">
-                                                        <a href="@Url.Action("Details", "Products", new {id = 11})" class="no-decoration">
+                                                        <a href="@Url.Action("Group", "Products", new {id = 11})" class="no-decoration">
                                                             <p class="text-center sub-new-title">
                                                                 <b>Dự án trùn quế</b>
                                                             </p>
@@ -342,7 +333,7 @@
                                                             </p>
                                                         </a>
 
-                                                        <a href="@Url.Action("Details", "Products", new {id = 11})" class="text-link-min">Tìm hiểu thêm</a>
+                                                        <a href="@Url.Action("Group", "Products", new {id = 11})" class="text-link-min">Tìm hiểu thêm</a>
                                                         <div style="clear: both"></div>
                                                     </div>
                                                 </div>
@@ -353,15 +344,10 @@
                                             <li class="item-thumbs col-md-3 col-lg-20" data-id="id-1" data-type="icon">
                                                 <div class="box-shadow box-shadow-border">
                                                     <div class="item-thumbs">
-                                                        <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                                        <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Dự án bắp" href="~/Content/images/hscb/bap-u-chua/image058.jpg">
-                                                            <span class="overlay-img">
-                                                                Xem
-                                                            </span>
-                                                            <span class="overlay-img-thumb font-icon-plus"></span>
-                                                        </a>
                                                         <!-- Thumb Image and Description -->
-                                                        <img src="~/Content/images/hscb/bap-u-chua/image056.jpg" alt="Bắp được ủ và đóng gói với quy trình sản xuất hiện đại, đáp ứng được tiêu chuẩn xuất khẩu của thị trường quốc tế">
+                                                        <a href="@Url.Action("Details","Products", new {id = 13})">
+                                                            <img src="~/Content/images/hscb/bap-u-chua/image056.jpg" alt="Bắp được ủ và đóng gói với quy trình sản xuất hiện đại, đáp ứng được tiêu chuẩn xuất khẩu của thị trường quốc tế">
+                                                        </a>
                                                     </div>
                                                     <div class="text-center" style="padding: 0px 5px 5px;">
                                                         <a href="@Url.Action("Details", "Products", new {id = 13})" class="no-decoration">
@@ -384,15 +370,10 @@
                                             <li class="item-thumbs col-md-3 col-lg-20" data-id="id-2" data-type="illustrator">
                                                 <div class="box-shadow box-shadow-border">
                                                     <div class="item-thumbs">
-                                                        <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                                        <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Sản phẩm từ nha đam" href="~/Content/images/hscb/san-pham-nha-dam/nhadam.jpg">
-                                                            <span class="overlay-img">
-                                                                Xem
-                                                            </span>
-                                                            <span class="overlay-img-thumb font-icon-plus"></span>
-                                                        </a>
                                                         <!-- Thumb Image and Description -->
-                                                        <img src="~/Content/images/hscb/san-pham-nha-dam/nhadam-resize.jpg" alt="Chúng tôi cung cấp nha đam nguyên lá, đông lạnh, thịt nha đam, thạch nha đam, nha đam sấy khô, bột nha đam">
+                                                        <a href="@Url.Action("Details","Products", new {id = 12})">
+                                                            <img src="~/Content/images/hscb/san-pham-nha-dam/nhadam-resize.jpg" alt="Chúng tôi cung cấp nha đam nguyên lá, đông lạnh, thịt nha đam, thạch nha đam, nha đam sấy khô, bột nha đam">
+                                                        </a>
                                                     </div>
                                                     <div class="text-center" style="padding: 0px 5px 5px;">
                                                         <a href="@Url.Action("Details", "Products", new {id = 12})" class="no-decoration">
@@ -414,15 +395,10 @@
                                             <li class="item-thumbs col-md-3 col-lg-20" data-id="id-2" data-type="illustrator">
                                                 <div class="box-shadow box-shadow-border">
                                                     <div class="item-thumbs box-shadow">
-                                                        <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                                        <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Dự án chanh dây" href="~/Content/images/hscb/chanh-day/img1.png">
-                                                            <span class="overlay-img">
-                                                                Xem
-                                                            </span>
-                                                            <span class="overlay-img-thumb font-icon-plus"></span>
-                                                        </a>
                                                         <!-- Thumb Image and Description -->
-                                                        <img src="~/Content/images/hscb/chanh-day/img0-resize.jpg" alt="Chúng tôi cung cấp chanh dây tươi, dịch chanh dây.">
+                                                        <a href="@Url.Action("Details","Products", new {id = 16})">
+                                                            <img src="~/Content/images/hscb/chanh-day/img0-resize.jpg" alt="Chúng tôi cung cấp chanh dây tươi, dịch chanh dây.">
+                                                        </a>
                                                     </div>
                                                     <div class="text-center" style="padding: 0px 5px 5px;">
                                                         <a href="@Url.Action("Details", "Products", new {id = 16})" class="no-decoration">
