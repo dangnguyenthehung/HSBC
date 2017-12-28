@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 using System.Web.Routing;
 using HSCB.Common;
@@ -59,6 +60,8 @@ namespace HSCB.Controllers
 
                     ViewData[ViewDataConstants.SiteMapTitle] = model.Content.Title;
 
+                    GetSimilarPost(model.Content.Id);
+
                     return View(model);
                 }
             }
@@ -66,5 +69,34 @@ namespace HSCB.Controllers
             var message = MessageConstants.NotFound;
             return RedirectToAction("Index", "Message", new {message});
         }
+
+
+        //Similar post
+        private void GetSimilarPost(int id)
+        {
+            var response = new List<SimilarPostDTO>();
+
+            var helper = new ContentDao();
+            var content = helper.GetContentByIdContent(id);
+
+            var number = Convert.ToInt32(WebConfigurationManager.AppSettings["similarPost"]);
+
+            if (content.CategoryID != null)
+            {
+                var currentCategory = CategorySingleTon.GetById(content.CategoryID.Value);
+                var listCategory = CategorySingleTon.GetChildCategories(Convert.ToInt32(currentCategory.ParentID.Value));
+                foreach(var category in listCategory)
+                {
+                    var subContent = helper.GetMainContentOfCategory(Convert.ToInt32(category.ID));
+                    if (subContent != null && subContent.Id != id)
+                    {
+                        response.Add(new SimilarPostDTO(subContent.CategoryID.Value, subContent.Title));
+                    }
+                }
+            }
+
+            ViewBag.similarPost = response;
+        }
+
     }
 }

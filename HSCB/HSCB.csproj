@@ -1687,6 +1687,7 @@
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\HomePageNewsDTO.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Models\SimilarPostDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleTon\CategorySingleTon.cs" />
   </ItemGroup>

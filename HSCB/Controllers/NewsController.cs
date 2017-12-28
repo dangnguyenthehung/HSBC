@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Context.Dao;
 using Context.Utilities;
 using HSCB.Constants;
+using HSCB.Models;
 using MvcSiteMapProvider;
 using MvcSiteMapProvider.Web.Mvc.Filters;
 
@@ -37,7 +39,6 @@ namespace HSCB.Controllers
         [SiteMapTitle(ViewDataConstants.SiteMapTitle, Target = AttributeTarget.CurrentNode)]
         public ActionResult NewsDetails(int id)
         {
-
             var helper = new ContentDao();
 
             var model = helper.GetContentByIdContent(id);
@@ -45,6 +46,9 @@ namespace HSCB.Controllers
             if (model != null)
             {
                 ViewData[ViewDataConstants.SiteMapTitle] = model.Title.Truncate(50);
+
+                GetSimilarPost(id);
+
                 return View(model);
             }
 
@@ -72,5 +76,61 @@ namespace HSCB.Controllers
 
             return View(model);
         }
+
+
+        //Similar post
+        private void GetSimilarPost(int id)
+        {
+            var response = new List<SimilarPostDTO>();
+
+            var helper = new ContentDao();
+            var content = helper.GetContentByIdContent(id);
+
+            var number = Convert.ToInt32(WebConfigurationManager.AppSettings["similarPost"]);
+
+            if (content.CategoryID != null)
+            {
+                var listAll = helper.GetByCategory(content.CategoryID.Value).OrderBy(c => c.CreatedDate).ToList();
+                var index = listAll.IndexOf(listAll.Find(c => c.Id == id));
+
+                if (index < number)
+                {
+                    for (var i = 0; i < index; i++)
+                    {
+                        var item = listAll[i];
+                        response.Add(new SimilarPostDTO(item.Id, item.Title));
+                    }
+                }
+                else
+                {
+                    for (var i = (index - number); i < index; i++)
+                    {
+                        var item = listAll[i];
+                        response.Add(new SimilarPostDTO(item.Id, item.Title));
+                    }
+
+                }
+
+                if (index >= (listAll.Count - number))
+                {
+                    for (var i = (index + 1); i < listAll.Count; i++)
+                    {
+                        var item = listAll[i];
+                        response.Add(new SimilarPostDTO(item.Id, item.Title));
+                    }
+                }
+                else
+                {
+                    for (var i = (index + 1); i <= (number + index); i++)
+                    {
+                        var item = listAll[i];
+                        response.Add(new SimilarPostDTO(item.Id, item.Title));
+                    }
+                }
+            }
+
+            ViewBag.similarPost = response;
+        }
+
     }
 }
