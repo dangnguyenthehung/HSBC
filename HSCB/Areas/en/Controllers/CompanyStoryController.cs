@@ -12,19 +12,19 @@ namespace HSCB.Areas.en.Controllers
     public class CompanyStoryController : Controller
     {
         // GET: CompanyStory
-        [MvcSiteMapNode(Title = "Câu chuyện HSCB", ParentKey = SiteMapKeyConstants.RootNode, Key = SiteMapKeyConstants.CompanyStory.BaseNode)]
+        [MvcSiteMapNode(Title = "Câu chuyện HSCB", ParentKey = SiteMapKeyConstants.RootNode, Key = SiteMapKeyConstantsEnglish.CompanyStory.BaseNode)]
         public ActionResult Index()
         {
             return RedirectToAction("AboutUs");
         }
 
-        [MvcSiteMapNode(Title = "Về chúng tôi", ParentKey = SiteMapKeyConstants.CompanyStory.BaseNode, Key = SiteMapKeyConstants.CompanyStory.AboutUs)]
+        [MvcSiteMapNode(Title = "Về chúng tôi", ParentKey = SiteMapKeyConstantsEnglish.CompanyStory.BaseNode, Key = SiteMapKeyConstantsEnglish.CompanyStory.AboutUs)]
         public ActionResult AboutUs()
         {
             return View();
         }
 
-        [MvcSiteMapNode(Title = "Chiến lược phát triển", ParentKey = SiteMapKeyConstants.CompanyStory.BaseNode, Key = SiteMapKeyConstants.CompanyStory.DevelopmentPlan)]
+        [MvcSiteMapNode(Title = "Chiến lược phát triển", ParentKey = SiteMapKeyConstantsEnglish.CompanyStory.BaseNode, Key = SiteMapKeyConstantsEnglish.CompanyStory.DevelopmentPlan)]
         public ActionResult DevelopmentPlan()
         {
             return View();

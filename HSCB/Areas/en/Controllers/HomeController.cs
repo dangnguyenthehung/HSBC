@@ -16,7 +16,7 @@ namespace HSCB.Areas.en.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        [MvcSiteMapNode(Title = "Trang chủ", Key = SiteMapKeyConstants.RootNode)]
+        [MvcSiteMapNode(Title = "Home", ParentKey = SiteMapKeyConstants.RootNode, Key = SiteMapKeyConstantsEnglish.Home)]
         public ActionResult Index()
         {
             var helper = new ContentDao();

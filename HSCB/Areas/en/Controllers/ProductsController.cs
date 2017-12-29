@@ -18,7 +18,7 @@ namespace HSCB.Areas.en.Controllers
     public class ProductsController : Controller
     {
         // GET: Products
-        [MvcSiteMapNode(Title = "Sản phẩm", ParentKey = SiteMapKeyConstants.RootNode, Key = SiteMapKeyConstants.Product.BaseNode)]
+        [MvcSiteMapNode(Title = "Sản phẩm", ParentKey = SiteMapKeyConstants.RootNode, Key = SiteMapKeyConstantsEnglish.Product.BaseNode)]
         public ActionResult Index()
         {
             ViewBag.listGroup = CategorySingleTon.GetChildCategories(((int) Enums.Category.SanPham));
@@ -26,7 +26,7 @@ namespace HSCB.Areas.en.Controllers
             return View();
         }
 
-        [MvcSiteMapNode(Title = "Chi tiết", ParentKey = SiteMapKeyConstants.Product.BaseNode, Key = SiteMapKeyConstants.Product.Group, PreservedRouteParameters = "id")]
+        [MvcSiteMapNode(Title = "Chi tiết", ParentKey = SiteMapKeyConstantsEnglish.Product.BaseNode, Key = SiteMapKeyConstantsEnglish.Product.Group, PreservedRouteParameters = "id")]
         [SiteMapTitle(ViewDataConstants.SiteMapTitle, Target = AttributeTarget.CurrentNode)]
         public ActionResult Group(int id)
         {
@@ -41,7 +41,7 @@ namespace HSCB.Areas.en.Controllers
             return RedirectToAction("Index", "Message", new { message });
         }
 
-        [MvcSiteMapNode(Title = "Chi tiết", ParentKey = SiteMapKeyConstants.Product.BaseNode, Key = SiteMapKeyConstants.Product.Details, PreservedRouteParameters = "id")]
+        [MvcSiteMapNode(Title = "Chi tiết", ParentKey = SiteMapKeyConstantsEnglish.Product.BaseNode, Key = SiteMapKeyConstantsEnglish.Product.Details, PreservedRouteParameters = "id")]
         [SiteMapTitle(ViewDataConstants.SiteMapTitle, Target = AttributeTarget.CurrentNode)]
         public ActionResult Details(int id)
         {

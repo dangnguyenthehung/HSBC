@@ -17,14 +17,14 @@ namespace HSCB.Areas.en.Controllers
     public class NewsController : Controller
     {
         // GET: News
-        [MvcSiteMapNode(Title = "Tin tức - Sự kiện", ParentKey = SiteMapKeyConstants.RootNode, Key = SiteMapKeyConstants.News.BaseNode)]
+        [MvcSiteMapNode(Title = "Tin tức - Sự kiện", ParentKey = SiteMapKeyConstants.RootNode, Key = SiteMapKeyConstantsEnglish.News.BaseNode)]
         public ActionResult Index()
         {
             return RedirectToAction("Activity");
         }
 
         //get all
-        [MvcSiteMapNode(Title = "Hoạt động HSCB", ParentKey = SiteMapKeyConstants.News.BaseNode, Key = SiteMapKeyConstants.News.Activity)]
+        [MvcSiteMapNode(Title = "Hoạt động HSCB", ParentKey = SiteMapKeyConstantsEnglish.News.BaseNode, Key = SiteMapKeyConstantsEnglish.News.Activity)]
         public ActionResult Activity()
         {
             var helper = new ContentDao();
@@ -35,7 +35,7 @@ namespace HSCB.Areas.en.Controllers
         }
 
         //get details
-        [MvcSiteMapNode(Title = "Chi tiết", ParentKey = SiteMapKeyConstants.News.BaseNode, Key = SiteMapKeyConstants.News.Details, PreservedRouteParameters = "id")]
+        [MvcSiteMapNode(Title = "Chi tiết", ParentKey = SiteMapKeyConstantsEnglish.News.BaseNode, Key = SiteMapKeyConstantsEnglish.News.Details, PreservedRouteParameters = "id")]
         [SiteMapTitle(ViewDataConstants.SiteMapTitle, Target = AttributeTarget.CurrentNode)]
         public ActionResult NewsDetails(int id)
         {
@@ -57,7 +57,7 @@ namespace HSCB.Areas.en.Controllers
 
         }
 
-        [MvcSiteMapNode(Title = "Tin tức sản phẩm", ParentKey = SiteMapKeyConstants.News.BaseNode, Key = SiteMapKeyConstants.News.ProductNews)]
+        [MvcSiteMapNode(Title = "Tin tức sản phẩm", ParentKey = SiteMapKeyConstantsEnglish.News.BaseNode, Key = SiteMapKeyConstantsEnglish.News.ProductNews)]
         public ActionResult ProductNews()
         {
             var helper = new ContentDao();
@@ -67,7 +67,7 @@ namespace HSCB.Areas.en.Controllers
             return View(model);
         }
 
-        [MvcSiteMapNode(Title = "Thông cáo báo chí", ParentKey = SiteMapKeyConstants.News.BaseNode, Key = SiteMapKeyConstants.News.PressRelease)]
+        [MvcSiteMapNode(Title = "Thông cáo báo chí", ParentKey = SiteMapKeyConstantsEnglish.News.BaseNode, Key = SiteMapKeyConstantsEnglish.News.PressRelease)]
         public ActionResult PressRelease()
         {
             var helper = new ContentDao();

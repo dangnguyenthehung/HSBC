@@ -15,7 +15,7 @@ namespace HSCB.Areas.en.Controllers
     public class ContactController : Controller
     {
         [HttpGet]
-        [MvcSiteMapNode(Title = "Liên hệ", ParentKey = SiteMapKeyConstants.RootNode, Key = SiteMapKeyConstants.Contact.BaseNode)]
+        [MvcSiteMapNode(Title = "Liên hệ", ParentKey = SiteMapKeyConstants.RootNode, Key = SiteMapKeyConstantsEnglish.Contact.BaseNode)]
         public ActionResult Index()
         {
             var contact = new Contact();
@@ -23,7 +23,7 @@ namespace HSCB.Areas.en.Controllers
         }
 
         [HttpPost]
-        [MvcSiteMapNode(Title = "Liên hệ", ParentKey = SiteMapKeyConstants.RootNode, Key = SiteMapKeyConstants.Contact.IndexPost)]
+        [MvcSiteMapNode(Title = "Liên hệ", ParentKey = SiteMapKeyConstants.RootNode, Key = SiteMapKeyConstantsEnglish.Contact.IndexPost)]
         public ActionResult Index(Contact contact)
         {
             if (ModelState.IsValid)

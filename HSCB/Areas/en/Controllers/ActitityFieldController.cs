@@ -12,21 +12,21 @@ namespace HSCB.Areas.en.Controllers
     public class ActivityFieldController : Controller
     {
         // GET: ActivityField
-        [MvcSiteMapNode(Title = "Lĩnh vực hoạt động", ParentKey = SiteMapKeyConstants.RootNode, Key = SiteMapKeyConstants.ActitityField.BaseNode)]
+        [MvcSiteMapNode(Title = "Lĩnh vực hoạt động", ParentKey = SiteMapKeyConstants.RootNode, Key = SiteMapKeyConstantsEnglish.ActitityField.BaseNode)]
         public ActionResult Index()
         {
             return RedirectToAction("FarmSystem");
         }
 
 
-        [MvcSiteMapNode(Title = "Sản xuất chăn nuôi và trồng trọt", ParentKey = SiteMapKeyConstants.ActitityField.BaseNode, Key = SiteMapKeyConstants.ActitityField.FarmSystem)]
+        [MvcSiteMapNode(Title = "Sản xuất chăn nuôi và trồng trọt", ParentKey = SiteMapKeyConstantsEnglish.ActitityField.BaseNode, Key = SiteMapKeyConstantsEnglish.ActitityField.FarmSystem)]
         public ActionResult FarmSystem()
         {
             return View();
         }
 
 
-        [MvcSiteMapNode(Title = "Xuất khẩu nông sản", ParentKey = SiteMapKeyConstants.ActitityField.BaseNode, Key = SiteMapKeyConstants.ActitityField.ImportExport)]
+        [MvcSiteMapNode(Title = "Xuất khẩu nông sản", ParentKey = SiteMapKeyConstantsEnglish.ActitityField.BaseNode, Key = SiteMapKeyConstantsEnglish.ActitityField.ImportExport)]
         public ActionResult ImportExport()
         {
             return View();
