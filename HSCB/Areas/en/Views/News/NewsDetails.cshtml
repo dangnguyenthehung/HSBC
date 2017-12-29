@@ -1,0 +1,57 @@
+﻿@using Context.Utilities
+@using HSCB.Models
+@model Context.Database.Content
+@{
+    ViewBag.Title = "Tin tức chi tiết";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xs-12">
+@if (Model != null)
+{
+        <div class="row" style="margin-bottom: 0px;">
+            <div class="col-xs-12 col-md-10 col-md-offset-1">
+                <div class="text-content">
+                    <h2 class="text-center">@Model.Title</h2>
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <img src="@Model.Image" height="350" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            @Html.Raw(Model.Detail)
+                        </div>
+                    </div>
+                </div>
+                <hr />
+            </div>
+        </div>
+
+}
+@if (ViewBag.similarPost != null)
+{
+
+    var list = (List<SimilarPostDTO>)ViewBag.similarPost;
+
+    <div class="row">
+        <div class="col-xs-12 col-md-10 col-md-offset-1">
+            
+            <h3 style="color: #183186">
+                Bài viết liên quan
+            </h3>
+            @foreach (var item in list)
+            {
+                <ul>
+                    <li><a href="@Url.Action("NewsDetails", "News", new {id = item.Id})">@item.Title.Truncate(125)</a></li>
+                    
+                </ul>
+            }
+        </div>
+    </div>
+
+
+}
+    
+</div>
+

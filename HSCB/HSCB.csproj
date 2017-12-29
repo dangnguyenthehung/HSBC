@@ -1330,6 +1330,8 @@
     <Content Include="Content\images\hscb\default_category.png" />
     <Content Include="Content\images\hscb\images\image089.jpg" />
     <Content Include="Content\images\hscb\images\image112.jpg" />
+    <Content Include="Content\images\uk.png" />
+    <Content Include="Content\images\vn.png" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Content\font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="Content\icons\icon.png" />
@@ -1668,12 +1670,22 @@
     <Compile Include="Areas\Admin\Controllers\ProductImagesController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
+    <Compile Include="Areas\en\Controllers\ActitityFieldController.cs" />
+    <Compile Include="Areas\en\Controllers\ChangeLanguageController.cs" />
+    <Compile Include="Areas\en\Controllers\CompanyStoryController.cs" />
+    <Compile Include="Areas\en\Controllers\ContactController.cs" />
+    <Compile Include="Areas\en\Controllers\HomeController.cs" />
+    <Compile Include="Areas\en\Controllers\MessageController.cs" />
+    <Compile Include="Areas\en\Controllers\NewsController.cs" />
+    <Compile Include="Areas\en\Controllers\ProductsController.cs" />
+    <Compile Include="Areas\en\enAreaRegistration.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Constants\SiteMapKeyConstants.cs" />
     <Compile Include="Constants\Enums.cs" />
     <Compile Include="Constants\MessageConstants.cs" />
     <Compile Include="Constants\ViewDataConstants.cs" />
     <Compile Include="Controllers\ActitityFieldController.cs" />
+    <Compile Include="Controllers\ChangeLanguageController.cs" />
     <Compile Include="Controllers\CompanyStoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1741,6 +1753,35 @@
     <Content Include="Areas\Admin\Views\Category\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Content\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Content\ListContent.cshtml" />
+    <Content Include="Areas\en\Views\web.config" />
+    <Content Include="Areas\en\Views\ActivityField\FarmSystem.cshtml" />
+    <Content Include="Areas\en\Views\ActivityField\ImportExport.cshtml" />
+    <Content Include="Areas\en\Views\ActivityField\Index.cshtml" />
+    <Content Include="Areas\en\Views\CompanyStory\AboutUs.cshtml" />
+    <Content Include="Areas\en\Views\CompanyStory\DevelopmentPlan.cshtml" />
+    <Content Include="Areas\en\Views\Contact\Index.cshtml" />
+    <Content Include="Areas\en\Views\Home\Index.cshtml" />
+    <Content Include="Areas\en\Views\Message\Index.cshtml" />
+    <Content Include="Areas\en\Views\News\Activity.cshtml" />
+    <Content Include="Areas\en\Views\News\Index.cshtml" />
+    <Content Include="Areas\en\Views\News\NewsDetails.cshtml" />
+    <Content Include="Areas\en\Views\News\PressRelease.cshtml" />
+    <Content Include="Areas\en\Views\News\ProductNews.cshtml" />
+    <Content Include="Areas\en\Views\Products\Details.cshtml" />
+    <Content Include="Areas\en\Views\Products\Group.cshtml" />
+    <Content Include="Areas\en\Views\Products\Index.cshtml" />
+    <Content Include="Areas\en\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\en\Views\Shared\_LayoutFooter.cshtml" />
+    <Content Include="Areas\en\Views\Shared\_LayoutHeader.cshtml" />
+    <Content Include="Areas\en\Views\Shared\_PartialProductContactInfo.cshtml" />
+    <Content Include="Areas\en\Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
+    <Content Include="Areas\en\Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
+    <Content Include="Areas\en\Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
+    <Content Include="Areas\en\Views\Shared\DisplayTemplates\SiteMapHelperModel.cshtml" />
+    <Content Include="Areas\en\Views\Shared\DisplayTemplates\SiteMapNodeModel.cshtml" />
+    <Content Include="Areas\en\Views\Shared\DisplayTemplates\SiteMapNodeModelList.cshtml" />
+    <Content Include="Areas\en\Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
+    <Content Include="Areas\en\Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -1783,7 +1824,10 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\AdminBase\" />
     <Folder Include="Areas\Admin\Views\Images\" />
+    <Folder Include="Areas\en\Models\" />
+    <Folder Include="Areas\en\Views\ChangeLanguage\" />
     <Folder Include="Data\" />
+    <Folder Include="Views\ChangeLanguage\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Context\Context.csproj">

@@ -13,6 +13,8 @@ namespace HSCB
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            #region VN
+
             routes.MapRoute(
                 name: "about",
                 url: "cau-chuyen-hscb/",
@@ -23,7 +25,7 @@ namespace HSCB
             routes.MapRoute(
                 name: "aboutus",
                 url: "cau-chuyen-hscb/ve-chung-toi",
-                defaults: new { controller = "CompanyStory", action = "AboutUs"},
+                defaults: new { controller = "CompanyStory", action = "AboutUs" },
                 namespaces: new[] { "HSCB.Controllers" }
             );
 
@@ -61,11 +63,11 @@ namespace HSCB
                 defaults: new { controller = "Products", action = "Details", id = UrlParameter.Optional },
                 namespaces: new[] { "HSCB.Controllers" }
             );
-            
+
             routes.MapRoute(
                 name: "productlist",
                 url: "san-pham/",
-                defaults: new { controller = "Products", action = "Index"},
+                defaults: new { controller = "Products", action = "Index" },
                 namespaces: new[] { "HSCB.Controllers" }
             );
 
@@ -108,17 +110,19 @@ namespace HSCB
             routes.MapRoute(
                 name: "contact",
                 url: "lien-he",
-                defaults: new { controller = "Contact", action = "Index"},
+                defaults: new { controller = "Contact", action = "Index" },
                 namespaces: new[] { "HSCB.Controllers" }
             );
 
             routes.MapRoute(
                 name: "home",
                 url: "trang-chu",
-                defaults: new { controller = "Home", action = "Index"},
+                defaults: new { controller = "Home", action = "Index" },
                 namespaces: new[] { "HSCB.Controllers" }
             );
 
+            #endregion
+            
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
