@@ -1,0 +1,68 @@
+﻿@using System.Web.Optimization
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSCB</title>
+    <meta name="description" content="HSCB là một trong những doanh nghiệp đi đầu trong việc phát triển các hệ thống trang trại truyền thống theo hướng hữu cơ, với mô hình sản xuất hoàn toàn khép kín" />
+    <meta name="keywords" content="HSCB,bò,trùn quế,nha đam,bắp,chanh dây,gừng,gà đông tảo">
+    <link rel="icon" href="/Content/icons/icon.png" type="image/x-icon">
+
+    @Styles.Render("~/Styles/css")
+    @Styles.Render("~/Styles/fontawesome")
+    @Styles.Render("~/Styles/css/fancybox")
+    @Styles.Render("~/Styles/owlcarousel/assets")
+    @Styles.Render("~/Styles/css/skins")
+
+    <!-- script -->
+    @Scripts.Render("~/bundles/bootstrap")
+
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- start header -->
+        <header>
+            @Html.Partial("_LayoutHeader")
+        </header>
+        <!-- end header -->
+        <!-- start body -->
+        <section id="body-content">
+            @*<div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        @Html.MvcSiteMap().SiteMapPath()
+                    </div>
+                </div>
+            </div>*@
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end body -->
+        <!-- start footer -->
+        <footer>
+            @Html.Partial("_LayoutFooter")
+        </footer>
+        <!-- end footer -->
+    </div>
+    <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+    <!-- javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    @Scripts.Render("~/bundles/plugins")
+</body>
+
+</html>

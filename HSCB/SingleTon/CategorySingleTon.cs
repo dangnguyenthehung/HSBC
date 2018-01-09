@@ -58,7 +58,7 @@ namespace HSCB.SingleTon
 
             return _listCategory?.Where(c => c.ParentID == id).ToList();
         }
-
+        
         public static Category GetById(int id)
         {
             if (_listCategory == null)

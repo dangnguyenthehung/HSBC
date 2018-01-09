@@ -1,0 +1,80 @@
+﻿@using Context.Dao
+@using HSCB.SingleTon
+@{
+    var listCategory = new CategoryDao().GetAll();
+    var listProduct = listCategory.Where(c => c.ParentID == 3).ToList();
+}
+
+<div class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="multi-language">
+            <div class="change-language">
+                <a href="@Url.Action("Index","ChangeLanguage", new {language = 0})">
+                    <img src="~/Content/images/vn.png" width="40" height="25" />
+                </a>
+            </div>
+            <div class="change-language">
+                <a href="@Url.Action("Index","ChangeLanguage", new {language = 1})">
+                    <img src="~/Content/images/uk.png" width="40" height="25" />
+                </a>
+            </div>
+        </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                <img src="~/Content/images/logo.png" width="150" height="auto" />
+            </a>
+        </div>
+        <div class="navbar-collapse collapse ">
+            <ul class="nav navbar-nav">
+                <li class=""><a href="@Url.Action("Index", "Home")"><i class="fa fa-home"></i>&nbsp; Home</a></li>
+                <li class="dropdown">
+                    <a href="@Url.Action("Index", "CompanyStory")" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                        <i class="fa fa-history"></i>&nbsp; HSCB Story<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="@Url.Action("AboutUs", "CompanyStory")">About Us</a></li>
+                        <li><a href="@Url.Action("DevelopmentPlan", "CompanyStory")">Development Plan</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="@Url.Action("Index", "ActivityField")" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                        <i class="fa fa-pie-chart"></i>&nbsp; Activity Fields <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="@Url.Action("FarmSystem", "ActivityField")">Husbandry and Cultivation</a></li>
+                        <li><a href="@Url.Action("ImportExport", "ActivityField")">Import/Export Agricultural</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="@Url.Action("Index", "Products")" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                        <i class="fa fa-shopping-cart"></i>&nbsp; Products <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        @foreach (var item in listProduct)
+                        {
+                            @*<li><a href="@Url.Action("Details", "Products", new {id = item.ID})">Sản phẩm từ @item.Name</a></li>*@
+                            <li><a href="@Url.Action("Group", "Products", new {id = item.ID})">@item.Name</a></li>
+                        }
+
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="@Url.Action("Index", "News")" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                        <i class="fa fa-info-circle"></i>&nbsp; News-Events <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="@Url.Action("Activity", "News")">HSCB Activities</a></li>
+                        <li><a href="@Url.Action("ProductNews", "News")">Product News</a></li>
+                        <li><a href="@Url.Action("PressRelease", "News")">Press Release</a></li>
+                    </ul>
+                </li>
+                <li><a href="@Url.Action("Index", "Contact")"><i class="fa fa-user"></i>&nbsp; Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

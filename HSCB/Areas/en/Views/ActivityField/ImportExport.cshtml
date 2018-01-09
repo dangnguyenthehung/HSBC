@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "Xuất nhập khẩu nông sản";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-xs-12 col-md-10 col-md-offset-1">
+            <div class="text-content">
+                <section class="callaction" style="padding-top: 0 !important">
+                    <div class="">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="big-cta">
+                                    <div class="cta-text">
+                                        <h2 class="text-center">Xuất khẩu nông sản</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <p>
+                    Không dừng lại ở việc tiêu thụ sản phẩm trong nước, <b>HSCB</b> còn mong muốn mở rộng thị trường xuất khẩu để mang đến cho người tiêu dùng các nước bạn những sản phẩm chất lượng của doanh nghiệp mình.
+                </p>
+                <p>
+                    Với lợi thế về sản phẩm tốt cùng với chất lượng phục vụ, chăm sóc khách hàng tận tâm, HSCB hiện đang là doanh nghiệp Việt Nam được nhiều đối tác nước ngoài tin tưởng hợp tác và gắn bó lâu dài.
+                </p>
+                <br />
+                <h3 class="text-center">Hiện các mặt hàng nông sản xuất khẩu chúng tôi cung cấp đó là</h3>
+            </div>
+        </div>
+        <br />
+
+        <div class="col-xs-12">
+            <ul class="product-list">
+                <li class="product-item col-xs-12 col-md-4">
+                    <div class="img-container">
+                        <a href="@Url.Action("Details", "Products", new {id = 10})">
+                            <div class="img" style="background-image: url(../Content/images/hscb/du-an-bo/image009.jpg)"></div>
+                        </a>
+                    </div>
+                    <p class="text-center">
+                        Bò lai sind, bò Vàng Việt Nam được nuôi với quy trình sạch nên tỉ lệ mỡ rất thấp, bò khỏe, khả năng chóng chịu bệnh tốt
+                    </p>
+                </li>
+                <li class="product-item col-xs-12 col-md-4">
+                    <div class="img-container">
+                        <a href="@Url.Action("Details", "Products", new {id = 13})">
+                            <div class="img" style="background-image: url(../Content/images/hscb/bap-u-chua/image058.jpg)"></div>
+                        </a>
+                    </div>
+                    <p class="text-center">
+                        Bắp được ủ và đóng gói với quy trình sản xuất hiện đại, đáp ứng được tiêu chuẩn xuất khẩu của thị trường quốc tế
+                    </p>
+                </li>
+                <li class="product-item col-xs-12 col-md-4">
+                    <div class="img-container">
+                        <a href="@Url.Action("Details", "Products", new {id = 12})">
+                            <div class="img" style="background-image: url(../Content/images/hscb/san-pham-nha-dam/nhadam.jpg)"></div>
+                        </a>
+                    </div>
+                    <p class="text-center">
+                        Chúng tôi cung cấp nha đam nguyên lá, đông lạnh, thịt nha đam, thạch nha đam, nha đam sấy khô, bột nha đam
+                    </p>
+                </li>
+
+                <li class="product-item col-xs-12 col-md-4">
+                    <div class="img-container">
+                        <a href="@Url.Action("Details", "Products", new {id = 14})">
+                            <div class="img" style="background-image: url(../Content/images/hscb/gung/image074.jpg)"></div>
+                        </a>
+                    </div>
+                    <p class="text-center">
+                        Gừng tươi, gừng sấy khô
+                    </p>
+                </li>
+                <li class="product-item col-xs-12 col-md-4">
+                    <div class="img-container">
+
+                        <a href="@Url.Action("Details", "Products", new {id = 16})">
+                            <div class="img" style="background-image: url(../Content/images/hscb/chanh-day/img0.jpg)"></div>
+                        </a>
+                    </div>
+                    <p class="text-center">
+                        Chanh dây tươi, dịch chanh dây
+                    </p>
+                </li>
+                <li class="product-item col-xs-12 col-md-4">
+                    <div class="img-container">
+                        <a href="@Url.Action("Details", "Products", new {id = 20})">
+                            <div class="img" style="background-image: url(../Content/images/hscb/thanh-long/thanhlong.jpg)"></div>
+                        </a>
+                    </div>
+                    <p class="text-center">
+                        Thanh long trắng, thanh long đỏ
+                    </p>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+</div>

@@ -12,7 +12,7 @@ namespace HSCB.Controllers
     public class MessageController : Controller
     {
         // GET: Message
-        [MvcSiteMapNode(Title = "Thông báo", ParentKey = SiteMapKeyConstants.RootNode, Key = SiteMapKeyConstants.Message.BaseNode)]
+        [MvcSiteMapNode(Title = "Thông báo", ParentKey = SiteMapKeyConstants.RootNode, Key = SiteMapKeyConstants.Message.BaseNode, PreservedRouteParameters = "message")]
         public ActionResult Index(string message)
         {
             ViewBag.message = message;

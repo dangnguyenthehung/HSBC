@@ -1,0 +1,53 @@
+﻿@using Context.Database
+
+@{
+    ViewBag.Title = "Sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var listGroup = (List<Category>)ViewBag.listGroup;
+}
+
+<div class="container">
+    <div id="product-container" style="padding-bottom: 50px;">
+
+        <section class="callaction" style="padding-top: 0 !important">
+            <div class="">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="big-cta">
+                            <div class="cta-text">
+                                <h2 class="text-center">Sản phẩm</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="row">
+            <div class="col-xs-12">
+                <ul class="product-list">
+                    @if (listGroup != null)
+                    {
+                        foreach (var group in listGroup)
+                        {
+                            <li class="product-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="box-shadow box-shadow-border">
+                                    <a href="@Url.Action("Group", "Products", new {id = @group.ID})">
+                                        <div class="img-container">
+                                            <div class="img" style="background-image: url(@group.Image)"></div>
+                                        </div>
+                                        <p class="text-center product-name">
+                                            @group.Name
+                                        </p>
+                                    </a>
+                                </div>
+
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

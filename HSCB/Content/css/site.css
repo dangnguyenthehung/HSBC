@@ -33,7 +33,7 @@ p, li {
 
 .img-container {
     align-items: center;
-    height: 185px;
+    height: 150px;
     text-align: center;
     overflow: hidden;
     position: relative;
@@ -373,4 +373,22 @@ p, li {
     #product-slider .owl-carousel .owl-stage-outer {
         height: 350px;
     }
+}
+.multi-language {
+    position: absolute;
+    right: 30px;
+    top: 0px;
+    padding: 5px;
+    z-index: 9999;
+}
+.change-language a {
+    width: 30px;
+    height: 25px;
+    float: left;
+    font-size: 12px;
+    padding: 0px;
+    text-align: center;
+    margin: 0 2px;
+    border-radius: 2px;
+    visibility: hidden;
 }

@@ -1,0 +1,113 @@
+﻿@using System.Web.Configuration
+@using HSCB.SingleTon
+@{
+    var listCategory = CategorySingleTon.GetAllCategories();
+    var listProduct = listCategory.Where(c => c.ParentID == 3).ToList();
+
+    var address = WebConfigurationManager.AppSettings["address"];
+    var phone = WebConfigurationManager.AppSettings["phone"];
+    var email = WebConfigurationManager.AppSettings["email"];
+    var facebook = WebConfigurationManager.AppSettings["facebook"];
+    var twitter = WebConfigurationManager.AppSettings["twitter"];
+    var linkedin = WebConfigurationManager.AppSettings["linkedin"];
+    var google = WebConfigurationManager.AppSettings["google"];
+}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-5">
+            <div class="widget">
+                <h4 class="widgetheading">Công ty Cổ phần đầu tư nuôi trồng HSCB</h4>
+                <br />
+                <address>
+                    <i class="fa fa-map-marker"></i>&nbsp; @address
+                </address>
+                <p>
+                    <i class="fa fa-phone"></i><a style="color: white !important" href="tel:@phone">&nbsp;@phone</a> <br>
+                    <i class="fa fa-envelope"></i><a style="color: white !important" href="mailto:@email">&nbsp;@email</a>
+                </p>
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="bottom-logo">
+                            <img src="~/Content/images/logo.png" height="60" />
+                        </div>
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="widget">
+                <h4 class="widgetheading">Sản phẩm HSCB</h4>
+                <ul class="link-list">
+                    @foreach (var item in listProduct)
+                    {
+                        <li><a href="@Url.Action("Details", "Products", new {id = item.ID})">Sản phẩm từ @item.Name</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="widget">
+                <h4 class="widgetheading">Tin tức - Sự kiện</h4>
+                <ul class="link-list">
+                    <li><a href="@Url.Action("Activity","News")">Hoạt động HSCB</a></li>
+                    <li><a href="@Url.Action("ProductNews","News")">Tin tức sản phẩm</a></li>
+                    <li><a href="@Url.Action("PressRelease","News")">Thông cáo báo chí</a></li>
+                </ul>
+            </div>
+
+            <br />
+            <div id="google_translate_element"></div>
+            <script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({ pageLanguage: 'vi', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+                }
+            </script>
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            <div class="row">
+                <div class="col-xs-6">
+                    <br />
+                    <ul class="social-network">
+                        <li style="background-color:#29487d;"><a href="@facebook" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i>&nbsp;facebook</a></li>
+
+                        <li style="background-color:#39F;"><a href="@twitter" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i>&nbsp;twitter</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-6">
+                    <br />
+                    <ul class="social-network">
+                        <li style="background-color:#06F;"><a href="@linkedin" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i>&nbsp;linkedin</a></li>
+
+                        <li style="background-color:#F00;"><a href="@google" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i>&nbsp;google+</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@*<div id="sub-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="copyright">
+                            <p>&copy; Moderna Theme. All right reserved.</p>
+                            <div class="credits">
+
+                                <a href="https://bootstrapmade.com/">Free Bootstrap Themes</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                            </div>
+                        </div>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="social-network">
+                        <li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
