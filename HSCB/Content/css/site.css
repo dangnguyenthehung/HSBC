@@ -33,7 +33,7 @@ p, li {
 
 .img-container {
     align-items: center;
-    height: 185px;
+    height: 150px;
     text-align: center;
     overflow: hidden;
     position: relative;
@@ -381,7 +381,7 @@ p, li {
     padding: 5px;
     z-index: 9999;
 }
-.change-language {
+.change-language a {
     width: 30px;
     height: 25px;
     float: left;
@@ -390,4 +390,5 @@ p, li {
     text-align: center;
     margin: 0 2px;
     border-radius: 2px;
+    visibility: hidden;
 }

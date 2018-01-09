@@ -56,14 +56,6 @@
                 </ul>
             </div>
 
-            <br />
-            <div id="google_translate_element"></div>
-            <script type="text/javascript">
-                function googleTranslateElementInit() {
-                    new google.translate.TranslateElement({ pageLanguage: 'vi', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
-                }
-            </script>
-            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
             <div class="row">
                 <div class="col-xs-6">
                     <br />
@@ -82,10 +74,45 @@
                     </ul>
                 </div>
             </div>
-            
+            <div id="google_translate_element" style="visibility: hidden"></div>
+            <script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({ pageLanguage: 'vi', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+                }
+            </script>
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         </div>
     </div>
+    
+    <!-- Flag click handler -->
+    <script>
+        $('.change-language a').click(function (e) {
+            e.preventDefault();
+            var placement = $(this).data('placement');
+            if (placement === -1) {
+                $('.goog-te-banner-frame').contents().find('.goog-te-banner .goog-te-button button').get(1).click();
+                return false;
+            }
+
+            var lang_num = $('.change-language a').length;
+            var $frame = $('.goog-te-menu-frame:first');
+
+            if (!$frame.size()) {
+                alert("Error: Could not find Google translate frame.");
+                return false;
+            }
+
+            var langs = $frame.contents().find('a span.text');
+
+            if (langs.length != lang_num) placement = placement + 1;
+
+            langs.eq(placement).click();
+            return false;
+        });
+    </script>
 </div>
+
+
 @*<div id="sub-footer">
         <div class="container">
             <div class="row">
