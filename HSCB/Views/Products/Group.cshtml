@@ -19,7 +19,7 @@
                 </div>
             </div>
         </section>
-
+        
         @if (Model.Any())
         {
             <div class="col-xs-12">
@@ -28,12 +28,23 @@
                     {
                         <li class="product-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
                             <div class="box-shadow box-shadow-border">
-
-                                <a href="@Url.Action("Details", "Products", new {id = item.ID})">
-                                    <div class="img-container">
-                                        <div class="img" style="background-image: url(@item.Image)"></div>
-                                    </div>
-                                </a>
+                                @if (CategorySingleTon.GetChildCategories(item.ID).Any())
+                                {
+                                    <a href="@Url.Action("Group", "Products", new {id = item.ID})">
+                                        <div class="img-container">
+                                            <div class="img" style="background-image: url(@item.Image)"></div>
+                                        </div>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("Details", "Products", new {id = item.ID})">
+                                        <div class="img-container">
+                                            <div class="img" style="background-image: url(@item.Image)"></div>
+                                        </div>
+                                    </a>
+                                }
+                                
                                 <p class="text-center" style="font-size: 16px;">
                                     <b>@item.Name</b>
                                 </p>

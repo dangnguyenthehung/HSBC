@@ -64,6 +64,14 @@ namespace HSCB
                 namespaces: new[] { "HSCB.Controllers" }
             );
 
+
+            routes.MapRoute(
+                name: "product-group",
+                url: "san-pham/danh-muc/{id}",
+                defaults: new { controller = "Products", action = "Group", id = UrlParameter.Optional },
+                namespaces: new[] { "HSCB.Controllers" }
+            );
+
             routes.MapRoute(
                 name: "productlist",
                 url: "san-pham/",

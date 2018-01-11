@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,6 +9,7 @@ using Context.Dao;
 using HSCB.Common;
 using HSCB.SingleTon;
 using Context.Utilities;
+using HSCB.Constants;
 
 namespace HSCB.Areas.Admin.Controllers
 {
@@ -127,6 +129,17 @@ namespace HSCB.Areas.Admin.Controllers
             }
 
             var model = new ContentDao().GetByCategory(id);
+
+            if (model == null || model.Count == 0)
+            {
+                if (CategorySingleTon.GetChildCategories(id).Any())
+                {
+                    return RedirectToAction("Details", "Content", new { id });
+                }
+
+                var message = MessageConstants.NotFound;
+                return RedirectToAction("Index", "Message", new {message = message});
+            }
 
             ViewBag.currentId = id;
             ViewBag.parentId = id == 0 ? 0 : CategorySingleTon.GetById(id).ParentID;
