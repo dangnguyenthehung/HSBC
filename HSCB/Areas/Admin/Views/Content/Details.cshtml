@@ -24,10 +24,10 @@
                         <h3 class="text-center"><b>Nhóm bài viết</b></h3>
 
                         @*<a href="@Url.Action("Create", "Content", new {id = ViewBag.currentId })">
-                            <div class="form-group">
-                                <div class="btn btn-info">Thêm bài viết</div>
-                            </div>
-                        </a>*@
+                                <div class="form-group">
+                                    <div class="btn btn-info">Thêm bài viết</div>
+                                </div>
+                            </a>*@
 
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover">
@@ -57,14 +57,14 @@
                                                 <td>@CategorySingleTon.GetName(Convert.ToInt32(parentId))</td>
 
                                                 <td>
-                                                    @if (CategorySingleTon.GetChildCategories(item.ID).Any())
+
+                                                    @Html.ActionLink("Xem danh mục con", "Details", "Content", new { id = item.ID }, null) 
+                                                    @if (item.ParentID != 0)
                                                     {
-                                                        @Html.ActionLink("Xem bài viết", "Details", "Content", new {id = item.ID}, null)
+                                                       @Html.ActionLink("| Xem bài viết", "ListContent", "Content", new { id = item.ID }, null)
+                                                        
                                                     }
-                                                    else
-                                                    {
-                                                        @Html.ActionLink("Xem bài viết", "ListContent", "Content", new {id = item.ID}, null)    
-                                                    }
+
                                                 </td>
                                             </tr>
                                         }

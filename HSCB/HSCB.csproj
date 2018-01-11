@@ -1667,6 +1667,7 @@
     <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContentController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MessageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductImagesController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
@@ -1782,6 +1783,7 @@
     <Content Include="Areas\en\Views\Shared\DisplayTemplates\SiteMapNodeModelList.cshtml" />
     <Content Include="Areas\en\Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
     <Content Include="Areas\en\Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
+    <Content Include="Areas\Admin\Views\Message\Index.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
