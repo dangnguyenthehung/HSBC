@@ -57,9 +57,18 @@
                                                 <td>@CategorySingleTon.GetName(Convert.ToInt32(parentId))</td>
 
                                                 <td>
-                                                    @Html.ActionLink("Sửa", "Edit", "Category", new { id = item.ID }, null) |
-                                                    @Html.ActionLink("Xem danh mục con", "Details", "Category", new { id = item.ID }, null) |
-                                                    @Html.ActionLink("Xóa", "Delete", "Category", new { id = item.ID }, new { onclick = "return confirm('Are you sure?');" })
+                                                    @if (CategorySingleTon.CheckAncestor(item, 3))
+                                                    {
+                                                        // 3 => Sản phẩm
+                                                        @Html.ActionLink("Sửa |", "Edit", "Category", new { id = item.ID }, null)
+                                                    }
+                                                    @Html.ActionLink("Xem danh mục con", "Details", "Category", new { id = item.ID }, null)
+                                                    @if (CategorySingleTon.CheckAncestor(item, 3))
+                                                    {
+                                                        // 3 => Sản phẩm
+                                                        @Html.ActionLink("| Xóa", "Delete", "Category", new { id = item.ID }, new { onclick = "return confirm('Are you sure?');" })
+                                                    }
+
 
                                                 </td>
                                             </tr>

@@ -14,5 +14,7 @@ namespace HSCB.Constants
         public static string RegisterSuccess = "Đăng kí thành công!";
 
         public static string InsertSuccess = "Thêm mới thành công!";
+
+        public static string Unauthorize = "Bạn không có quyền thực hiện chức năng này!";
     }
 }

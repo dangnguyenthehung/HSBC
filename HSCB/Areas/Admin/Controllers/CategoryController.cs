@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Context.Dao;
 using Context.Database;
 using HSCB.Common;
+using HSCB.Constants;
 using HSCB.SingleTon;
 
 namespace HSCB.Areas.Admin.Controllers
@@ -84,9 +85,16 @@ namespace HSCB.Areas.Admin.Controllers
             var helper = new CategoryDao();
             var model = helper.GetById(id);
 
+            if(!CategorySingleTon.CheckAncestor(model, 3))
+            {
+                var message = MessageConstants.Unauthorize;
+                return RedirectToAction("Index", "Message", new {message});
+            }
+
             if (model == null)
             {
-                return RedirectToAction("Index", "Category");
+                var message = MessageConstants.NotFound;
+                return RedirectToAction("Index", "Message", new { message });
             }
 
             var tempList = helper.GetAll();
@@ -109,6 +117,12 @@ namespace HSCB.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Category category)
         {
+            if (!CategorySingleTon.CheckAncestor(category, 3))
+            {
+                var message = MessageConstants.Unauthorize;
+                return RedirectToAction("Index", "Message", new { message });
+            }
+
             if (ModelState.IsValid)
             {
                 if (category.ID == category.ParentID)
@@ -155,6 +169,12 @@ namespace HSCB.Areas.Admin.Controllers
         {
             if (id > 0)
             {
+                if (!CategorySingleTon.CheckAncestor(CategorySingleTon.GetById(id), 3))
+                {
+                    var message = MessageConstants.Unauthorize;
+                    return RedirectToAction("Index", "Message", new { message });
+                }
+
                 var parentId = CategorySingleTon.GetById(id).ParentID;
 
                 var helper = new CategoryDao();
