@@ -68,5 +68,33 @@ namespace HSCB.SingleTon
 
             return _listCategory?.SingleOrDefault(c => c.ID == id);
         }
+
+        public static bool CheckAncestor(Category item, int ancestor)
+        {
+            if (_listCategory == null)
+            {
+                GetData();
+            }
+
+            if (item.ParentID == 0 && item.ID != ancestor)
+            {
+                return false;
+            }
+
+            if (_listCategory != null)
+            {
+                if (item.ID == ancestor || item.ParentID == ancestor)
+                {
+                    return true;
+                }
+                else
+                {
+                    item = GetById(Convert.ToInt32(item.ParentID));
+                    return CheckAncestor(item, ancestor);
+                }
+            }
+
+            return false;
+        }
     }
 }
