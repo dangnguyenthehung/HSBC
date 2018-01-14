@@ -1327,6 +1327,16 @@
     <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\images\hscb\anh-ve-cong-ty\field-1.jpg" />
     <Content Include="Content\images\hscb\anh-ve-cong-ty\field.jpg" />
+    <Content Include="Content\images\hscb\anh-ve-cong-ty\intro1.png" />
+    <Content Include="Content\images\hscb\anh-ve-cong-ty\intro10.png" />
+    <Content Include="Content\images\hscb\anh-ve-cong-ty\intro2.png" />
+    <Content Include="Content\images\hscb\anh-ve-cong-ty\intro3.png" />
+    <Content Include="Content\images\hscb\anh-ve-cong-ty\intro4.jpg" />
+    <Content Include="Content\images\hscb\anh-ve-cong-ty\intro5.jpg" />
+    <Content Include="Content\images\hscb\anh-ve-cong-ty\intro6.jpg" />
+    <Content Include="Content\images\hscb\anh-ve-cong-ty\intro7.jpg" />
+    <Content Include="Content\images\hscb\anh-ve-cong-ty\intro8.jpg" />
+    <Content Include="Content\images\hscb\anh-ve-cong-ty\intro9.jpg" />
     <Content Include="Content\images\hscb\default_category.png" />
     <Content Include="Content\images\hscb\images\image089.jpg" />
     <Content Include="Content\images\hscb\images\image112.jpg" />
