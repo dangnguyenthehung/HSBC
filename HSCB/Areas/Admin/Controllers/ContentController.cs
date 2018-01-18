@@ -137,8 +137,8 @@ namespace HSCB.Areas.Admin.Controllers
                     return RedirectToAction("Details", "Content", new { id });
                 }
 
-                var message = MessageConstants.NotFound;
-                return RedirectToAction("Index", "Message", new {message = message});
+                //var message = MessageConstants.NotFound;
+                //return RedirectToAction("Index", "Message", new {message = message});
             }
 
             ViewBag.currentId = id;
