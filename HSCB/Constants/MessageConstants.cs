@@ -16,5 +16,7 @@ namespace HSCB.Constants
         public static string InsertSuccess = "Thêm mới thành công!";
 
         public static string Unauthorize = "Bạn không có quyền thực hiện chức năng này!";
+
+        public static string HaveChildCategories = "Bạn không thể xóa danh mục này vì vẫn còn những danh mục con liên quan!";
     }
 }

@@ -57,7 +57,8 @@
                                                 <td>@CategorySingleTon.GetName(Convert.ToInt32(categoryId))</td>
 
                                                 <td>
-                                                    @Html.ActionLink("Sửa", "Edit", "Content", new { id = item.Id }, null)
+                                                    @Html.ActionLink("Sửa", "Edit", "Content", new { id = item.Id }, null) |
+                                                    @Html.ActionLink("Xóa", "Delete", "Content", new { id = item.Id }, new { onclick = "return confirm('Are you sure?');" })
                                                     @*@Html.ActionLink("Xem bài viết", "Details", "Content", new { id = item.Id }, null)*@
 
                                                 </td>
