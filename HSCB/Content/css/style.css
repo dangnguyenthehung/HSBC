@@ -1926,7 +1926,10 @@ article img.pull-right, article .align-right{
 	}
 	
 
-	
+    .flexslider .flex-caption {
+        display:none;
+    }
+
 	.navbar-collapse.collapse  {
 		border: none;
 		overflow: hidden;

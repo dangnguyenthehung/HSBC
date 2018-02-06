@@ -50,23 +50,25 @@
                                             {
                                                 parentId = item.ParentID.Value;
                                             }
+                                            if (item.ID != 1 && item.ID != 2 && item.ID != 5)
+                                            {
+                                                <tr id="row_@item.ID">
+                                                    <td>@item.ID</td>
+                                                    <td>@item.Name</td>
+                                                    <td>@CategorySingleTon.GetName(Convert.ToInt32(parentId))</td>
 
-                                            <tr id="row_@item.ID">
-                                                <td>@item.ID</td>
-                                                <td>@item.Name</td>
-                                                <td>@CategorySingleTon.GetName(Convert.ToInt32(parentId))</td>
+                                                    <td>
 
-                                                <td>
-
-                                                    @Html.ActionLink("Xem danh mục con", "Details", "Content", new { id = item.ID }, null) 
-                                                    @if (item.ParentID != 0)
-                                                    {
-                                                       @Html.ActionLink("| Xem bài viết", "ListContent", "Content", new { id = item.ID }, null)
+                                                        @Html.ActionLink("Xem danh mục con", "Details", "Content", new { id = item.ID }, null) 
+                                                        @if (item.ParentID != 0)
+                                                        {
+                                                            @Html.ActionLink("| Xem bài viết", "ListContent", "Content", new { id = item.ID }, null)
                                                         
-                                                    }
+                                                        }
 
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                </tr>
+                                            }
                                         }
                                     }
 

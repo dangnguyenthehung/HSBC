@@ -176,6 +176,12 @@ namespace HSCB.Areas.Admin.Controllers
                 }
 
                 var parentId = CategorySingleTon.GetById(id).ParentID;
+                var listChildCategories = CategorySingleTon.GetChildCategories(id);
+                if (listChildCategories != null)
+                {
+                    var message = MessageConstants.HaveChildCategories;
+                    return RedirectToAction("Index", "Message", new { message });
+                }
 
                 var helper = new CategoryDao();
                 var result = helper.Delete(id);

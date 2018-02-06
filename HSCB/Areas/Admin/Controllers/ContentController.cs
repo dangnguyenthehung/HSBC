@@ -121,6 +121,28 @@ namespace HSCB.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            if (id > 0)
+            {
+                var model = new ContentDao().GetContentByIdContentAll(id);
+
+                if (model != null)
+                {
+                    var result = new ContentDao().Delete(model.Id);
+                    if (result)
+                    {
+                        return RedirectToAction("Details", "Content", new { id = 0 });
+                    }
+                }
+
+                
+            }
+
+            return RedirectToAction("Details", "Content", new { id = 0 });
+        }
+
+        [HttpGet]
         public ActionResult ListContent(int id)
         {
             if (id < 0)
@@ -137,8 +159,8 @@ namespace HSCB.Areas.Admin.Controllers
                     return RedirectToAction("Details", "Content", new { id });
                 }
 
-                var message = MessageConstants.NotFound;
-                return RedirectToAction("Index", "Message", new {message = message});
+                //var message = MessageConstants.NotFound;
+                //return RedirectToAction("Index", "Message", new {message = message});
             }
 
             ViewBag.currentId = id;

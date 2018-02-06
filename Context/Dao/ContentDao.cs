@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
@@ -99,6 +100,36 @@ namespace Context.Dao
 
 
                     return true;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool Delete(int id)
+        {
+            if (id <= 0)
+            {
+                return false;
+            }
+
+            using (var context = new hscbEntities())
+            {
+                try
+                {
+                    var data = context.Contents.Find(id);
+
+                    if (data != null)
+                    {
+                        context.Entry(data).State = EntityState.Deleted;
+                        context.SaveChanges();
+
+                        return true;
+                    }
+
+                    return false;
                 }
                 catch (Exception ex)
                 {
