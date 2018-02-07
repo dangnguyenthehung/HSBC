@@ -54,10 +54,12 @@ namespace HSCB.Areas.Admin.Controllers
                     content.ModifiedDate = DateTime.Now;
 
                     new ContentDao().Insert(content);
+
+                    return RedirectToAction("Details", "Content", new { id = content.CategoryID });
                 }
             }
-
-            return RedirectToAction("Index");
+            
+            return View(content);
         }
 
         [HttpGet]
@@ -93,10 +95,12 @@ namespace HSCB.Areas.Admin.Controllers
                     content.ModifiedBy = loginAcc.UserName;
 
                     new ContentDao().Update(content);
+
+                    return RedirectToAction("Details", "Content", new { id = content.CategoryID });
                 }
             }
 
-            return RedirectToAction("Index");
+            return View(content);
         }
 
         [HttpGet]
@@ -132,11 +136,9 @@ namespace HSCB.Areas.Admin.Controllers
                     var result = new ContentDao().Delete(model.Id);
                     if (result)
                     {
-                        return RedirectToAction("Details", "Content", new { id = 0 });
+                        return RedirectToAction("Details", "Content", new { id = model.CategoryID });
                     }
                 }
-
-                
             }
 
             return RedirectToAction("Details", "Content", new { id = 0 });
