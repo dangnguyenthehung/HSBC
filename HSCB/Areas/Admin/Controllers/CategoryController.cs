@@ -16,6 +16,7 @@ namespace HSCB.Areas.Admin.Controllers
         // GET: Admin/Category
         public ActionResult Index()
         {
+            CategorySingleTon.UpdateData();
             var model = CategorySingleTon.GetChildCategories(0);
             return View(model);
         }
@@ -169,6 +170,8 @@ namespace HSCB.Areas.Admin.Controllers
         {
             if (id > 0)
             {
+                CategorySingleTon.UpdateData();
+
                 if (!CategorySingleTon.CheckAncestor(CategorySingleTon.GetById(id), 3))
                 {
                     var message = MessageConstants.Unauthorize;
@@ -177,7 +180,8 @@ namespace HSCB.Areas.Admin.Controllers
 
                 var parentId = CategorySingleTon.GetById(id).ParentID;
                 var listChildCategories = CategorySingleTon.GetChildCategories(id);
-                if (listChildCategories != null)
+
+                if (listChildCategories.Any())
                 {
                     var message = MessageConstants.HaveChildCategories;
                     return RedirectToAction("Index", "Message", new { message });

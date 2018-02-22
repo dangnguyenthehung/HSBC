@@ -63,126 +63,228 @@
                                 @if (ViewBag.companyActivity != null)
                                 {
                                     var data = (HomePageNewsDTO)ViewBag.companyActivity;
-                                    var mainTitle = data.NewContent.Title.Truncate(175);
-                                    var mainImg = data.NewContent.Image;
-                                    var newLink = Url.Action("NewsDetails", "News", new { data.NewContent.Id });
+                                    if (data?.NewContent != null)
+                                    {
+                                        var mainTitle = data.NewContent.Title.Truncate(175);
+                                        var mainImg = data.NewContent.Image;
+                                        var newLink = Url.Action("NewsDetails", "News", new { data.NewContent.Id });
 
-                                    var mainContent = data.NewContent.Detail.Truncate(200) + $"<a href='{newLink}'> Xem thêm </a></p>";
+                                        var mainContent = data.NewContent.Description.Truncate(175);
 
-                                    var subNews = data.OldContents;
+                                        var subNews = data.OldContents;
 
-                                    <div class="col-xs-12 col-lg-6">
-                                        <div class="row">
-                                            <div class="box-thin">
-                                                <div class="box box-shadow">
-                                                    <div class="main-news">
-                                                        <div class="box-bottom box-bottom-min">
-                                                            <h4>Hoạt động HSCB</h4>
-                                                        </div>
+                                        <div class="col-xs-12 col-lg-6">
+                                            <div class="row">
+                                                <div class="box-thin">
+                                                    <div class="box box-shadow">
+                                                        <div class="main-news">
+                                                            <div class="box-bottom box-bottom-min">
+                                                                <h4>Hoạt động HSCB</h4>
+                                                            </div>
 
-                                                        <div class="box-gray aligncenter padding-bottom-10">
-                                                            <div class="icon imageContainer imageContainer-large">
+                                                            <div class="box-gray aligncenter padding-bottom-10">
+                                                                <div class="icon imageContainer imageContainer-large">
+                                                                    <a href="@newLink">
+                                                                        <div class="img" style="background-image: url('@mainImg');"></div>
+                                                                    </a>
+                                                                </div>
                                                                 <a href="@newLink">
-                                                                    <div class="img" style="background-image: url('@mainImg');"></div>
+                                                                    <p class="main-title">@mainTitle</p>
                                                                 </a>
-                                                            </div>
-                                                            <a href="@newLink">
-                                                                <p class="main-title">@mainTitle</p>
-                                                            </a>
-                                                            <div>
-                                                                @Html.Raw(mainContent)
+                                                                <div>
+                                                                    <p>@mainContent...<a href='@newLink'> Xem thêm </a></p>
+
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="sub-news">
-                                                        <div class="box-gray padding-bottom-10">
-                                                            <div class="row">
-                                                                @foreach (var item in subNews)
-                                                                {
-                                                                    var subTitle = item.Title.Truncate(50);
-                                                                    var subImg = item.Image;
-                                                                    var subLink = Url.Action("NewsDetails", "News", new { item.Id });
+                                                        <div class="sub-news">
+                                                            <div class="box-gray padding-bottom-10">
+                                                                <div class="row">
+                                                                    @foreach (var item in subNews)
+                                                                    {
+                                                                        var subTitle = item.Title.Truncate(50);
+                                                                        var subImg = item.Image;
+                                                                        var subLink = Url.Action("NewsDetails", "News", new { item.Id });
 
-                                                                    <div class="col-xs-6">
-                                                                        <div class="icon imageContainer">
+                                                                        <div class="col-xs-6">
+                                                                            <div class="icon imageContainer">
+                                                                                <a href="@subLink" class="sub-new-title">
+                                                                                    <div class="img" style="background-image: url('@subImg');"></div>
+                                                                                </a>
+                                                                            </div>
                                                                             <a href="@subLink" class="sub-new-title">
-                                                                                <div class="img" style="background-image: url('@subImg');"></div>
+                                                                                @subTitle
                                                                             </a>
                                                                         </div>
-                                                                        <a href="@subLink" class="sub-new-title">
-                                                                            @subTitle
-                                                                        </a>
-                                                                    </div>
-                                                                }
+                                                                    }
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="col-xs-12 col-lg-6">
+                                            <div class="row">
+                                                <div class="box-thin">
+                                                    <div class="box box-shadow">
+                                                        <div class="main-news">
+                                                            <div class="box-bottom box-bottom-min">
+                                                                <h4>Hoạt động HSCB</h4>
+                                                            </div>
+
+                                                            <div class="box-gray aligncenter padding-bottom-10">
+                                                                <div class="icon imageContainer imageContainer-large">
+                                                                    <a href="">
+                                                                        <div class="img"></div>
+                                                                    </a>
+                                                                </div>
+                                                                <a href="#">
+                                                                    <p class="main-title"></p>
+                                                                </a>
+                                                                <div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sub-news">
+                                                            <div class="box-gray padding-bottom-10">
+                                                                <div class="row">
+                                                                    <div class="col-xs-6">
+                                                                        <div class="icon imageContainer">
+                                                                            <a href="" class="sub-new-title">
+                                                                                <div class="img"></div>
+                                                                            </a>
+                                                                        </div>
+                                                                        <a href="" class="sub-new-title">
+
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
                                 }
 
                                 @if (ViewBag.productNews != null)
                                 {
                                     var data = (HomePageNewsDTO)ViewBag.productNews;
-                                    var mainTitle = data.NewContent.Title.Truncate(175);
-                                    var mainImg = data.NewContent.Image;
-                                    var newLink = Url.Action("NewsDetails", "News", new { data.NewContent.Id });
 
-                                    var mainContent = data.NewContent.Detail.Truncate(200) + $"<a href='{newLink}'> Xem thêm </a></p>";
+                                    if (data?.NewContent != null)
+                                    {
+                                        var mainTitle = data.NewContent.Title.Truncate(175);
+                                        var mainImg = data.NewContent.Image;
+                                        var newLink = Url.Action("NewsDetails", "News", new { data.NewContent.Id });
 
-                                    var subNews = data.OldContents;
-                                    <div class="col-xs-12 col-lg-6">
-                                        <div class="row">
-                                            <div class="box-thin">
-                                                <div class="box box-shadow">
-                                                    <div class="main-news">
-                                                        <div class="box-bottom box-bottom-min">
-                                                            <h4>Tin tức sản phẩm HSBC</h4>
-                                                        </div>
+                                        var mainContent = data.NewContent.Description.Truncate(175);
 
-                                                        <div class="box-gray aligncenter padding-bottom-10">
-                                                            <div class="icon imageContainer imageContainer-large">
+                                        var subNews = data.OldContents;
+                                        <div class="col-xs-12 col-lg-6">
+                                            <div class="row">
+                                                <div class="box-thin">
+                                                    <div class="box box-shadow">
+                                                        <div class="main-news">
+                                                            <div class="box-bottom box-bottom-min">
+                                                                <h4>Tin tức sản phẩm HSBC</h4>
+                                                            </div>
+
+                                                            <div class="box-gray aligncenter padding-bottom-10">
+                                                                <div class="icon imageContainer imageContainer-large">
+                                                                    <a href="@newLink">
+                                                                        <div class="img" style="background-image: url('@mainImg');"></div>
+                                                                    </a>
+                                                                </div>
                                                                 <a href="@newLink">
-                                                                    <div class="img" style="background-image: url('@mainImg');"></div>
+                                                                    <p class="main-title">@mainTitle</p>
                                                                 </a>
-                                                            </div>
-                                                            <a href="@newLink">
-                                                                <p class="main-title">@mainTitle</p>
-                                                            </a>
-                                                            <div>
-                                                                @Html.Raw(mainContent)
+                                                                <div>
+                                                                    <p>@mainContent...<a href='@newLink'> Xem thêm </a></p>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="sub-news">
-                                                        <div class="box-gray padding-bottom-10">
-                                                            <div class="row">
-                                                                @foreach (var item in subNews)
-                                                                {
-                                                                    var subTitle = item.Title.Truncate(50);
-                                                                    var subImg = item.Image;
-                                                                    var subLink = Url.Action("ProductNews", "News", new { item.Id });
+                                                        <div class="sub-news">
+                                                            <div class="box-gray padding-bottom-10">
+                                                                <div class="row">
+                                                                    @foreach (var item in subNews)
+                                                                    {
+                                                                        var subTitle = item.Title.Truncate(50);
+                                                                        var subImg = item.Image;
+                                                                        var subLink = Url.Action("ProductNews", "News", new { item.Id });
 
-                                                                    <div class="col-xs-6">
-                                                                        <div class="icon imageContainer">
+                                                                        <div class="col-xs-6">
+                                                                            <div class="icon imageContainer">
+                                                                                <a href="@subLink" class="sub-new-title">
+                                                                                    <div class="img" style="background-image: url('@subImg');"></div>
+                                                                                </a>
+                                                                            </div>
                                                                             <a href="@subLink" class="sub-new-title">
-                                                                                <div class="img" style="background-image: url('@subImg');"></div>
+                                                                                @subTitle
                                                                             </a>
                                                                         </div>
-                                                                        <a href="@subLink" class="sub-new-title">
-                                                                            @subTitle
-                                                                        </a>
-                                                                    </div>
-                                                                }
+                                                                    }
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="col-xs-12 col-lg-6">
+                                            <div class="row">
+                                                <div class="box-thin">
+                                                    <div class="box box-shadow">
+                                                        <div class="main-news">
+                                                            <div class="box-bottom box-bottom-min">
+                                                                <h4>Tin tức sản phẩm HSBC</h4>
+                                                            </div>
+
+                                                            <div class="box-gray aligncenter padding-bottom-10">
+                                                                <div class="icon imageContainer imageContainer-large">
+                                                                    <a href="">
+                                                                        <div class="img"></div>
+                                                                    </a>
+                                                                </div>
+                                                                <a href="">
+                                                                    <p class="main-title"></p>
+                                                                </a>
+                                                                <div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sub-news">
+                                                            <div class="box-gray padding-bottom-10">
+                                                                <div class="row">
+                                                                    <div class="col-xs-6">
+                                                                        <div class="icon imageContainer">
+                                                                            <a href="" class="sub-new-title">
+                                                                                <div class="img"></div>
+                                                                            </a>
+                                                                        </div>
+                                                                        <a href="" class="sub-new-title">
+
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
                                 }
                             </div>
                         </div>
@@ -293,9 +395,9 @@
                                                     <div class="item-thumbs">
                                                         <!-- Thumb Image and Description -->
                                                         <a href="@Url.Action("Group","Products", new {id = 10})">
-                                                            <img src="~/Content/images/hscb/du-an-bo/image017.jpg" alt="Bò lai sind, bò Vàng Việt Nam được nuôi với quy trình sạch nên tỉ lệ mỡ rất thấp, bò khỏe, khả năng chống chịu bệnh tốt">    
+                                                            <img src="~/Content/images/hscb/du-an-bo/image017.jpg" alt="Bò lai sind, bò Vàng Việt Nam được nuôi với quy trình sạch nên tỉ lệ mỡ rất thấp, bò khỏe, khả năng chống chịu bệnh tốt">
                                                         </a>
-                                                        
+
                                                     </div>
                                                     <div class="text-center" style="padding: 0px 5px 5px;">
                                                         <a href="@Url.Action("Group", "Products", new {id = 10})" class="no-decoration">
