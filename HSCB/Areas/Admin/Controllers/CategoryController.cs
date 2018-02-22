@@ -83,10 +83,11 @@ namespace HSCB.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
+            int[] listAncestor = { 3, 17, 18, 19 };
             var helper = new CategoryDao();
             var model = helper.GetById(id);
 
-            if(!CategorySingleTon.CheckAncestor(model, 3))
+            if(!CategorySingleTon.CheckMultiAncestor(model, listAncestor))
             {
                 var message = MessageConstants.Unauthorize;
                 return RedirectToAction("Index", "Message", new {message});
@@ -100,13 +101,8 @@ namespace HSCB.Areas.Admin.Controllers
 
             var tempList = helper.GetAll();
 
-            var listCategory = tempList.Where(p => p.ParentID == model.ParentID).ToList();
-
-            listCategory.Add(new Category()
-            {
-                ID = 0,
-                Name = "Không có"
-            });
+            var listCategory = tempList.Where(p => p.ParentID == model.ParentID || p.ID == model.ParentID).ToList();
+            
 
             ViewBag.Category = new SelectList(listCategory, "Id", "Name", 0);
 
@@ -118,7 +114,8 @@ namespace HSCB.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Category category)
         {
-            if (!CategorySingleTon.CheckAncestor(category, 3))
+            int[] listAncestor = { 3, 17, 18, 19 };
+            if (!CategorySingleTon.CheckMultiAncestor(category, listAncestor))
             {
                 var message = MessageConstants.Unauthorize;
                 return RedirectToAction("Index", "Message", new { message });
@@ -168,11 +165,12 @@ namespace HSCB.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Delete(int id)
         {
+            int[] listAncestor = { 3, 17, 18, 19 };
             if (id > 0)
             {
                 CategorySingleTon.UpdateData();
 
-                if (!CategorySingleTon.CheckAncestor(CategorySingleTon.GetById(id), 3))
+                if (!CategorySingleTon.CheckMultiAncestor(CategorySingleTon.GetById(id), listAncestor))
                 {
                     var message = MessageConstants.Unauthorize;
                     return RedirectToAction("Index", "Message", new { message });
