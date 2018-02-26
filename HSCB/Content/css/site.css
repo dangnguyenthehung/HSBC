@@ -364,7 +364,10 @@ p, li {
     #product-slider .owl-carousel {
         display: none;
     }
-    #product-content span img {
+
+    #product-content img,
+    #post-content img,
+    #intro-image img {
         width: 100% !important;
         height: auto !important;
     }
