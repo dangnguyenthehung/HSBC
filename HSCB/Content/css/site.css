@@ -315,8 +315,10 @@ p, li {
     border-radius: 2px;
     visibility: hidden;
 }
-@media screen and (max-width: 767px) {
+.md-padding-60 {
     
+}
+@media screen and (max-width: 767px) {
     #main-slider .slides li {
         overflow: hidden;
         height: 220px;
@@ -364,7 +366,10 @@ p, li {
     #product-slider .owl-carousel {
         display: none;
     }
-    #product-content span img {
+
+    #product-content img,
+    #post-content img,
+    #intro-image img {
         width: 100% !important;
         height: auto !important;
     }
@@ -408,6 +413,10 @@ p, li {
     #product-slider .owl-carousel,
     #product-slider .owl-carousel .owl-stage-outer {
         height: 300px;
+    }
+    .md-padding-60 {
+        padding-left: 60px;
+        padding-right: 60px;
     }
 }
 

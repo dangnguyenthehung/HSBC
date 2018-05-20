@@ -336,7 +336,7 @@ ul.nav li.dropdown a {
 }
 
 .flex-caption {background:none; -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000); zoom: 1;}
-.flex-caption { bottom: 35px; background-color: rgba(0, 0, 0, 0.8); color: #fff; margin: 0; padding: 20px 25px 25px 30px; position: absolute; right: 45px; width: 425px;}
+.flex-caption { bottom: 35px; background-color: rgba(0, 0, 0, 0.8); color: #fff; margin: 0; padding: 20px 25px 25px 30px; position: absolute; left: 45px; width: 425px;}
 .flex-caption h3 {color: #fff; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase;}
 .flex-caption p {margin: 0 0 15px;}
 

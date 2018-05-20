@@ -41,7 +41,7 @@
                 <ul class="link-list">
                     @foreach (var item in listProduct)
                     {
-                        <li><a href="@Url.Action("Details", "Products", new {id = item.ID})">Sản phẩm từ @item.Name</a></li>
+                        <li><a href="@Url.Action("Group", "Products", new {id = item.ID})">Sản phẩm từ @item.Name</a></li>
                     }
                 </ul>
             </div>

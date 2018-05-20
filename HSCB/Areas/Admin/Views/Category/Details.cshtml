@@ -46,6 +46,8 @@
                                         foreach (var item in Model)
                                         {
                                             long parentId = 0;
+                                            int[] listAncestor = { 3, 17, 18, 19 };
+
                                             if (item.ParentID != null)
                                             {
                                                 parentId = item.ParentID.Value;
@@ -57,13 +59,13 @@
                                                 <td>@CategorySingleTon.GetName(Convert.ToInt32(parentId))</td>
 
                                                 <td>
-                                                    @if (CategorySingleTon.CheckAncestor(item, 3))
+                                                    @if (CategorySingleTon.CheckMultiAncestor(item, listAncestor))
                                                     {
                                                         // 3 => Sản phẩm
                                                         @Html.ActionLink("Sửa |", "Edit", "Category", new { id = item.ID }, null)
                                                     }
                                                     @Html.ActionLink("Xem danh mục con", "Details", "Category", new { id = item.ID }, null)
-                                                    @if (CategorySingleTon.CheckAncestor(item, 3))
+                                                    @if (CategorySingleTon.CheckMultiAncestor(item, listAncestor))
                                                     {
                                                         // 3 => Sản phẩm
                                                         @Html.ActionLink("| Xóa", "Delete", "Category", new { id = item.ID }, new { onclick = "return confirm('Are you sure?');" })
