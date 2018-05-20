@@ -1,5 +1,6 @@
 ﻿﻿@using HSCB.Models
 @using Context.Utilities
+@using HSCB.Models
 
 @{
     ViewBag.Title = "Trang chủ";
@@ -32,7 +33,7 @@
                                             <img src="~/Content/images/hscb/anh-ve-cong-ty/image003.jpg" alt="" class="visible-sm visible-xs" />
                                             <div class="flex-caption">
                                                 <h3>Không ngừng lớn mạnh</h3>
-                                                <p>và liên tục phát triển không chỉ về quy mô sản xuất, mà cả về kĩ thuật chăn nuôi, trồng trọt....</p>
+                                                <p>và liên tục phát triển không chỉ về quy mô sản xuất, mà cả về kĩ thuật chăn nuôi, trồng trọt,...</p>
                                                 <a href="@Url.Action("AboutUs", "CompanyStory")" class="btn btn-theme">Tìm hiểu thêm</a>
                                             </div>
                                         </li>
@@ -193,7 +194,7 @@
                                                     <div class="box box-shadow">
                                                         <div class="main-news">
                                                             <div class="box-bottom box-bottom-min">
-                                                                <h4>Tin tức sản phẩm HSBC</h4>
+                                                                <h4>Tin tức sản phẩm HSCB</h4>
                                                             </div>
 
                                                             <div class="box-gray aligncenter padding-bottom-10">
@@ -217,7 +218,7 @@
                                                                     {
                                                                         var subTitle = item.Title.Truncate(50);
                                                                         var subImg = item.Image;
-                                                                        var subLink = Url.Action("ProductNews", "News", new { item.Id });
+                                                                        var subLink = Url.Action("NewsDetails", "News", new { item.Id });
 
                                                                         <div class="col-xs-6">
                                                                             <div class="icon imageContainer">
@@ -402,11 +403,14 @@
                                                     <div class="text-center" style="padding: 0px 5px 5px;">
                                                         <a href="@Url.Action("Group", "Products", new {id = 1043})" class="no-decoration">
                                                             <p class="text-center sub-new-title">
-                                                                <b>Dự án bò</b>
+                                                                <b>Sản phẩm từ bò</b>
                                                             </p>
-                                                            <p class="product-intro">
-                                                                Bò lai sind, bò Vàng Việt Nam được nuôi với quy trình sạch nên tỉ lệ mỡ rất thấp,...
-                                                            </p>
+                                                            @*<p class="text-center sub-new-title">
+                                                                    <b>Dự án bò</b>
+                                                                </p>
+                                                                <p class="product-intro">
+                                                                    Bò lai sind, bò Vàng Việt Nam được nuôi với quy trình sạch nên tỉ lệ mỡ rất thấp,...
+                                                                </p>*@
                                                         </a>
 
                                                         <a href="@Url.Action("Group", "Products", new {id = 1043})" class="text-link-min">Tìm hiểu thêm</a>
@@ -428,11 +432,14 @@
                                                     <div class="text-center" style="padding: 0px 5px 5px;">
                                                         <a href="@Url.Action("Group", "Products", new {id = 1066})" class="no-decoration">
                                                             <p class="text-center sub-new-title">
+                                                                <b>Sản phẩm từ trùn quế</b>
+                                                            </p>
+                                                            @*<p class="text-center sub-new-title">
                                                                 <b>Dự án trùn quế</b>
                                                             </p>
                                                             <p class="product-intro">
                                                                 Chúng tôi đưa vào hoạt động quy trình hiện đại theo mô hình nuôi Trùn bằng khay...
-                                                            </p>
+                                                            </p>*@
                                                         </a>
 
                                                         <a href="@Url.Action("Group", "Products", new {id = 1066})" class="text-link-min">Tìm hiểu thêm</a>
@@ -454,11 +461,14 @@
                                                     <div class="text-center" style="padding: 0px 5px 5px;">
                                                         <a href="@Url.Action("Group", "Products", new {id = 1048})" class="no-decoration">
                                                             <p class="text-center sub-new-title">
+                                                                <b>Sản phẩm từ bắp</b>
+                                                            </p>
+                                                            @*<p class="text-center sub-new-title">
                                                                 <b>Dự án bắp</b>
                                                             </p>
                                                             <p class="product-intro">
                                                                 Bắp được ủ và đóng gói với quy trình sản xuất hiện đại, đáp ứng tiêu chuẩn xuất khẩu...
-                                                            </p>
+                                                            </p>*@
                                                         </a>
 
                                                         <a href="@Url.Action("Group", "Products", new {id = 1048})" class="text-link-min">Tìm hiểu thêm</a>
@@ -482,9 +492,12 @@
                                                             <p class="text-center sub-new-title">
                                                                 <b>Sản phẩm từ nha đam</b>
                                                             </p>
+                                                            @*<p class="text-center sub-new-title">
+                                                                <b>Sản phẩm từ nha đam</b>
+                                                            </p>
                                                             <p class="product-intro">
                                                                 Chúng tôi cung cấp nha đam nguyên lá, đông lạnh, thịt nha đam, thạch nha đam,...
-                                                            </p>
+                                                            </p>*@
                                                         </a>
                                                         <a href="@Url.Action("Group", "Products", new {id = 1032})" class="text-link-min">Tìm hiểu thêm</a>
                                                         <div style="clear: both"></div>
@@ -505,11 +518,14 @@
                                                     <div class="text-center" style="padding: 0px 5px 5px;">
                                                         <a href="@Url.Action("Group", "Products", new {id = 1057})" class="no-decoration">
                                                             <p class="text-center sub-new-title">
+                                                                <b>Sản phẩm từ chanh dây</b>
+                                                            </p>
+                                                            @*<p class="text-center sub-new-title">
                                                                 <b>Dự án chanh dây</b>
                                                             </p>
                                                             <p class="product-intro">
                                                                 Chúng tôi cung cấp chanh dây tươi, dịch chanh dây với hệ thống trang trại sạch...
-                                                            </p>
+                                                            </p>*@
                                                         </a>
                                                         <a href="@Url.Action("Group", "Products", new {id = 1057})" class="text-link-min">Tìm hiểu thêm</a>
                                                         <div style="clear: both"></div>
